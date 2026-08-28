@@ -199,3 +199,4 @@ The project is being developed around the broader objective of making structured
 - Releases: https://github.com/socyvia/SOCYVIA/releases
 - Issues: https://github.com/socyvia/SOCYVIA/issues
 - LinkedIn: https://www.linkedin.com/company/socyvia
+

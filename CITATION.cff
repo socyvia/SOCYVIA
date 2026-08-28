@@ -1,4 +1,4 @@
-cff-version: 1.2.0
+﻿cff-version: 1.2.0
 message: "If you use SOCYVIA in your research, please cite the software using the metadata below."
 
 title: "SOCYVIA: Scientific Experimentation for Computational Social Science"
@@ -19,6 +19,8 @@ url: "https://socyvia.com"
 
 repository-code: "https://github.com/socyvia/SOCYVIA"
 
+license: "AGPL-3.0-or-later"
+
 keywords:
   - computational social science
   - social science software
@@ -33,3 +35,4 @@ keywords:
   - participant research
   - Arabic research software
   - SOCYVIA
+
