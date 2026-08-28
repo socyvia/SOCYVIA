@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use SOCYVIA in your research, please cite the software using the metadata below."
+
+title: "SOCYVIA: Scientific Experimentation for Computational Social Science"
+
+type: software
+
+authors:
+  - family-names: "RIAD"
+    given-names: "Abdellah"
+
+version: "1.0.0"
+
+date-released: "2026-08-27"
+
+doi: "10.5281/zenodo.22135414"
+
+url: "https://socyvia.com"
+
+repository-code: "https://github.com/socyvia/SOCYVIA"
+
+keywords:
+  - computational social science
+  - social science software
+  - research software
+  - experimental research
+  - behavioral research
+  - scientific experimentation
+  - experimental design
+  - reproducible research
+  - behavioral data
+  - digital experiments
+  - participant research
+  - Arabic research software
+  - SOCYVIA
