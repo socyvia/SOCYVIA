@@ -2,6 +2,10 @@
 
 **Scientific Experimentation for Computational Social Science**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22135414.svg)](https://doi.org/10.5281/zenodo.22135414)
+
+**DOI:** 10.5281/zenodo.22135414
+
 SOCYVIA is a bilingual Arabic/English research software environment for designing and running structured experiments in computational social science.
 
 It brings experimental study design, participant workflows, questionnaires, behavioral data collection, deterministic analysis, reporting, and participant-facing research experiences into a single desktop environment.
