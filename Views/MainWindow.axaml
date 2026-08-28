@@ -1,0 +1,37 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:SOCYVIA.Views"
+        x:Class="SOCYVIA.Views.MainWindow"
+
+        Title="SOCYVIA"
+
+        Icon="avares://SOCYVIA/Assets/Branding/socyvia-mark.ico"
+
+        Width="780"
+        Height="500"
+
+        MinWidth="780"
+        MinHeight="500"
+
+        CanResize="False"
+
+        WindowDecorations="None"
+        WindowStartupLocation="CenterScreen"
+
+        Background="Transparent">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <views:SocyviaWindowChrome x:Name="ApplicationWindowChrome"
+                                   Grid.Row="0"
+                                   IsVisible="False"/>
+
+        <ContentControl x:Name="MainContent" Grid.Row="1">
+
+            <views:SplashView x:Name="SplashContent"/>
+
+        </ContentControl>
+
+    </Grid>
+
+</Window>

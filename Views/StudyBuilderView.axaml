@@ -1,0 +1,1034 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.StudyBuilderView"
+             x:Name="RootBuilder"
+             FontFamily="{StaticResource EnglishFont}">
+
+    <UserControl.Styles>
+
+        <!-- ================================================= -->
+        <!-- TEXT INPUT                                        -->
+        <!-- ================================================= -->
+
+        <Style Selector="TextBox.builderInput">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Padding" Value="13,0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DDE4EF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+
+        <Style Selector="TextBox.builderInput:pointerover">
+            <Setter Property="BorderBrush" Value="#BEC8D9"/>
+        </Style>
+
+        <Style Selector="TextBox.builderInput:focus">
+            <Setter Property="BorderBrush" Value="#2563EB"/>
+            <Setter Property="Background" Value="#FCFCFF"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- COMBO                                             -->
+        <!-- ================================================= -->
+
+        <Style Selector="ComboBox.builderCombo">
+            <Setter Property="Width" Value="220"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DDE4EF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="ComboBox.builderCombo:pointerover">
+            <Setter Property="BorderBrush" Value="#BEC8D9"/>
+        </Style>
+
+        <Style Selector="ComboBox.builderCombo:focus">
+            <Setter Property="BorderBrush" Value="#2563EB"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- NUMBER CONTROL                                    -->
+        <!-- ================================================= -->
+
+        <Style Selector="TextBox.numberValue">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Padding" Value="4,0"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.numberStep">
+            <Setter Property="Width" Value="42"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Background" Value="#F8F9FD"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#52617A"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.numberStep:pointerover">
+            <Setter Property="Background" Value="#F0F1FF"/>
+            <Setter Property="Foreground" Value="#2563EB"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- SECONDARY BUTTON                                  -->
+        <!-- ================================================= -->
+
+        <Style Selector="Button.builderSecondary">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="18,0"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DDE4EF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="Foreground" Value="#53627B"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.builderSecondary:pointerover">
+            <Setter Property="Background" Value="#F8F9FD"/>
+            <Setter Property="BorderBrush" Value="#C9CDF4"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- STEP                                              -->
+        <!-- ================================================= -->
+
+        <Style Selector="Border.stepCircle">
+            <Setter Property="Width" Value="30"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="CornerRadius" Value="15"/>
+            <Setter Property="Background" Value="#F0F2F7"/>
+        </Style>
+
+        <Style Selector="Border.stepCircle.active">
+            <Setter Property="Background" Value="#2563EB"/>
+        </Style>
+
+        <Style Selector="Border.stepCircle.completed">
+            <Setter Property="Background" Value="#EDEEFF"/>
+        </Style>
+
+    </UserControl.Styles>
+
+
+    <StackPanel Spacing="24">
+
+
+        <!-- ================================================= -->
+        <!-- HEADER                                            -->
+        <!-- ================================================= -->
+
+        <Grid x:Name="BuilderHeaderGrid" FlowDirection="LeftToRight" ColumnDefinitions="Auto,*,Auto">
+
+            <Button x:Name="CancelTopButton"
+                    Grid.Column="0"
+                    Classes="builderSecondary"
+                    MinWidth="86">
+
+                <TextBlock x:Name="CancelTopText"
+                           FontSize="9.5"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+            </Button>
+
+
+            <StackPanel x:Name="BuilderHeaderPanel"
+                        Grid.Column="2"
+                        HorizontalAlignment="Right"
+                        Spacing="4">
+
+                <TextBlock x:Name="BuilderTitle"
+                           FontSize="23"
+                           FontWeight="SemiBold"
+                           Foreground="#10214A"/>
+
+                <TextBlock x:Name="BuilderSubtitle"
+                           FontSize="9.5"
+                           Foreground="#8793A8"/>
+
+            </StackPanel>
+
+        </Grid>
+
+
+        <!-- ================================================= -->
+        <!-- PROGRESS                                          -->
+        <!-- ================================================= -->
+
+        <Border Padding="20,16"
+                Classes="commandSurface">
+
+            <Grid x:Name="BuilderProgressGrid" FlowDirection="LeftToRight" ColumnDefinitions="Auto,*,Auto,*,Auto,*,Auto">
+
+
+                <StackPanel x:Name="Step1Panel"
+                            Grid.Column="0"
+                            Width="90"
+                            HorizontalAlignment="Center"
+                            Spacing="6">
+
+                    <Border x:Name="Step1Circle"
+                            Classes="stepCircle active"
+                            HorizontalAlignment="Center">
+
+                        <TextBlock x:Name="Step1Number"
+                                   Text="1"
+                                   FontSize="9"
+                                   FontWeight="SemiBold"
+                                   Foreground="#FFFFFF"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                    </Border>
+
+                    <TextBlock x:Name="Step1Label"
+                               FontSize="8.2"
+                               Foreground="#2563EB"
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+
+                <Border x:Name="StepConnector1"
+                        Grid.Column="1"
+                        Height="1"
+                        Margin="4,15,4,0"
+                        VerticalAlignment="Top"
+                        Background="#E4E8F0"/>
+
+
+                <StackPanel x:Name="Step2Panel"
+                            Grid.Column="2"
+                            Width="90"
+                            HorizontalAlignment="Center"
+                            Spacing="6">
+
+                    <Border x:Name="Step2Circle"
+                            Classes="stepCircle"
+                            HorizontalAlignment="Center">
+
+                        <TextBlock x:Name="Step2Number"
+                                   Text="2"
+                                   FontSize="9"
+                                   FontWeight="SemiBold"
+                                   Foreground="#8995A8"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                    </Border>
+
+                    <TextBlock x:Name="Step2Label"
+                               FontSize="8.2"
+                               Foreground="#8995A8"
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+
+                <Border x:Name="StepConnector2"
+                        Grid.Column="3"
+                        Height="1"
+                        Margin="4,15,4,0"
+                        VerticalAlignment="Top"
+                        Background="#E4E8F0"/>
+
+
+                <StackPanel x:Name="Step3Panel"
+                            Grid.Column="4"
+                            Width="90"
+                            HorizontalAlignment="Center"
+                            Spacing="6">
+
+                    <Border x:Name="Step3Circle"
+                            Classes="stepCircle"
+                            HorizontalAlignment="Center">
+
+                        <TextBlock x:Name="Step3Number"
+                                   Text="3"
+                                   FontSize="9"
+                                   FontWeight="SemiBold"
+                                   Foreground="#8995A8"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                    </Border>
+
+                    <TextBlock x:Name="Step3Label"
+                               FontSize="8.2"
+                               Foreground="#8995A8"
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+
+                <Border x:Name="StepConnector3"
+                        Grid.Column="5"
+                        Height="1"
+                        Margin="4,15,4,0"
+                        VerticalAlignment="Top"
+                        Background="#E4E8F0"/>
+
+
+                <StackPanel x:Name="Step4Panel"
+                            Grid.Column="6"
+                            Width="90"
+                            HorizontalAlignment="Center"
+                            Spacing="6">
+
+                    <Border x:Name="Step4Circle"
+                            Classes="stepCircle"
+                            HorizontalAlignment="Center">
+
+                        <TextBlock x:Name="Step4Number"
+                                   Text="4"
+                                   FontSize="9"
+                                   FontWeight="SemiBold"
+                                   Foreground="#8995A8"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                    </Border>
+
+                    <TextBlock x:Name="Step4Label"
+                               FontSize="8.2"
+                               Foreground="#8995A8"
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================================================= -->
+        <!-- CONTENT                                           -->
+        <!-- ================================================= -->
+
+        <Border Padding="28"
+                Classes="denseSurface">
+
+            <StackPanel Spacing="22">
+
+
+                <!-- ================================================= -->
+                <!-- STEP 1                                            -->
+                <!-- ================================================= -->
+
+                <StackPanel x:Name="BasicsPanel"
+                            Spacing="19">
+
+                    <StackPanel x:Name="BasicsHeader"
+                                HorizontalAlignment="Right"
+                                Spacing="3">
+
+                        <TextBlock x:Name="BasicsTitle"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"
+                                   Foreground="#263855"/>
+
+                        <TextBlock x:Name="BasicsSubtitle"
+                                   FontSize="8.8"
+                                   Foreground="#929EB1"/>
+
+                    </StackPanel>
+
+
+                    <StackPanel Spacing="6">
+
+                        <TextBlock x:Name="StudyTitleLabel"
+                                   FontSize="8.8"
+                                   FontWeight="SemiBold"
+                                   Foreground="#42536F"/>
+
+                        <TextBox x:Name="StudyTitleBox"
+                                 Classes="builderInput"/>
+
+                    </StackPanel>
+
+
+                    <StackPanel Spacing="6">
+
+                        <TextBlock x:Name="StudyDescriptionLabel"
+                                   FontSize="8.8"
+                                   FontWeight="SemiBold"
+                                   Foreground="#42536F"/>
+
+                        <TextBox x:Name="StudyDescriptionBox"
+                                 MinHeight="76"
+                                 Padding="13,10"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 VerticalContentAlignment="Top"
+                                 Background="#FFFFFF"
+                                 BorderBrush="#DDE4EF"
+                                 BorderThickness="1"
+                                 CornerRadius="9"
+                                 FontSize="10"/>
+
+                    </StackPanel>
+
+
+                    <Grid ColumnDefinitions="*,22,*">
+
+                        <StackPanel x:Name="ResearchQuestionPanel"
+                                    Grid.Column="0"
+                                    Spacing="6">
+
+                            <TextBlock x:Name="ResearchQuestionLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"/>
+
+                            <TextBox x:Name="ResearchQuestionBox"
+                                     Classes="builderInput"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel x:Name="HypothesisPanel"
+                                    Grid.Column="2"
+                                    Spacing="6">
+
+                            <TextBlock x:Name="HypothesisLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"/>
+
+                            <TextBox x:Name="HypothesisBox"
+                                     Classes="builderInput"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+                </StackPanel>
+
+
+                <!-- ================================================= -->
+                <!-- STEP 2                                            -->
+                <!-- ================================================= -->
+
+                <StackPanel x:Name="DesignPanel"
+                            IsVisible="False"
+                            Spacing="22">
+
+                    <StackPanel x:Name="DesignHeader"
+                                HorizontalAlignment="Right"
+                                Spacing="3">
+
+                        <TextBlock x:Name="DesignTitle"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"
+                                   Foreground="#263855"/>
+
+                        <TextBlock x:Name="DesignSubtitle"
+                                   FontSize="8.8"
+                                   Foreground="#929EB1"/>
+
+                    </StackPanel>
+
+
+                    <!-- STUDY TYPE / DESIGN -->
+
+                    <Grid ColumnDefinitions="*,28,*">
+
+                        <StackPanel x:Name="StudyTypePanel"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    Spacing="8">
+
+                            <TextBlock x:Name="StudyTypeLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+
+                            <ComboBox x:Name="StudyTypeComboBox"
+                                      Classes="builderCombo"
+                                      SelectedIndex="0"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel x:Name="DesignTypePanel"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    Spacing="8">
+
+                            <TextBlock x:Name="DesignTypeLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+
+                            <ComboBox x:Name="DesignTypeComboBox"
+                                      Classes="builderCombo"
+                                      SelectedIndex="0"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+
+                    <!-- ASSIGNMENT / GROUPS -->
+
+                    <Grid ColumnDefinitions="*,28,*">
+
+                        <StackPanel x:Name="AssignmentMethodPanel"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    Spacing="8">
+
+                            <TextBlock x:Name="AssignmentMethodLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+
+                            <ComboBox x:Name="AssignmentMethodComboBox"
+                                      Classes="builderCombo"
+                                      SelectedIndex="0"/>
+
+                        </StackPanel>
+
+
+                        <StackPanel x:Name="GroupCountPanel"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    Spacing="8">
+
+                            <TextBlock x:Name="GroupCountLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+
+
+                            <Border Width="220"
+                                    Height="42"
+                                    HorizontalAlignment="Center"
+                                    Background="#FFFFFF"
+                                    BorderBrush="#DDE4EF"
+                                    BorderThickness="1"
+                                    CornerRadius="9">
+
+                                <Grid ColumnDefinitions="42,*,42">
+
+                                    <Button x:Name="GroupMinusButton"
+                                            Grid.Column="0"
+                                            Classes="numberStep"
+                                            CornerRadius="8,0,0,8"
+                                            Content="−"/>
+
+                                    <TextBox x:Name="GroupCountBox"
+                                             Grid.Column="1"
+                                             Classes="numberValue"
+                                             Text="3"/>
+
+                                    <Button x:Name="GroupPlusButton"
+                                            Grid.Column="2"
+                                            Classes="numberStep"
+                                            CornerRadius="0,8,8,0"
+                                            Content="+"/>
+
+                                </Grid>
+
+                            </Border>
+
+                        </StackPanel>
+
+                    </Grid>
+
+
+                    <!-- SAMPLE / DURATION -->
+
+                    <Grid ColumnDefinitions="*,28,*">
+
+                        <StackPanel x:Name="TargetSamplePanel"
+                                    Grid.Column="0"
+                                    HorizontalAlignment="Stretch"
+                                    Spacing="8">
+
+                            <TextBlock x:Name="TargetSampleLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+
+
+                            <Border Width="220"
+                                    Height="42"
+                                    HorizontalAlignment="Center"
+                                    Background="#FFFFFF"
+                                    BorderBrush="#DDE4EF"
+                                    BorderThickness="1"
+                                    CornerRadius="9">
+
+                                <Grid ColumnDefinitions="42,*,42">
+
+                                    <Button x:Name="SampleMinusButton"
+                                            Grid.Column="0"
+                                            Classes="numberStep"
+                                            CornerRadius="8,0,0,8"
+                                            Content="−"/>
+
+                                    <TextBox x:Name="TargetSampleBox"
+                                             Grid.Column="1"
+                                             Classes="numberValue"
+                                             Text="90"/>
+
+                                    <Button x:Name="SamplePlusButton"
+                                            Grid.Column="2"
+                                            Classes="numberStep"
+                                            CornerRadius="0,8,8,0"
+                                            Content="+"/>
+
+                                </Grid>
+
+                            </Border>
+
+                        </StackPanel>
+
+
+                        <StackPanel x:Name="ExpectedDurationPanel"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Stretch"
+                                    Spacing="8">
+
+                            <TextBlock x:Name="ExpectedDurationLabel"
+                                       FontSize="8.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#42536F"
+                                       TextAlignment="Center"
+                                       HorizontalAlignment="Center"/>
+
+
+                            <Border Width="220"
+                                    Height="42"
+                                    HorizontalAlignment="Center"
+                                    Background="#FFFFFF"
+                                    BorderBrush="#DDE4EF"
+                                    BorderThickness="1"
+                                    CornerRadius="9">
+
+                                <Grid ColumnDefinitions="42,*,42">
+
+                                    <Button x:Name="DurationMinusButton"
+                                            Grid.Column="0"
+                                            Classes="numberStep"
+                                            CornerRadius="8,0,0,8"
+                                            Content="−"/>
+
+                                    <TextBox x:Name="ExpectedDurationBox"
+                                             Grid.Column="1"
+                                             Classes="numberValue"
+                                             Text="30"/>
+
+                                    <Button x:Name="DurationPlusButton"
+                                            Grid.Column="2"
+                                            Classes="numberStep"
+                                            CornerRadius="0,8,8,0"
+                                            Content="+"/>
+
+                                </Grid>
+
+                            </Border>
+
+                        </StackPanel>
+
+                    </Grid>
+
+
+                    <CheckBox x:Name="RandomizeStimuliCheckBox"
+                              Margin="0,4,0,0"
+                              FontSize="9"
+                              Foreground="#5F6E87"/>
+
+                </StackPanel>
+
+
+                <!-- ================================================= -->
+                <!-- STEP 3                                            -->
+                <!-- ================================================= -->
+
+                <StackPanel x:Name="ModulesPanel"
+                            IsVisible="False"
+                            Spacing="18">
+
+                    <StackPanel x:Name="ModulesHeader"
+                                HorizontalAlignment="Right"
+                                Spacing="3">
+
+                        <TextBlock x:Name="ModulesTitle"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"
+                                   Foreground="#263855"/>
+
+                        <TextBlock x:Name="ModulesSubtitle"
+                                   FontSize="8.8"
+                                   Foreground="#929EB1"/>
+
+                    </StackPanel>
+
+
+                    <!-- STIMULI -->
+
+                    <Border Padding="17"
+                            Background="#F9FAFD"
+                            BorderBrush="#E7EBF3"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <Grid x:Name="StimuliModuleGrid"
+                              ColumnDefinitions="*,Auto">
+
+                            <StackPanel x:Name="StimuliModuleTextPanel"
+                                        Grid.Column="0"
+                                        Spacing="3">
+
+                                <TextBlock x:Name="StimuliModuleTitle"
+                                           FontSize="10"
+                                           FontWeight="SemiBold"
+                                           Foreground="#344660"/>
+
+                                <TextBlock x:Name="StimuliModuleDescription"
+                                           FontSize="8.2"
+                                           Foreground="#8C98AA"/>
+
+                            </StackPanel>
+
+                            <CheckBox x:Name="UsesStimuliCheckBox"
+                                      Grid.Column="1"
+                                      IsChecked="True"
+                                      VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <!-- QUESTIONNAIRE -->
+
+                    <Border Padding="17"
+                            Background="#F9FAFD"
+                            BorderBrush="#E7EBF3"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <Grid x:Name="QuestionnaireModuleGrid"
+                              ColumnDefinitions="*,Auto">
+
+                            <StackPanel x:Name="QuestionnaireModuleTextPanel"
+                                        Grid.Column="0"
+                                        Spacing="3">
+
+                                <TextBlock x:Name="QuestionnaireModuleTitle"
+                                           FontSize="10"
+                                           FontWeight="SemiBold"
+                                           Foreground="#344660"/>
+
+                                <TextBlock x:Name="QuestionnaireModuleDescription"
+                                           FontSize="8.2"
+                                           Foreground="#8C98AA"/>
+
+                            </StackPanel>
+
+                            <CheckBox x:Name="UsesQuestionnaireCheckBox"
+                                      Grid.Column="1"
+                                      VerticalAlignment="Center"/>
+
+                        </Grid>
+
+                    </Border>
+
+
+                    <!-- PHYSIOLOGY -->
+
+                    <Border Padding="17"
+                            Background="#F9FAFD"
+                            BorderBrush="#E7EBF3"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <StackPanel Spacing="12">
+
+                            <Grid x:Name="PhysiologyModuleGrid"
+                                  ColumnDefinitions="*,Auto">
+
+                                <StackPanel x:Name="PhysiologyModuleTextPanel"
+                                            Grid.Column="0"
+                                            Spacing="3">
+
+                                    <TextBlock x:Name="PhysiologyModuleTitle"
+                                               FontSize="10"
+                                               FontWeight="SemiBold"
+                                               Foreground="#344660"/>
+
+                                    <TextBlock x:Name="PhysiologyModuleDescription"
+                                               FontSize="8.2"
+                                               Foreground="#8C98AA"/>
+
+                                </StackPanel>
+
+                                <CheckBox x:Name="UsesPhysiologyCheckBox"
+                                          Grid.Column="1"
+                                          VerticalAlignment="Center"/>
+
+                            </Grid>
+
+
+                            <Border Height="1"
+                                    Background="#E5E9F0"/>
+
+
+                            <StackPanel x:Name="PhysiologyOptionsPanel"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Center"
+                                        Spacing="28">
+
+                                <CheckBox x:Name="EegCheckBox"
+                                          IsEnabled="False"
+                                          FontSize="8.7"
+                                          Foreground="#69778E"
+                                          Content="EEG · OpenBCI"/>
+
+                                <CheckBox x:Name="GsrCheckBox"
+                                          IsEnabled="False"
+                                          FontSize="8.7"
+                                          Foreground="#69778E"
+                                          Content="GSR · EmotiBit"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <CheckBox x:Name="ConsentCheckBox"
+                              IsChecked="True"
+                              FontSize="9"
+                              Foreground="#5F6E87"/>
+
+                </StackPanel>
+
+
+                <!-- ================================================= -->
+                <!-- STEP 4                                            -->
+                <!-- ================================================= -->
+
+                <StackPanel x:Name="ReviewPanel"
+                            IsVisible="False"
+                            Spacing="18">
+
+                    <StackPanel x:Name="ReviewHeader"
+                                HorizontalAlignment="Right"
+                                Spacing="3">
+
+                        <TextBlock x:Name="ReviewTitle"
+                                   FontSize="15"
+                                   FontWeight="SemiBold"
+                                   Foreground="#263855"/>
+
+                        <TextBlock x:Name="ReviewSubtitle"
+                                   FontSize="8.8"
+                                   Foreground="#929EB1"/>
+
+                    </StackPanel>
+
+
+                    <Border Padding="20"
+                            Background="#F9FAFD"
+                            BorderBrush="#E5EAF2"
+                            BorderThickness="1"
+                            CornerRadius="12">
+
+                        <StackPanel Spacing="13">
+
+                            <Grid x:Name="ReviewStudyRow"
+                                  ColumnDefinitions="150,*">
+
+                                <TextBlock x:Name="ReviewStudyLabel"
+                                           FontSize="8.5"
+                                           Foreground="#8A96A8"/>
+
+                                <TextBlock x:Name="ReviewStudyValue"
+                                           Grid.Column="1"
+                                           FontSize="9.5"
+                                           FontWeight="SemiBold"
+                                           Foreground="#30425D"/>
+
+                            </Grid>
+
+
+                            <Grid x:Name="ReviewDesignRow"
+                                  ColumnDefinitions="150,*">
+
+                                <TextBlock x:Name="ReviewDesignLabel"
+                                           FontSize="8.5"
+                                           Foreground="#8A96A8"/>
+
+                                <TextBlock x:Name="ReviewDesignValue"
+                                           Grid.Column="1"
+                                           FontSize="9.5"
+                                           Foreground="#30425D"/>
+
+                            </Grid>
+
+
+                            <Grid x:Name="ReviewGroupsRow"
+                                  ColumnDefinitions="150,*">
+
+                                <TextBlock x:Name="ReviewGroupsLabel"
+                                           FontSize="8.5"
+                                           Foreground="#8A96A8"/>
+
+                                <TextBlock x:Name="ReviewGroupsValue"
+                                           Grid.Column="1"
+                                           FontSize="9.5"
+                                           Foreground="#30425D"/>
+
+                            </Grid>
+
+
+                            <Grid x:Name="ReviewSampleRow"
+                                  ColumnDefinitions="150,*">
+
+                                <TextBlock x:Name="ReviewSampleLabel"
+                                           FontSize="8.5"
+                                           Foreground="#8A96A8"/>
+
+                                <TextBlock x:Name="ReviewSampleValue"
+                                           Grid.Column="1"
+                                           FontSize="9.5"
+                                           Foreground="#30425D"/>
+
+                            </Grid>
+
+
+                            <Grid x:Name="ReviewModulesRow"
+                                  ColumnDefinitions="150,*">
+
+                                <TextBlock x:Name="ReviewModulesLabel"
+                                           FontSize="8.5"
+                                           Foreground="#8A96A8"/>
+
+                                <TextBlock x:Name="ReviewModulesValue"
+                                           Grid.Column="1"
+                                           FontSize="9.5"
+                                           Foreground="#30425D"
+                                           TextWrapping="Wrap"/>
+
+                            </Grid>
+
+                        </StackPanel>
+
+                    </Border>
+
+                </StackPanel>
+
+
+                <!-- ERROR -->
+
+                <TextBlock x:Name="BuilderErrorText"
+                           IsVisible="False"
+                           FontSize="8.8"
+                           FontWeight="Medium"
+                           Foreground="#D84A5B"
+                           TextWrapping="Wrap"/>
+
+
+                <!-- NAVIGATION -->
+
+                <Grid x:Name="BuilderNavigationGrid" FlowDirection="LeftToRight" ColumnDefinitions="Auto,*,Auto">
+
+                    <Button x:Name="BackButton"
+                            Grid.Column="0"
+                            Classes="builderSecondary"
+                            MinWidth="88"
+                            IsVisible="False">
+
+                        <TextBlock x:Name="BackButtonText"
+                                   FontSize="9.5"
+                                   TextAlignment="Center"/>
+
+                    </Button>
+
+                    <TextBlock x:Name="AutosaveStateText"
+                               Grid.Column="1"
+                               IsVisible="False"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               FontSize="8.2"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+
+
+                    <Button x:Name="NextButton"
+                            Grid.Column="2"
+                            Height="42"
+                            MinWidth="120"
+                            Padding="20,0"
+                            Background="{StaticResource BrandGradientBrush}"
+                            Foreground="#FFFFFF"
+                            BorderThickness="0"
+                            CornerRadius="10"
+                            Cursor="Hand"
+                            HorizontalContentAlignment="Center"
+                            VerticalContentAlignment="Center">
+
+                        <TextBlock x:Name="NextButtonText"
+                                   FontSize="9.8"
+                                   FontWeight="SemiBold"
+                                   TextAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+
+                    </Button>
+
+                </Grid>
+
+            </StackPanel>
+
+        </Border>
+
+    </StackPanel>
+
+</UserControl>

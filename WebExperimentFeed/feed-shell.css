@@ -1,0 +1,7 @@
+/* Shared post-shell refinements for Demo, Preview, and Live participant feeds. */
+.real-text-post.post{padding:18px}
+.real-post-title{margin:0 0 7px;color:#1a2b44;font-size:18px;line-height:1.35}
+.real-text-post .real-post-body{margin:0;color:#35455d;font-size:14px;line-height:1.72}
+.real-post-actions.toolbar{grid-template-columns:repeat(var(--action-count,4),minmax(0,1fr));margin-top:4px;padding-top:0;border-top:0}
+.real-post-actions.toolbar button{padding:0 5px}
+@media(max-width:620px){.real-text-post.post{padding:15px}.real-post-actions.toolbar button{gap:4px;padding:0 3px}.real-post-actions.toolbar button span{font-size:11px}}

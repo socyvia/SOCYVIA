@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.socyvia.desktop</id>
+  <name>SOCYVIA</name>
+  <summary>Scientific experimentation and research analysis</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>LicenseRef-Proprietary</project_license>
+  <description>
+    <p>SOCYVIA is a bilingual scientific desktop environment for designing, publishing, and analysing controlled computational social-science research.</p>
+  </description>
+  <launchable type="desktop-id">socyvia.desktop</launchable>
+  <url type="homepage">https://socyvia.com</url>
+  <provides>
+    <binary>SOCYVIA</binary>
+  </provides>
+  <releases>
+    <release version="1.0.0" date="2026-08-27"/>
+  </releases>
+</component>

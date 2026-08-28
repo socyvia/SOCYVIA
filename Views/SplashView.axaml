@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="using:SOCYVIA.Views"
+             x:Class="SOCYVIA.Views.SplashView"
+             x:Name="SplashRoot"
+             FontFamily="{StaticResource EnglishFont}">
+  <Grid>
+    <views:AtmosphericBackground x:Name="AtmosphereLayer" Opacity="0"/>
+    <Border Margin="22" Classes="glassElevated" CornerRadius="26" ClipToBounds="True">
+      <Grid>
+        <StackPanel x:Name="BrandPanel" Width="560" HorizontalAlignment="Center"
+                    VerticalAlignment="Center" Spacing="11" Opacity="0">
+          <Image Source="avares://SOCYVIA/Assets/Branding/socyvia-mark.png"
+                 Width="72" Height="72" Stretch="Uniform" HorizontalAlignment="Center"/>
+          <TextBlock Text="SOCYVIA" Margin="0,3,0,0" FontSize="31" FontWeight="Bold"
+                     LetterSpacing="5.2" Foreground="{StaticResource SocyviaInkBrush}"
+                     HorizontalAlignment="Center" TextAlignment="Center"/>
+          <TextBlock x:Name="DescriptorText" MaxWidth="500" FontSize="14" LineHeight="21"
+                     FontWeight="Medium" Foreground="{StaticResource SocyviaSecondaryTextBrush}"
+                     HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+          <TextBlock x:Name="SupportingLineText" MaxWidth="520" FontSize="11" LineHeight="17"
+                     Foreground="{StaticResource SocyviaMutedTextBrush}"
+                     HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap"/>
+          <Canvas Width="250" Height="24" Margin="0,3,0,1" HorizontalAlignment="Center">
+            <Path Data="M4,14 L42,14 L60,7 L83,18 L108,11 L139,11 L158,5 L181,16 L207,10 L246,10"
+                  Stroke="#5A2563EB" StrokeThickness="1.2"/>
+            <Ellipse x:Name="SignalPointOne" Canvas.Left="56" Canvas.Top="3" Width="8" Height="8"
+                     Fill="{StaticResource SocyviaAccentBrush}" Opacity="0"/>
+            <Ellipse x:Name="SignalPointTwo" Canvas.Left="154" Canvas.Top="1" Width="8" Height="8"
+                     Fill="{StaticResource SocyviaAccentBrush}" Opacity="0"/>
+            <Ellipse x:Name="SignalPointThree" Canvas.Left="203" Canvas.Top="6" Width="8" Height="8"
+                     Fill="{StaticResource SocyviaAccentBrush}" Opacity="0"/>
+          </Canvas>
+          <TextBlock x:Name="StartupStatusText" FontSize="11" Foreground="{StaticResource SocyviaMutedTextBrush}"
+                     HorizontalAlignment="Center" TextAlignment="Center"/>
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="6">
+            <Border x:Name="StageOne" Width="24" Height="3" Background="{StaticResource StrokeSubtle}" CornerRadius="2"/>
+            <Border x:Name="StageTwo" Width="24" Height="3" Background="{StaticResource StrokeSubtle}" CornerRadius="2"/>
+            <Border x:Name="StageThree" Width="24" Height="3" Background="{StaticResource StrokeSubtle}" CornerRadius="2"/>
+            <Border x:Name="StageFour" Width="24" Height="3" Background="{StaticResource StrokeSubtle}" CornerRadius="2"/>
+          </StackPanel>
+        </StackPanel>
+
+        <TextBlock x:Name="DeveloperCredit" Margin="0,0,0,34"
+                   Text="Developed by Abdellah RIAD" Opacity="0"
+                   FontSize="10" LineHeight="15" LetterSpacing="0.35"
+                   Foreground="{StaticResource SocyviaMutedTextBrush}"
+                   HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center"/>
+      </Grid>
+    </Border>
+  </Grid>
+</UserControl>

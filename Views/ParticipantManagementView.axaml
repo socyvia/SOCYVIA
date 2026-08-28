@@ -1,0 +1,112 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.ParticipantManagementView"
+             x:Name="ParticipantManagementRoot">
+    <StackPanel Spacing="16">
+        <Border Classes="commandSurface" Padding="20">
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                <StackPanel Spacing="4">
+                    <TextBlock x:Name="PageTitle" FontSize="17" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaInkBrush}"/>
+                    <TextBlock x:Name="PageSubtitle" FontSize="9"
+                               Foreground="{StaticResource SocyviaSecondaryTextBrush}"/>
+                </StackPanel>
+                <Button x:Name="AddParticipantButton" Grid.Column="1" Classes="primary"/>
+            </Grid>
+        </Border>
+
+        <Border x:Name="EditorPanel" IsVisible="False" Classes="researchCard" Padding="20">
+            <StackPanel Spacing="14" Width="420" MaxWidth="520" HorizontalAlignment="Center">
+                <TextBlock x:Name="EditorTitle" FontSize="12" FontWeight="SemiBold"
+                           Foreground="{StaticResource SocyviaTextBrush}"/>
+                <StackPanel Spacing="5">
+                    <TextBlock x:Name="CodeLabel" FontSize="8.5" FontWeight="SemiBold"/>
+                    <TextBox x:Name="CodeBox"/>
+                </StackPanel>
+                <StackPanel Spacing="5">
+                    <TextBlock x:Name="GroupLabel" FontSize="8.5" FontWeight="SemiBold"/>
+                    <ComboBox x:Name="GroupComboBox"/>
+                </StackPanel>
+                <StackPanel Spacing="5">
+                    <TextBlock x:Name="StatusLabel" FontSize="8.5" FontWeight="SemiBold"/>
+                    <ComboBox x:Name="StatusComboBox"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="24">
+                    <CheckBox x:Name="EligibleCheckBox" IsChecked="True"/>
+                    <CheckBox x:Name="ConsentCheckBox"/>
+                </StackPanel>
+                <TextBlock x:Name="EditorError" IsVisible="False" FontSize="8.5"
+                           Foreground="{StaticResource SocyviaErrorBrush}" TextWrapping="Wrap"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="8">
+                    <Button x:Name="CancelButton" Classes="secondary" MinWidth="90"/>
+                    <Button x:Name="SaveButton" Classes="primary" MinWidth="110"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Classes="researchCard" Padding="18">
+            <StackPanel Spacing="10">
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBlock x:Name="ListTitle" FontSize="12" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaTextBrush}"/>
+                    <Border Grid.Column="1" Classes="badge">
+                        <TextBlock x:Name="CountText" FontSize="8" TextAlignment="Center"
+                                   Foreground="{StaticResource SocyviaAccentBrush}"/>
+                    </Border>
+                </Grid>
+                <Grid ColumnDefinitions="1.1*,1*,1*,1*,1.1*,1*" Margin="14,2,14,0">
+                    <TextBlock x:Name="ParticipantCodeColumnText" FontSize="7.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="ParticipantGroupColumnText" Grid.Column="1" FontSize="7.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="ParticipantConditionColumnText" Grid.Column="2" FontSize="7.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="ParticipantStatusColumnText" Grid.Column="3" FontSize="7.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="ParticipantEligibilityColumnText" Grid.Column="4" FontSize="7.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="ParticipantSessionColumnText" Grid.Column="5" FontSize="7.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                </Grid>
+                <StackPanel x:Name="ParticipantsContainer" Spacing="8"/>
+                <Border x:Name="EmptyPanel" IsVisible="False" MinHeight="170"
+                        Classes="emptyState">
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="6">
+                        <TextBlock x:Name="EmptyTitle" FontSize="11" FontWeight="SemiBold" TextAlignment="Center"/>
+                        <TextBlock x:Name="EmptyBody" MaxWidth="390" FontSize="8.5"
+                                   Foreground="{StaticResource SocyviaMutedTextBrush}"
+                                   TextAlignment="Center" TextWrapping="Wrap"/>
+                        <Button x:Name="EmptyAddButton" Classes="primary" Margin="0,8,0,0"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <Border Classes="researchCard" Padding="18">
+            <StackPanel Spacing="10">
+                <Grid ColumnDefinitions="*,Auto,Auto,Auto,Auto" ColumnSpacing="8">
+                    <TextBlock x:Name="RemoteSessionsTitle" FontSize="12" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaTextBrush}"/>
+                    <ComboBox x:Name="RemoteStatusFilter" Grid.Column="1" MinWidth="110"/>
+                    <ComboBox x:Name="RemoteGroupFilter" Grid.Column="2" MinWidth="120"/>
+                    <ComboBox x:Name="RemoteRunTypeFilter" Grid.Column="3" MinWidth="112"/>
+                    <Button x:Name="SyncRemoteButton" Grid.Column="4" Classes="secondary" MinWidth="108"/>
+                </Grid>
+                <TextBlock x:Name="RemoteSessionsHint" FontSize="8.5" TextWrapping="Wrap"
+                           Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                <Grid ColumnDefinitions="1.15*,1*,.75*,1*,1*,1*,1*" Margin="14,2,14,0">
+                    <TextBlock x:Name="RemoteParticipantColumn" FontSize="7.5" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBlock x:Name="RemoteGroupColumn" Grid.Column="1" FontSize="7.5" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBlock x:Name="RemoteRunTypeColumn" Grid.Column="2" FontSize="7.5" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBlock x:Name="RemoteStartedColumn" Grid.Column="3" FontSize="7.5" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBlock x:Name="RemoteFeedEndColumn" Grid.Column="4" FontSize="7.5" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBlock x:Name="RemotePostColumn" Grid.Column="5" FontSize="7.5" FontWeight="SemiBold" TextAlignment="Center"/>
+                    <TextBlock x:Name="RemoteStateColumn" Grid.Column="6" FontSize="7.5" FontWeight="SemiBold" TextAlignment="Center"/>
+                </Grid>
+                <StackPanel x:Name="RemoteSessionsContainer" Spacing="7"/>
+                <TextBlock x:Name="RemoteSessionsEmpty" IsVisible="False" TextAlignment="Center" FontSize="8.5"
+                           Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

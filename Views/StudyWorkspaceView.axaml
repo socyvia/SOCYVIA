@@ -1,0 +1,1817 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.StudyWorkspaceView"
+             x:Name="RootStudyWorkspace"
+             FontFamily="{StaticResource EnglishFont}">
+
+    <UserControl.Styles>
+        
+        <Style Selector="ComboBox.compactResearchCombo:pointerover">
+            <Setter Property="BorderBrush" Value="#BEC8D9"/>
+        </Style>
+
+
+        <Style Selector="ComboBox.compactResearchCombo:focus">
+            <Setter Property="BorderBrush" Value="#2563EB"/>
+            <Setter Property="Background" Value="#FCFCFF"/>
+        </Style>
+
+
+        <Style Selector="ComboBox.compactResearchCombo ComboBoxItem">
+            <Setter Property="MinHeight" Value="36"/>
+
+            <Setter Property="Padding" Value="10,6"/>
+
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+
+
+        <Style Selector="ComboBox.compactResearchCombo ComboBoxItem TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        
+        <!-- ====================================================== -->
+        <!-- COMPACT CENTERED COMBOBOX                              -->
+        <!-- ====================================================== -->
+        <!-- ====================================================== -->
+        <!-- COMPACT RESEARCH SELECT                                -->
+        <!-- Keeps the normal SOCYVIA input style, only controls    -->
+        <!-- width + centering for short selections.                -->
+        <!-- ====================================================== -->
+
+        <Style Selector="ComboBox.researchSelect">
+            <Setter Property="Width" Value="170"/>
+            <Setter Property="MinWidth" Value="170"/>
+            <Setter Property="MaxWidth" Value="170"/>
+
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+
+
+        <Style Selector="ComboBox.researchSelect ComboBoxItem">
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="Padding" Value="10,6"/>
+
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+
+
+        <Style Selector="ComboBox.researchSelect ComboBoxItem TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        
+        <Style Selector="ComboBox.compactCenter ComboBoxItem">
+            <Setter Property="MinHeight" Value="38"/>
+            <Setter Property="Padding" Value="12,6"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="ComboBox.compactCenter ComboBoxItem TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+        
+        <!-- NAVIGATION -->
+
+        <Style Selector="Button.studyNav">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+            <Setter Property="FontSize" Value="9.2"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.studyNav:pointerover">
+            <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+        </Style>
+
+        <Style Selector="Button.studyNav.selected">
+            <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+            <Setter Property="BorderBrush" Value="#552563EB"/>
+            <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="#202563EB" BlurRadius="12" OffsetY="3"/>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.studyNav.configured">
+            <Setter Property="Background" Value="{StaticResource SuccessSoft}"/>
+            <Setter Property="BorderBrush" Value="#44177A5B"/>
+            <Setter Property="Foreground" Value="{StaticResource Success}"/>
+        </Style>
+
+        <Style Selector="Button.studyNav.configured.selected">
+            <Setter Property="Background" Value="#172563EB"/>
+            <Setter Property="Foreground" Value="#2563EB"/>
+            <Setter Property="BorderBrush" Value="#662563EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+        <Style Selector="Button.studyNav TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+        </Style>
+
+
+        <!-- SECONDARY BUTTON -->
+
+        <Style Selector="Button.studySecondary">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Padding" Value="15,0"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+            <Setter Property="FontSize" Value="9.2"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="#10102D51" BlurRadius="8" OffsetY="2"/>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.studySecondary:pointerover">
+            <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        </Style>
+
+
+        <!-- PRIMARY BUTTON -->
+
+        <Style Selector="Button.studyPrimary">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="MinWidth" Value="118"/>
+            <Setter Property="Padding" Value="18,0"/>
+            <Setter Property="Background"
+                    Value="{StaticResource Primary}"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="#382563EB" BlurRadius="14" OffsetY="4"/>
+            </Setter>
+        </Style>
+
+
+        <!-- QUICK ACTION -->
+
+        <Style Selector="Button.quickAction">
+            <Setter Property="MinHeight" Value="82"/>
+            <Setter Property="Padding" Value="16,13"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="#14102D51" BlurRadius="12" OffsetY="3"/>
+            </Setter>
+        </Style>
+
+        <Style Selector="Button.quickAction:pointerover">
+            <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        </Style>
+
+        <Style Selector="Button.acquisitionAction">
+            <Setter Property="MinHeight" Value="142"/>
+            <Setter Property="Padding" Value="18"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceGlass}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+            <Setter Property="CornerRadius" Value="{StaticResource RadiusLarge}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="#18102D51" BlurRadius="16" OffsetY="4"/>
+            </Setter>
+        </Style>
+
+        <Style Selector="Border.acquisitionIcon">
+            <Setter Property="Width" Value="40"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Background" Value="{StaticResource InformationSoft}"/>
+            <Setter Property="BorderBrush" Value="#302563EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+
+
+        <!-- TEXT INPUT -->
+
+        <Style Selector="TextBox.postInput">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontSize" Value="9.5"/>
+        </Style>
+
+        <Style Selector="TextBox.postInput:pointerover">
+            <Setter Property="BorderBrush" Value="#BCC6D6"/>
+        </Style>
+
+        <Style Selector="TextBox.postInput:focus">
+            <Setter Property="BorderBrush" Value="#2563EB"/>
+            <Setter Property="Background" Value="#FCFCFF"/>
+        </Style>
+
+
+        <!-- COMBO BOX -->
+
+        <Style Selector="ComboBox.postInput">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="11,0"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontSize" Value="9.5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="MaxDropDownHeight" Value="300"/>
+        </Style>
+
+
+        <!-- FILTER COMBO -->
+
+        <Style Selector="ComboBox.postFilter">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="MinWidth" Value="142"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontSize" Value="8.8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="MaxDropDownHeight" Value="300"/>
+        </Style>
+
+
+        <!-- ALL DROPDOWN ITEMS CENTERED -->
+
+        <Style Selector="ComboBoxItem">
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="Padding" Value="12,7"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="ComboBoxItem:pointerover">
+            <Setter Property="Background" Value="#F4F5FC"/>
+        </Style>
+
+        <Style Selector="ComboBoxItem:selected">
+            <Setter Property="Background" Value="#ECECFF"/>
+            <Setter Property="Foreground" Value="#2563EB"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+        </Style>
+
+
+        <!-- NUMERIC INPUT -->
+
+        <Style Selector="NumericUpDown.postNumber">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontSize" Value="9.5"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+            <!--
+                نخبيو spinner القديم نهائيا.
+                الشكل أنظف والباحث يكتب الرقم مباشرة.
+            -->
+            <Setter Property="ShowButtonSpinner" Value="False"/>
+        </Style>
+
+
+        <!-- CALENDAR -->
+
+        <Style Selector="CalendarDatePicker.modernDate">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="11,0"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="FontSize" Value="9.5"/>
+            <Setter Property="PlaceholderForeground" Value="#A1ABBA"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="IsTodayHighlighted" Value="True"/>
+        </Style>
+
+        <Style Selector="CalendarDatePicker.modernDate:pointerover">
+            <Setter Property="BorderBrush" Value="#BCC6D6"/>
+            <Setter Property="Background" Value="#FCFCFF"/>
+        </Style>
+
+
+        <!-- POST CARD -->
+
+        <Style Selector="Border.postCard">
+            <Setter Property="MinHeight" Value="86"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="11"/>
+            <Setter Property="BoxShadow" Value="{StaticResource ShadowLow}"/>
+        </Style>
+
+    </UserControl.Styles>
+
+
+    <StackPanel Spacing="20">
+
+
+        <!-- ================================================= -->
+        <!-- HEADER                                            -->
+        <!-- ================================================= -->
+
+        <Border Padding="20"
+                Classes="commandSurface">
+
+            <!-- Keep actual back/title columns physical so the RTL header has a true far-right identity. -->
+            <Grid x:Name="StudyHeaderGrid"
+                  FlowDirection="LeftToRight"
+                  ColumnDefinitions="Auto,*,Auto">
+
+                <Button x:Name="BackToDashboardButton"
+                        Grid.Column="0"
+                        Classes="studySecondary"
+                        MinWidth="92">
+
+                    <TextBlock x:Name="BackToDashboardText"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </Button>
+
+
+                <StackPanel x:Name="StudyHeaderTextPanel"
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            Spacing="5">
+
+                    <StackPanel x:Name="StudyTitleLinePanel"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Right"
+                                Spacing="8">
+
+                        <Border x:Name="StatusBadge"
+                                Padding="9,3"
+                                Background="#F0F1FF"
+                                CornerRadius="8"
+                                VerticalAlignment="Center">
+
+                            <TextBlock x:Name="StudyStatusText"
+                                       FontSize="7.8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#2563EB"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </Border>
+
+                        <TextBlock x:Name="StudyTitleText"
+                                   FontSize="20"
+                                   FontWeight="SemiBold"
+                                   Foreground="#10214A"/>
+
+                    </StackPanel>
+
+                    <TextBlock x:Name="StudySubtitleText"
+                               FontSize="8.8"
+                               Foreground="#8E9AAD"/>
+
+                    <TextBlock x:Name="StudySaveStateText"
+                               FontSize="8"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+        <Border Padding="12,9" Classes="researchCard">
+            <Grid ColumnDefinitions="*,Auto,28,Auto,28,Auto,28,Auto,*">
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="7">
+                    <Border Width="20" Height="20" Background="#182563EB" CornerRadius="7">
+                        <TextBlock Text="1" FontSize="7.5" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaAccentBrush}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock x:Name="WorkflowDesignText" FontSize="8.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaTextBrush}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Border Grid.Column="2" Height="1" Background="{StaticResource SocyviaAccentLineBrush}" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="3" Orientation="Horizontal" Spacing="7">
+                    <Border Width="20" Height="20" Background="#182563EB" CornerRadius="7">
+                        <TextBlock Text="2" FontSize="7.5" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaAccentBrush}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock x:Name="WorkflowBuildText" FontSize="8.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaTextBrush}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Border Grid.Column="4" Height="1" Background="{StaticResource SocyviaAccentLineBrush}" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="5" Orientation="Horizontal" Spacing="7">
+                    <Border Width="20" Height="20" Background="#182563EB" CornerRadius="7">
+                        <TextBlock Text="3" FontSize="7.5" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaAccentBrush}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock x:Name="WorkflowRunText" FontSize="8.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaTextBrush}" VerticalAlignment="Center"/>
+                </StackPanel>
+                <Border Grid.Column="6" Height="1" Background="{StaticResource SocyviaAccentLineBrush}" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="7" Orientation="Horizontal" Spacing="7">
+                    <Border Width="20" Height="20" Background="#182563EB" CornerRadius="7">
+                        <TextBlock Text="4" FontSize="7.5" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaAccentBrush}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock x:Name="WorkflowObserveText" FontSize="8.5" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaTextBrush}" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+
+        <!-- ================================================= -->
+        <!-- INTERNAL NAVIGATION                               -->
+        <!-- ================================================= -->
+
+        <Border Padding="8"
+                Classes="commandSurface">
+
+            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Disabled">
+                <StackPanel x:Name="StudyNavigationPanel"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+
+                    <Button x:Name="OverviewButton"
+                            Classes="studyNav selected">
+                        <TextBlock x:Name="OverviewButtonText"/>
+                    </Button>
+
+                    <Button x:Name="PostsButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="PostsButtonText"/>
+                    </Button>
+
+                    <Button x:Name="BuilderButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="BuilderButtonText"/>
+                    </Button>
+
+                    <Button x:Name="GroupsButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="GroupsButtonText"/>
+                    </Button>
+
+                    <Button x:Name="ExperimentButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="ExperimentButtonText"/>
+                    </Button>
+
+                    <Button x:Name="ParticipantsButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="ParticipantsButtonText"/>
+                    </Button>
+
+                    <Button x:Name="ParticipantFlowButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="ParticipantFlowButtonText"/>
+                    </Button>
+
+                    <Button x:Name="QuestionnairesButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="QuestionnairesButtonText"/>
+                    </Button>
+
+                    <Button x:Name="ValidatePreviewButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="ValidatePreviewButtonText"/>
+                    </Button>
+
+                    <Button x:Name="PublishButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="PublishButtonText"/>
+                    </Button>
+
+                    <Button x:Name="SessionsButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="SessionsButtonText"/>
+                    </Button>
+
+                    <Button x:Name="AnalysisButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="AnalysisButtonText"/>
+                    </Button>
+
+                    <Button x:Name="ReportsButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="ReportsButtonText"/>
+                    </Button>
+
+                    <Button x:Name="StudySettingsButton"
+                            Classes="studyNav">
+                        <TextBlock x:Name="StudySettingsButtonText"/>
+                    </Button>
+
+                </StackPanel>
+            </ScrollViewer>
+
+        </Border>
+
+
+        <!-- ================================================= -->
+        <!-- OVERVIEW                                          -->
+        <!-- ================================================= -->
+
+        <StackPanel x:Name="OverviewPanel"
+                    Spacing="18">
+
+
+            <!-- METRICS -->
+
+            <Grid ColumnDefinitions="*,14,*,14,*,14,*">
+
+                <Border Grid.Column="0"
+                        MinHeight="102"
+                        Padding="16"
+                        Classes="researchCard">
+
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="5">
+
+                        <TextBlock x:Name="GroupsMetricLabel"
+                                   FontSize="8.4"
+                                   Foreground="#8C98AA"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                        <TextBlock x:Name="GroupsMetricValue"
+                                   Text="0"
+                                   FontSize="23"
+                                   FontWeight="SemiBold"
+                                   Foreground="#10214A"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                    </StackPanel>
+
+                </Border>
+
+
+                <Border Grid.Column="2"
+                        MinHeight="102"
+                        Padding="16"
+                        Classes="researchCard">
+
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="5">
+
+                        <TextBlock x:Name="ParticipantsMetricLabel"
+                                   FontSize="8.4"
+                                   Foreground="#8C98AA"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                        <TextBlock x:Name="ParticipantsMetricValue"
+                                   Text="0"
+                                   FontSize="23"
+                                   FontWeight="SemiBold"
+                                   Foreground="#10214A"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                    </StackPanel>
+
+                </Border>
+
+
+                <Border Grid.Column="4"
+                        MinHeight="102"
+                        Padding="16"
+                        Classes="researchCard">
+
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="5">
+
+                        <TextBlock x:Name="PostsMetricLabel"
+                                   FontSize="8.4"
+                                   Foreground="#8C98AA"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                        <TextBlock x:Name="PostsMetricValue"
+                                   Text="0"
+                                   FontSize="23"
+                                   FontWeight="SemiBold"
+                                   Foreground="#10214A"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                    </StackPanel>
+
+                </Border>
+
+
+                <Border Grid.Column="6"
+                        MinHeight="102"
+                        Padding="16"
+                        Classes="researchCard">
+
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="5">
+
+                        <TextBlock x:Name="SessionsMetricLabel"
+                                   FontSize="8.4"
+                                   Foreground="#8C98AA"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                        <TextBlock x:Name="SessionsMetricValue"
+                                   Text="0"
+                                   FontSize="23"
+                                   FontWeight="SemiBold"
+                                   Foreground="#10214A"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                    </StackPanel>
+
+                </Border>
+
+            </Grid>
+
+
+            <!-- QUICK START -->
+
+            <Border Padding="20"
+                    Classes="researchCard">
+
+                <StackPanel Spacing="16">
+
+                    <StackPanel x:Name="QuickStartHeader"
+                                HorizontalAlignment="Right"
+                                Spacing="3">
+
+                        <TextBlock x:Name="QuickStartTitle"
+                                   FontSize="12.5"
+                                   FontWeight="SemiBold"
+                                   Foreground="#263855"/>
+
+                        <TextBlock x:Name="QuickStartSubtitle"
+                                   FontSize="8.5"
+                                   Foreground="#929EB1"/>
+
+                    </StackPanel>
+
+
+                    <Grid x:Name="QuickStartGrid"
+                          Width="620"
+                          MaxWidth="620"
+                          HorizontalAlignment="Center"
+                          ColumnDefinitions="200,10,200,10,200">
+
+                        <Button x:Name="QuickPostsButton"
+                                Grid.Column="0"
+                                Classes="quickAction">
+
+                            <StackPanel HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="5">
+
+                                <TextBlock x:Name="QuickPostsTitle"
+                                           FontSize="9.5"
+                                           FontWeight="SemiBold"
+                                           Foreground="#31435F"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                                <TextBlock x:Name="QuickPostsDescription"
+                                           MaxWidth="180"
+                                           FontSize="8"
+                                           Foreground="#919CAF"
+                                           TextWrapping="Wrap"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button x:Name="QuickParticipantsButton"
+                                Grid.Column="2"
+                                Classes="quickAction">
+
+                            <StackPanel HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="5">
+
+                                <TextBlock x:Name="QuickParticipantsTitle"
+                                           FontSize="9.5"
+                                           FontWeight="SemiBold"
+                                           Foreground="#31435F"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                                <TextBlock x:Name="QuickParticipantsDescription"
+                                           MaxWidth="180"
+                                           FontSize="8"
+                                           Foreground="#919CAF"
+                                           TextWrapping="Wrap"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+
+                        <Button x:Name="QuickExperimentButton"
+                                Grid.Column="4"
+                                Classes="quickAction">
+
+                            <StackPanel HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="5">
+
+                                <TextBlock x:Name="QuickExperimentTitle"
+                                           FontSize="9.5"
+                                           FontWeight="SemiBold"
+                                           Foreground="#31435F"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                                <TextBlock x:Name="QuickExperimentDescription"
+                                           MaxWidth="180"
+                                           FontSize="8"
+                                           Foreground="#919CAF"
+                                           TextWrapping="Wrap"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Button>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+
+            <!-- FOUNDATION -->
+
+            <Border Padding="20"
+                    Classes="commandSurface">
+
+                <StackPanel Spacing="15">
+
+                    <TextBlock x:Name="FoundationTitle"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="#263855"/>
+
+
+                    <Grid x:Name="FoundationGrid"
+                          ColumnDefinitions="130,*"
+                          RowDefinitions="Auto,Auto,Auto,Auto"
+                          RowSpacing="10">
+
+                        <TextBlock x:Name="ResearchQuestionTitle"
+                                   Grid.Row="0"
+                                   Grid.Column="0"
+                                   FontSize="8.3"
+                                   Foreground="#929EB1"/>
+
+                        <TextBlock x:Name="ResearchQuestionValue"
+                                   Grid.Row="0"
+                                   Grid.Column="1"
+                                   FontSize="9"
+                                   Foreground="#42536F"
+                                   TextWrapping="Wrap"/>
+
+
+                        <TextBlock x:Name="HypothesisTitle"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   FontSize="8.3"
+                                   Foreground="#929EB1"/>
+
+                        <TextBlock x:Name="HypothesisValue"
+                                   Grid.Row="1"
+                                   Grid.Column="1"
+                                   FontSize="9"
+                                   Foreground="#42536F"
+                                   TextWrapping="Wrap"/>
+
+
+                        <TextBlock x:Name="DesignTitle"
+                                   Grid.Row="2"
+                                   Grid.Column="0"
+                                   FontSize="8.3"
+                                   Foreground="#929EB1"/>
+
+                        <TextBlock x:Name="DesignValue"
+                                   Grid.Row="2"
+                                   Grid.Column="1"
+                                   FontSize="9"
+                                   Foreground="#42536F"/>
+
+
+                        <TextBlock x:Name="TargetSampleTitle"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   FontSize="8.3"
+                                   Foreground="#929EB1"/>
+
+                        <TextBlock x:Name="TargetSampleValue"
+                                   Grid.Row="3"
+                                   Grid.Column="1"
+                                   FontSize="9"
+                                   Foreground="#42536F"/>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+        </StackPanel>
+
+
+        <!-- ================================================= -->
+        <!-- POSTS                                             -->
+        <!-- ================================================= -->
+
+        <StackPanel x:Name="PostsPanel"
+                    IsVisible="False"
+                    Spacing="16">
+
+
+            <!-- POSTS HEADER -->
+
+            <Border Padding="20"
+                    Background="#FFFFFF"
+                    BorderBrush="#E3E9F3"
+                    BorderThickness="1"
+                    CornerRadius="14">
+
+                <StackPanel Spacing="16">
+
+
+                    <Grid x:Name="PostsHeaderGrid"
+                          ColumnDefinitions="Auto,*,Auto">
+
+                        <StackPanel x:Name="PostsHeaderActionsPanel"
+                                    Grid.Column="0"
+                                    Orientation="Horizontal"
+                                    HorizontalAlignment="Left"
+                                    Spacing="9">
+
+                            <Button x:Name="ImportPostsButton"
+                                    Classes="studySecondary"
+                                    MinWidth="118">
+
+                                <TextBlock x:Name="ImportPostsButtonText"
+                                           FontSize="9.2"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </Button>
+
+                            <Button x:Name="AddPostButton"
+                                    Classes="studyPrimary">
+
+                                <TextBlock x:Name="AddPostButtonText"
+                                           FontSize="9.2"
+                                           FontWeight="SemiBold"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </Button>
+
+                        </StackPanel>
+
+
+                        <StackPanel x:Name="PostsHeaderTextPanel"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Right"
+                                    Spacing="3">
+
+                            <TextBlock x:Name="PostsPageTitle"
+                                       FontSize="14"
+                                       FontWeight="SemiBold"
+                                       Foreground="#263855"/>
+
+                            <TextBlock x:Name="PostsPageSubtitle"
+                                       FontSize="8.6"
+                                       Foreground="#929EB1"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+
+                    <!-- FILTERS -->
+
+                    <Grid x:Name="PostsFilterGrid"
+                          ColumnDefinitions="240,12,150,12,150,*,Auto">
+
+                        <TextBox x:Name="PostsSearchBox"
+                                 Grid.Column="0"
+                                 Classes="postInput"/>
+
+                        <ComboBox x:Name="PlatformFilterComboBox"
+                                  Grid.Column="2"
+                                  Classes="postFilter"
+                                  SelectedIndex="0"/>
+
+                        <ComboBox x:Name="ContentTypeFilterComboBox"
+                                  Grid.Column="4"
+                                  Classes="postFilter"
+                                  SelectedIndex="0"/>
+
+                        <Border x:Name="PostsCountContainer"
+                                Grid.Column="6"
+                                MinWidth="78"
+                                Height="38"
+                                Padding="12,0"
+                                Background="#F7F8FC"
+                                BorderBrush="#E1E6EF"
+                                BorderThickness="1"
+                                CornerRadius="8">
+
+                            <TextBlock x:Name="PostsCountText"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       TextAlignment="Center"
+                                       FontSize="8.5"
+                                       Foreground="#758198"/>
+
+                        </Border>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+            <!-- Stimulus acquisition paths. URL and device are honest architecture-ready previews. -->
+            <Border Classes="researchCard" Padding="18">
+                <StackPanel Spacing="12">
+                    <StackPanel Spacing="3">
+                        <TextBlock x:Name="AcquisitionTitle" FontSize="12" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                        <TextBlock x:Name="AcquisitionSubtitle" FontSize="8.6"
+                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                    </StackPanel>
+                    <Grid x:Name="AcquisitionActionsGrid" MaxWidth="900" HorizontalAlignment="Stretch"
+                          ColumnDefinitions="*,*,*" RowDefinitions="Auto">
+                        <Button x:Name="CreateManualButton" Grid.Column="0" Width="220" Margin="7" Classes="quickAction acquisitionAction">
+                            <StackPanel Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border Classes="acquisitionIcon" HorizontalAlignment="Center">
+                                    <Viewbox Width="21" Height="21" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Path Data="M4,2 L14,2 L20,8 L20,22 L4,22 Z M14,2 L14,8 L20,8 M8,13 L16,13 M8,17 L16,17"
+                                              Stroke="{StaticResource SocyviaAccentBrush}" StrokeThickness="1.8" StrokeLineCap="Round" StrokeJoin="Round" Fill="Transparent"/>
+                                    </Viewbox>
+                                </Border>
+                                <TextBlock x:Name="CreateManualTitle" Text="Add Content" FontSize="14.5" FontWeight="SemiBold" Foreground="{StaticResource SocyviaTextBrush}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock x:Name="CreateManualDescription" Text="Text, post or experimental material" MaxWidth="230" FontSize="11.5" LineHeight="17" Foreground="{StaticResource SocyviaMutedTextBrush}" TextWrapping="Wrap" MaxLines="3" TextAlignment="Center" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="FromDeviceButton" Grid.Column="1" Width="220" Margin="7" Classes="quickAction acquisitionAction">
+                            <StackPanel Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border Classes="acquisitionIcon" HorizontalAlignment="Center">
+                                    <Viewbox Width="22" Height="22" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Path Data="M3,5 L21,5 L21,19 L3,19 Z M6,16 L10,12 L13,15 L16,11 L21,16 M8,9 A1.5,1.5 0 1 0 8,9.1"
+                                              Stroke="{StaticResource SocyviaAccentBrush}" StrokeThickness="1.8" StrokeLineCap="Round" StrokeJoin="Round" Fill="Transparent"/>
+                                    </Viewbox>
+                                </Border>
+                                <TextBlock x:Name="FromDeviceTitle" Text="Add Media" FontSize="14.5" FontWeight="SemiBold" Foreground="{StaticResource SocyviaTextBrush}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock x:Name="FromDeviceDescription" Text="Image, video or audio" MaxWidth="230" FontSize="11.5" LineHeight="17" Foreground="{StaticResource SocyviaMutedTextBrush}" TextWrapping="Wrap" MaxLines="3" TextAlignment="Center" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                        <Button x:Name="FromUrlButton" Grid.Column="2" Width="220" Margin="7" Classes="quickAction acquisitionAction">
+                            <StackPanel Spacing="8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Border Classes="acquisitionIcon" HorizontalAlignment="Center">
+                                    <Viewbox Width="22" Height="22" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                        <Path Data="M10,7 L7,7 C4.8,7 3,8.8 3,11 L3,17 C3,19.2 4.8,21 7,21 L13,21 C15.2,21 17,19.2 17,17 L17,14 M13,3 L21,3 L21,11 M21,3 L10,14"
+                                              Stroke="{StaticResource SocyviaAccentBrush}" StrokeThickness="1.8" StrokeLineCap="Round" StrokeJoin="Round" Fill="Transparent"/>
+                                    </Viewbox>
+                                </Border>
+                                <TextBlock x:Name="FromUrlTitle" Text="Add External Link" FontSize="14.5" FontWeight="SemiBold" Foreground="{StaticResource SocyviaTextBrush}" TextAlignment="Center" HorizontalAlignment="Center"/>
+                                <TextBlock x:Name="FromUrlDescription" Text="Externally hosted source or content" MaxWidth="230" FontSize="11.5" LineHeight="17" Foreground="{StaticResource SocyviaMutedTextBrush}" TextWrapping="Wrap" MaxLines="3" TextAlignment="Center" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </Button>
+                    </Grid>
+                    <Border x:Name="AcquisitionNoticePanel" IsVisible="False"
+                            Background="{StaticResource SocyviaInfoSoftBrush}"
+                            BorderBrush="#482563EB" BorderThickness="1"
+                            CornerRadius="10" Padding="12">
+                        <TextBlock x:Name="AcquisitionNoticeText" FontSize="8.5"
+                                   Foreground="{StaticResource SocyviaInfoBrush}" TextWrapping="Wrap"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+
+
+            <!-- POSTS LIST -->
+
+            <Border x:Name="PostsListCard"
+                    Padding="18"
+                    Classes="researchCard">
+
+                <StackPanel Spacing="12">
+
+
+                    <Border x:Name="PostsEmptyPanel"
+                            MinHeight="190"
+                            Background="#FAFBFD"
+                            BorderBrush="#EEF1F5"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    MaxWidth="420"
+                                    Spacing="7">
+
+                            <TextBlock x:Name="PostsEmptyTitle"
+                                       FontSize="11"
+                                       FontWeight="SemiBold"
+                                       Foreground="#53627B"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                            <TextBlock x:Name="PostsEmptyDescription"
+                                       FontSize="8.6"
+                                       Foreground="#98A3B5"
+                                       TextWrapping="Wrap"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                            <Button x:Name="PostsEmptyCreateButton"
+                                    Margin="0,10,0,0"
+                                    Classes="studyPrimary">
+
+                                <TextBlock x:Name="PostsEmptyCreateText"
+                                           FontSize="9.2"
+                                           FontWeight="SemiBold"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </Button>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <Border x:Name="PostsNoResultsPanel"
+                            IsVisible="False"
+                            MinHeight="150"
+                            Background="#FAFBFD"
+                            CornerRadius="11">
+
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"
+                                    Spacing="6">
+
+                            <TextBlock x:Name="PostsNoResultsTitle"
+                                       FontSize="10"
+                                       FontWeight="SemiBold"
+                                       Foreground="#53627B"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                            <TextBlock x:Name="PostsNoResultsDescription"
+                                       FontSize="8.4"
+                                       Foreground="#98A3B5"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <StackPanel x:Name="PostsContainer"
+                                Spacing="8"/>
+
+                </StackPanel>
+
+            </Border>
+
+
+            <!-- ================================================= -->
+            <!-- POST EDITOR                                       -->
+            <!-- ================================================= -->
+
+            <Border x:Name="PostEditorPanel"
+                    IsVisible="False"
+                    Padding="22"
+                    Classes="denseSurface">
+
+                <StackPanel Spacing="20">
+
+
+                    <!-- HEADER -->
+
+                    <Grid x:Name="PostEditorHeaderGrid"
+                          ColumnDefinitions="Auto,*,Auto">
+
+                        <Button x:Name="CancelPostEditorTopButton"
+                                Grid.Column="0"
+                                Classes="studySecondary"
+                                MinWidth="86">
+
+                            <TextBlock x:Name="CancelPostEditorTopText"
+                                       FontSize="9"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </Button>
+
+
+                        <StackPanel x:Name="PostEditorHeaderTextPanel"
+                                    Grid.Column="2"
+                                    HorizontalAlignment="Right"
+                                    Spacing="3">
+
+                            <TextBlock x:Name="PostEditorTitle"
+                                       FontSize="14"
+                                       FontWeight="SemiBold"
+                                       Foreground="#263855"/>
+
+                            <TextBlock x:Name="PostEditorSubtitle"
+                                       FontSize="8.5"
+                                       Foreground="#929EB1"/>
+
+                        </StackPanel>
+
+                    </Grid>
+
+
+                    <!-- CONTENT -->
+
+                    <Border Padding="18"
+                            Background="#FAFBFD"
+                            BorderBrush="#E8ECF3"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <StackPanel Spacing="15">
+
+                            <TextBlock x:Name="PostContentSectionTitle"
+                                       FontSize="10.5"
+                                       FontWeight="SemiBold"
+                                       Foreground="#354762"/>
+
+
+                            <StackPanel Spacing="6">
+
+                                <TextBlock x:Name="PostTitleLabel"
+                                           FontSize="8.4"
+                                           FontWeight="SemiBold"
+                                           Foreground="#53627B"/>
+
+                                <TextBox x:Name="PostTitleBox"
+                                         Classes="postInput"/>
+
+                            </StackPanel>
+
+
+                            <Grid ColumnDefinitions="*,16,*">
+
+                                <StackPanel Grid.Column="0"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostPlatformLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <ComboBox x:Name="PostPlatformComboBox"
+                                              Classes="postInput researchSelect"
+                                              SelectedIndex="0"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="2"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostContentTypeLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <ComboBox x:Name="PostContentTypeComboBox"
+                                              Classes="postInput researchSelect"
+                                              SelectedIndex="0"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                            <StackPanel Spacing="6">
+
+                                <TextBlock x:Name="PostUrlLabel"
+                                           FontSize="8.4"
+                                           FontWeight="SemiBold"
+                                           Foreground="#53627B"/>
+
+                                <TextBox x:Name="PostUrlBox"
+                                         Classes="postInput"/>
+
+                            </StackPanel>
+
+
+                            <StackPanel Spacing="6">
+
+                                <TextBlock x:Name="PostPublishedMediaUrlLabel"
+                                           FontSize="8.4"
+                                           FontWeight="SemiBold"
+                                           Foreground="#53627B"/>
+
+                                <TextBox x:Name="PostPublishedMediaUrlBox"
+                                         Classes="postInput"/>
+
+                                <TextBlock x:Name="PostPublishedMediaUrlHint"
+                                           FontSize="8"
+                                           Foreground="#6D7890"
+                                           TextWrapping="Wrap"/>
+
+                            </StackPanel>
+
+
+                            <StackPanel Spacing="6">
+
+                                <TextBlock x:Name="PostBodyLabel"
+                                           FontSize="8.4"
+                                           FontWeight="SemiBold"
+                                           Foreground="#53627B"/>
+
+                                <TextBox x:Name="PostBodyBox"
+                                         MinHeight="92"
+                                         Padding="12,10"
+                                         AcceptsReturn="True"
+                                         TextWrapping="Wrap"
+                                         VerticalContentAlignment="Top"
+                                         Background="#FFFFFF"
+                                         BorderBrush="#DCE3EE"
+                                         BorderThickness="1"
+                                         CornerRadius="8"
+                                         FontSize="9.5"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <!-- SOURCE -->
+
+                    <Border Padding="18"
+                            Background="#FAFBFD"
+                            BorderBrush="#E8ECF3"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <StackPanel Spacing="15">
+
+                            <TextBlock x:Name="PostSourceSectionTitle"
+                                       FontSize="10.5"
+                                       FontWeight="SemiBold"
+                                       Foreground="#354762"/>
+
+
+                            <Grid ColumnDefinitions="*,16,*">
+
+                                <StackPanel Grid.Column="0"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostAuthorLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"/>
+
+                                    <TextBox x:Name="PostAuthorBox"
+                                             Classes="postInput"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="2"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostSourceLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"/>
+
+                                    <TextBox x:Name="PostSourceBox"
+                                             Classes="postInput"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                            <StackPanel Width="250"
+                                        HorizontalAlignment="Center"
+                                        Spacing="6">
+
+                                <TextBlock x:Name="PostPublishedDateLabel"
+                                           FontSize="8.4"
+                                           FontWeight="SemiBold"
+                                           Foreground="#53627B"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                                <CalendarDatePicker x:Name="PostPublishedDatePicker"
+                                                    Classes="modernDate"
+                                                    HorizontalAlignment="Stretch"
+                                                    SelectedDateFormat="Short"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <!-- METRICS -->
+
+                    <Border Padding="18"
+                            Background="#FAFBFD"
+                            BorderBrush="#E8ECF3"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <StackPanel Spacing="15">
+
+                            <StackPanel x:Name="PostMetricsHeader"
+                                        Spacing="3">
+
+                                <TextBlock x:Name="PostMetricsSectionTitle"
+                                           FontSize="10.5"
+                                           FontWeight="SemiBold"
+                                           Foreground="#354762"/>
+
+                                <TextBlock x:Name="PostMetricsSectionSubtitle"
+                                           FontSize="8.1"
+                                           Foreground="#929EB1"/>
+
+                            </StackPanel>
+
+
+                            <Grid ColumnDefinitions="*,12,*,12,*,12,*,12,*">
+
+
+                                <StackPanel Grid.Column="0"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostLikesLabel"
+                                               FontSize="8.1"
+                                               Foreground="#67758B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <NumericUpDown x:Name="PostLikesBox"
+                                                   Classes="postNumber"
+                                                   Minimum="0"
+                                                   Maximum="2000000000"
+                                                   Increment="1"
+                                                   FormatString="0"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="2"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostCommentsLabel"
+                                               FontSize="8.1"
+                                               Foreground="#67758B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <NumericUpDown x:Name="PostCommentsBox"
+                                                   Classes="postNumber"
+                                                   Minimum="0"
+                                                   Maximum="2000000000"
+                                                   Increment="1"
+                                                   FormatString="0"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="4"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostSharesLabel"
+                                               FontSize="8.1"
+                                               Foreground="#67758B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <NumericUpDown x:Name="PostSharesBox"
+                                                   Classes="postNumber"
+                                                   Minimum="0"
+                                                   Maximum="2000000000"
+                                                   Increment="1"
+                                                   FormatString="0"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="6"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostSavesLabel"
+                                               FontSize="8.1"
+                                               Foreground="#67758B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <NumericUpDown x:Name="PostSavesBox"
+                                                   Classes="postNumber"
+                                                   Minimum="0"
+                                                   Maximum="2000000000"
+                                                   Increment="1"
+                                                   FormatString="0"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="8"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostViewsLabel"
+                                               FontSize="8.1"
+                                               Foreground="#67758B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <NumericUpDown x:Name="PostViewsBox"
+                                                   Classes="postNumber"
+                                                   Minimum="0"
+                                                   Maximum="999999999999"
+                                                   Increment="1"
+                                                   FormatString="0"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <!-- RESEARCH DATA -->
+
+                    <Border Padding="18"
+                            Background="#FAFBFD"
+                            BorderBrush="#E8ECF3"
+                            BorderThickness="1"
+                            CornerRadius="11">
+
+                        <StackPanel Spacing="15">
+
+                            <TextBlock x:Name="PostResearchSectionTitle"
+                                       FontSize="10.5"
+                                       FontWeight="SemiBold"
+                                       Foreground="#354762"/>
+
+
+                            <Grid ColumnDefinitions="*,16,*">
+
+                                <StackPanel Grid.Column="0"
+                                            HorizontalAlignment="Stretch"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostGroupLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                    <ComboBox x:Name="PostGroupComboBox"
+                                              Classes="postInput researchSelect"
+                                              SelectedIndex="0"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="2"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostCategoryLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"/>
+
+                                    <TextBox x:Name="PostCategoryBox"
+                                             Classes="postInput"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                            <Grid ColumnDefinitions="*,16,*">
+
+                                <StackPanel Grid.Column="0"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostTopicLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"/>
+
+                                    <TextBox x:Name="PostTopicBox"
+                                             Classes="postInput"/>
+
+                                </StackPanel>
+
+
+                                <StackPanel Grid.Column="2"
+                                            Spacing="6">
+
+                                    <TextBlock x:Name="PostConditionLabel"
+                                               FontSize="8.4"
+                                               FontWeight="SemiBold"
+                                               Foreground="#53627B"/>
+
+                                    <TextBox x:Name="PostConditionBox"
+                                             Classes="postInput"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+
+                            <StackPanel Spacing="6">
+
+                                <TextBlock x:Name="PostExperimentalTagLabel"
+                                           FontSize="8.4"
+                                           FontWeight="SemiBold"
+                                           Foreground="#53627B"/>
+
+                                <TextBox x:Name="PostExperimentalTagBox"
+                                         Classes="postInput"/>
+
+                            </StackPanel>
+
+
+                            <StackPanel Spacing="6">
+
+                                <TextBlock x:Name="PostResearcherNotesLabel"
+                                           FontSize="8.4"
+                                           FontWeight="SemiBold"
+                                           Foreground="#53627B"/>
+
+                                <TextBox x:Name="PostResearcherNotesBox"
+                                         MinHeight="72"
+                                         Padding="12,10"
+                                         AcceptsReturn="True"
+                                         TextWrapping="Wrap"
+                                         VerticalContentAlignment="Top"
+                                         Background="#FFFFFF"
+                                         BorderBrush="#DCE3EE"
+                                         BorderThickness="1"
+                                         CornerRadius="8"
+                                         FontSize="9.5"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Border>
+
+
+                    <!-- ERROR -->
+
+                    <TextBlock x:Name="PostEditorErrorText"
+                               IsVisible="False"
+                               FontSize="8.6"
+                               Foreground="#D84A5B"
+                               TextWrapping="Wrap"/>
+
+
+                    <!-- ACTIONS -->
+
+                    <Grid x:Name="PostEditorActionsGrid"
+                          ColumnDefinitions="Auto,*,Auto">
+
+                        <Button x:Name="CancelPostEditorButton"
+                                Grid.Column="0"
+                                Classes="studySecondary"
+                                MinWidth="96">
+
+                            <TextBlock x:Name="CancelPostEditorText"
+                                       FontSize="9"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </Button>
+
+
+                        <Button x:Name="SavePostButton"
+                                Grid.Column="2"
+                                Classes="studyPrimary"
+                                MinWidth="126">
+
+                            <TextBlock x:Name="SavePostButtonText"
+                                       FontSize="9.2"
+                                       FontWeight="SemiBold"
+                                       HorizontalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </Button>
+
+                    </Grid>
+
+                </StackPanel>
+
+            </Border>
+
+        </StackPanel>
+
+
+        <!-- ================================================= -->
+        <!-- GROUP MANAGEMENT                                  -->
+        <!-- ================================================= -->
+
+        <ContentControl x:Name="GroupsWorkspaceHost"
+                        IsVisible="False"/>
+
+
+        <!-- ================================================= -->
+        <!-- EXPERIMENT DESIGNER                               -->
+        <!-- ================================================= -->
+
+        <ContentControl x:Name="ExperimentDesignerHost"
+                        IsVisible="False"/>
+
+        <ContentControl x:Name="ExperimentBuilderHost"
+                        IsVisible="False"/>
+
+        <ContentControl x:Name="PublishWorkspaceHost"
+                        IsVisible="False"/>
+
+
+        <!-- ================================================= -->
+        <!-- SESSION LAUNCH                                    -->
+        <!-- ================================================= -->
+
+        <ContentControl x:Name="SessionLaunchHost"
+                        IsVisible="False"/>
+
+        <ContentControl x:Name="ParticipantsWorkspaceHost"
+                        IsVisible="False"/>
+
+        <ContentControl x:Name="QuestionnaireWorkspaceHost"
+                        IsVisible="False"/>
+
+        <ContentControl x:Name="AnalysisWorkspaceHost"
+                        IsVisible="False"/>
+
+        <ContentControl x:Name="ResearchResultsWorkspaceHost"
+                        IsVisible="False"/>
+
+        <!-- Participant journey: a research-facing map, not runtime telemetry. -->
+        <Border x:Name="ParticipantFlowPanel"
+                IsVisible="False"
+                Padding="22"
+                Classes="researchCard">
+            <StackPanel Spacing="16">
+                <StackPanel x:Name="ParticipantFlowHeader" Spacing="4" HorizontalAlignment="Stretch">
+                    <TextBlock x:Name="ParticipantFlowTitle" Classes="sectionTitle" HorizontalAlignment="Stretch"/>
+                    <TextBlock x:Name="ParticipantFlowSubtitle" Classes="metadata" TextWrapping="Wrap" HorizontalAlignment="Stretch"/>
+                </StackPanel>
+                <UniformGrid x:Name="ParticipantFlowStages" Columns="4" Rows="2" HorizontalAlignment="Stretch">
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowEntryText" FontWeight="SemiBold" TextAlignment="Center"/><TextBlock x:Name="FlowEntryHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowConsentText" FontWeight="SemiBold" TextAlignment="Center"/><TextBlock x:Name="FlowConsentHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowInstructionsText" FontWeight="SemiBold" TextAlignment="Center"/><TextBlock x:Name="FlowInstructionsHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowPreMeasureText" FontWeight="SemiBold" TextAlignment="Center"/><TextBlock x:Name="FlowPreMeasureHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowStartText" FontWeight="SemiBold" Foreground="{StaticResource SocyviaAccentBrush}" TextAlignment="Center"/><TextBlock x:Name="FlowStartHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowFeedText" FontWeight="SemiBold" TextAlignment="Center"/><TextBlock x:Name="FlowFeedHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowPostMeasureText" FontWeight="SemiBold" TextAlignment="Center"/><TextBlock x:Name="FlowPostMeasureHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                    <Border Margin="5" Padding="12" MinHeight="88" Classes="denseSurface"><StackPanel Spacing="4" VerticalAlignment="Center"><TextBlock x:Name="FlowCompletionText" FontWeight="SemiBold" TextAlignment="Center"/><TextBlock x:Name="FlowCompletionHint" Classes="metadata" TextAlignment="Center" TextWrapping="Wrap"/></StackPanel></Border>
+                </UniformGrid>
+                <Border Classes="infoSurface" Padding="12">
+                    <TextBlock x:Name="ParticipantFlowBoundaryText" Classes="metadata" TextWrapping="Wrap"/>
+                </Border>
+            </StackPanel>
+        </Border>
+
+
+        <!-- ================================================= -->
+        <!-- OTHER SECTIONS                                    -->
+        <!-- ================================================= -->
+
+        <Border x:Name="SectionPanel"
+                IsVisible="False"
+                MinHeight="330"
+                Padding="28"
+                Background="#FFFFFF"
+                BorderBrush="#E3E9F3"
+                BorderThickness="1"
+                CornerRadius="14">
+
+            <Grid>
+
+                <StackPanel HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            MaxWidth="460"
+                            Spacing="9">
+
+                    <TextBlock x:Name="SectionTitle"
+                               FontSize="18"
+                               FontWeight="SemiBold"
+                               Foreground="#10214A"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                    <TextBlock x:Name="SectionDescription"
+                               FontSize="9"
+                               Foreground="#8C98AA"
+                               TextWrapping="Wrap"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+    </StackPanel>
+
+</UserControl>

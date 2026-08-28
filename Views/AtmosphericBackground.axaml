@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.AtmosphericBackground"
+             IsHitTestVisible="False">
+    <Grid Background="{StaticResource SocyviaAtmosphereBrush}"
+          ClipToBounds="True">
+        <Ellipse Width="720" Height="720"
+                 Margin="-210,-290,0,0"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Fill="#282563EB">
+            <Ellipse.Effect><BlurEffect Radius="105"/></Ellipse.Effect>
+        </Ellipse>
+        <Ellipse Width="610" Height="610"
+                 Margin="0,0,-210,-240"
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Bottom"
+                 Fill="#1D2563EB">
+            <Ellipse.Effect><BlurEffect Radius="112"/></Ellipse.Effect>
+        </Ellipse>
+        <Ellipse Width="390" Height="390"
+                 Margin="0,50,110,0"
+                 HorizontalAlignment="Right"
+                 VerticalAlignment="Top"
+                 Fill="#187DA2D6">
+            <Ellipse.Effect><BlurEffect Radius="92"/></Ellipse.Effect>
+        </Ellipse>
+        <Ellipse Width="280" Height="280"
+                 Margin="210,0,0,90"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Bottom"
+                 Fill="#105261C9">
+            <Ellipse.Effect><BlurEffect Radius="84"/></Ellipse.Effect>
+        </Ellipse>
+        <Canvas Opacity="0.22">
+            <Path Stroke="#6B7E96" StrokeThickness="0.7"
+                  Data="M0,170 C260,118 420,246 690,188 C930,137 1120,210 1440,112"/>
+            <Path Stroke="#2563EB" StrokeThickness="0.7"
+                  Data="M0,560 C210,480 438,612 730,520 C1010,430 1190,520 1500,420"/>
+        </Canvas>
+    </Grid>
+</UserControl>

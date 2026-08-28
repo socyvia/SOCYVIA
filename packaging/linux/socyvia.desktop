@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=SOCYVIA
+Comment=Scientific experimentation and research analysis
+Exec=socyvia
+Icon=socyvia
+Terminal=false
+Categories=Science;Education;
+StartupNotify=true
+StartupWMClass=SOCYVIA

@@ -1,0 +1,87 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:views="using:SOCYVIA.Views"
+        x:Class="SOCYVIA.Views.OnboardingTourWindow"
+        Title="Welcome to SOCYVIA"
+        Width="700" Height="500"
+        MinWidth="700" MinHeight="500"
+        MaxWidth="700" MaxHeight="500"
+        CanResize="False"
+        ShowInTaskbar="False"
+        WindowDecorations="None"
+        WindowStartupLocation="CenterOwner"
+        Background="{StaticResource SocyviaRoleNeutralSurfaceBrush}">
+    <Grid RowDefinitions="Auto,*">
+    <views:SocyviaWindowChrome x:Name="OnboardingWindowChrome" Grid.Row="0"/>
+    <Grid Grid.Row="1">
+    <views:AtmosphericBackground/>
+    <Border Margin="14" Classes="glassFloating" Padding="26" ClipToBounds="True">
+        <Grid RowDefinitions="Auto,*,Auto">
+            <Grid ColumnDefinitions="48,*,Auto" ColumnSpacing="13">
+                <Border Width="48" Height="48" CornerRadius="14"
+                        Background="{StaticResource SurfaceElevated}"
+                        BorderBrush="{StaticResource StrokeSubtle}"
+                        BorderThickness="1">
+                    <Image Source="avares://SOCYVIA/Assets/Branding/socyvia-mark.png"
+                           Width="34" Height="34" Stretch="Uniform"/>
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="2">
+                    <TextBlock Text="SOCYVIA" FontSize="16" FontWeight="Bold"
+                               LetterSpacing="2.4" Foreground="{StaticResource SocyviaInkBrush}"/>
+                    <TextBlock x:Name="TourContextText" FontSize="8.5"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                </StackPanel>
+                <TextBlock x:Name="StepCounterText" Grid.Column="2"
+                           FontSize="8.5" Foreground="{StaticResource SocyviaMutedTextBrush}"
+                           VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Row="1" Margin="0,24,0,20" ColumnDefinitions="0.76*,18,1.24*">
+                <Border x:Name="SpotlightPanel" Grid.Column="0"
+                        Background="{StaticResource SocyviaRolePrimarySurfaceBrush}"
+                        BorderBrush="{StaticResource SocyviaRolePrimaryBorderBrush}"
+                        BorderThickness="1" CornerRadius="18">
+                    <Grid>
+                        <Ellipse Width="130" Height="130" Fill="{StaticResource SocyviaRolePrimarySurfaceBrush}" Stroke="{StaticResource SocyviaRolePrimaryBorderBrush}"/>
+                        <Ellipse Width="72" Height="72" Fill="{StaticResource SocyviaSurfaceBrush}" Stroke="{StaticResource SocyviaRolePrimaryBrush}" StrokeThickness="1.4"/>
+                        <Image x:Name="SpotlightBrandMark"
+                               Source="avares://SOCYVIA/Assets/Branding/socyvia-mark.png"
+                               Width="46" Height="46" Stretch="Uniform"
+                               HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <TextBlock x:Name="SpotlightGlyph" FontSize="26" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaAccentBrush}"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                </Border>
+                <Border Grid.Column="2" Classes="researchCard" Padding="24">
+                    <StackPanel VerticalAlignment="Center" Spacing="10">
+                        <TextBlock x:Name="TourTitleText" FontSize="19" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaInkBrush}" TextWrapping="Wrap"/>
+                        <TextBlock x:Name="TourBodyText" FontSize="10" LineHeight="17"
+                                   Foreground="{StaticResource SocyviaSecondaryTextBrush}" TextWrapping="Wrap"/>
+                        <Border x:Name="TourHintPanel" Classes="badge"
+                                HorizontalAlignment="Left" Margin="0,4,0,0">
+                            <TextBlock x:Name="TourHintText" FontSize="8"
+                                       Foreground="{StaticResource SocyviaAccentBrush}"/>
+                        </Border>
+                        <StackPanel x:Name="FirstLaunchActions" Margin="0,8,0,0" Spacing="8">
+                            <Grid ColumnDefinitions="*,8,*">
+                                <Button x:Name="CreateStudyButton" Grid.Column="0" Classes="primary" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="OpenStudyButton" Grid.Column="2" Classes="secondary" HorizontalAlignment="Stretch"/>
+                            </Grid>
+                            <Button x:Name="ExploreDemoButton" Classes="quiet" HorizontalAlignment="Stretch"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="2" ColumnDefinitions="Auto,*,Auto,8,Auto">
+                <Button x:Name="SkipButton" Classes="quiet" Grid.Column="0"/>
+                <Button x:Name="BackButton" Classes="secondary" Grid.Column="2" MinWidth="82"/>
+                <Button x:Name="NextButton" Classes="primary" Grid.Column="4" MinWidth="96"/>
+            </Grid>
+        </Grid>
+    </Border>
+    </Grid>
+    </Grid>
+</Window>

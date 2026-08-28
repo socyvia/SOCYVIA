@@ -1,0 +1,324 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.ExperimentDesignerView"
+             x:Name="RootExperimentDesigner">
+
+    <UserControl.Styles>
+        <Style Selector="Button.designPrimary">
+            <Setter Property="MinHeight" Value="34"/>
+            <Setter Property="Padding" Value="16,7"/>
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.designSecondary">
+            <Setter Property="MinHeight" Value="29"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Background" Value="#F6F7FB"/>
+            <Setter Property="Foreground" Value="#31435F"/>
+            <Setter Property="BorderBrush" Value="#DCE3EE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="TextBox.designInput">
+            <Setter Property="MinHeight" Value="35"/>
+            <Setter Property="Padding" Value="10,7"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DCE3EE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+        </Style>
+
+        <Style Selector="ComboBox.designSelect">
+            <Setter Property="MinHeight" Value="35"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="NumericUpDown.designNumber">
+            <Setter Property="MinHeight" Value="33"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel Spacing="14">
+        <Border Padding="20"
+                Classes="commandSurface">
+            <StackPanel Spacing="4">
+                <TextBlock x:Name="PageTitle"
+                           FontSize="17"
+                           FontWeight="SemiBold"
+                           Foreground="#10214A"/>
+                <TextBlock x:Name="PageSubtitle"
+                           FontSize="9"
+                           Foreground="#8C98AA"
+                           TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+
+        <Grid ColumnDefinitions="*,14,*">
+            <Border Grid.Column="0"
+                    Padding="17"
+                    Classes="researchCard">
+                <StackPanel Spacing="10">
+                    <TextBlock x:Name="SummaryTitle"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="#203451"/>
+                    <Grid ColumnDefinitions="*,Auto"
+                          RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto"
+                          RowSpacing="6">
+                        <TextBlock x:Name="SummaryDesignLabel" Grid.Row="0" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryDesignValue" Grid.Row="0" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryGroupsLabel" Grid.Row="1" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryGroupsValue" Grid.Row="1" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryConditionsLabel" Grid.Row="2" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryConditionsValue" Grid.Row="2" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryControlLabel" Grid.Row="3" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryControlValue" Grid.Row="3" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryTargetLabel" Grid.Row="4" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryTargetValue" Grid.Row="4" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryAssignmentLabel" Grid.Row="5" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryAssignmentValue" Grid.Row="5" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryStimuliLabel" Grid.Row="6" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryStimuliValue" Grid.Row="6" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryRandomizationLabel" Grid.Row="7" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryRandomizationValue" Grid.Row="7" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SummaryModulesLabel" Grid.Row="8" Foreground="#7E899A" FontSize="8.3"/>
+                        <TextBlock x:Name="SummaryModulesValue" Grid.Row="8" Grid.Column="1" Foreground="#203451" FontSize="8.5" FontWeight="SemiBold" TextWrapping="Wrap"/>
+                    </Grid>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2"
+                    Padding="17"
+                    Classes="researchCard">
+                <StackPanel Spacing="10">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TextBlock x:Name="ReadinessTitle"
+                                   FontSize="12"
+                                   FontWeight="SemiBold"
+                                   Foreground="#203451"/>
+                        <Border Grid.Column="1"
+                                Padding="9,3"
+                                Background="#F0F1FF"
+                                CornerRadius="8">
+                            <TextBlock x:Name="ReadinessStatus"
+                                       FontSize="8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#2563EB"/>
+                        </Border>
+                    </Grid>
+                    <Border x:Name="PublishedExperimentPanel"
+                            IsVisible="False"
+                            Padding="12"
+                            Background="#F4F8FF"
+                            BorderBrush="#BFD2F7"
+                            BorderThickness="1"
+                            CornerRadius="9">
+                        <StackPanel Spacing="7">
+                            <TextBlock x:Name="PublishedExperimentTitle" FontSize="9.5" FontWeight="SemiBold" Foreground="#203451"/>
+                            <TextBlock x:Name="PublishedExperimentLink" FontSize="8.2" TextWrapping="Wrap" Foreground="#2563EB"/>
+                            <TextBlock x:Name="PublishedExperimentRouting" FontSize="7.8" TextWrapping="Wrap" Foreground="#66758C"/>
+                            <StackPanel Orientation="Horizontal" Spacing="7">
+                                <Button x:Name="CopyPublishedLinkButton" Classes="secondary" MinWidth="94"/>
+                                <Button x:Name="OpenLiveExperimentButton" Classes="primary" MinWidth="108"/>
+                                <Button x:Name="PreviewPublishedExperimentButton" Classes="secondary" MinWidth="112"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel x:Name="ReadinessContainer"
+                                Spacing="6"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Border Padding="20"
+                Classes="researchCard">
+            <StackPanel Spacing="12">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel Grid.Column="0" Spacing="3">
+                        <TextBlock x:Name="ConditionsTitle"
+                                   FontSize="13"
+                                   FontWeight="SemiBold"
+                                   Foreground="#203451"/>
+                        <TextBlock x:Name="ConditionsSubtitle"
+                                   FontSize="8.5"
+                                   Foreground="#8C98AA"/>
+                    </StackPanel>
+                    <Button x:Name="AddConditionButton"
+                            Grid.Column="1"
+                            Classes="designPrimary">
+                        <TextBlock x:Name="AddConditionButtonText"/>
+                    </Button>
+                </Grid>
+
+                <TextBlock x:Name="ConditionsEmptyText"
+                           IsVisible="False"
+                           Margin="8,20"
+                           FontSize="9"
+                           Foreground="#8C98AA"
+                           HorizontalAlignment="Center"/>
+
+                <StackPanel x:Name="ConditionsContainer"
+                            Spacing="8"/>
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="ConditionEditorPanel"
+                IsVisible="False"
+                Padding="20"
+                Background="#FFFFFF"
+                BorderBrush="#DDE4EF"
+                BorderThickness="1"
+                CornerRadius="14">
+            <StackPanel Spacing="15">
+                <TextBlock x:Name="ConditionEditorTitle"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="#10214A"/>
+
+                <Grid ColumnDefinitions="*,12,*,12,*">
+                    <StackPanel Grid.Column="0" Spacing="5">
+                        <TextBlock x:Name="ConditionNameLabel" FontSize="8.5" FontWeight="SemiBold" Foreground="#53627B"/>
+                        <TextBox x:Name="ConditionNameBox" Classes="designInput"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2" Spacing="5">
+                        <TextBlock x:Name="ConditionTypeLabel" FontSize="8.5" FontWeight="SemiBold" Foreground="#53627B" TextAlignment="Center"/>
+                        <ComboBox x:Name="ConditionTypeComboBox" Classes="designSelect"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4" Spacing="5">
+                        <TextBlock x:Name="ConditionGroupLabel" FontSize="8.5" FontWeight="SemiBold" Foreground="#53627B" TextAlignment="Center"/>
+                        <ComboBox x:Name="ConditionGroupComboBox" Classes="designSelect"/>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Spacing="5">
+                    <TextBlock x:Name="ConditionDescriptionLabel" FontSize="8.5" FontWeight="SemiBold" Foreground="#53627B"/>
+                    <TextBox x:Name="ConditionDescriptionBox"
+                             Classes="designInput"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             MinHeight="65"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="24">
+                    <CheckBox x:Name="ControlConditionCheckBox"/>
+                    <CheckBox x:Name="ActiveConditionCheckBox" IsChecked="True"/>
+                </StackPanel>
+
+                <Border Height="1" Background="#E7EBF2"/>
+
+                <StackPanel Spacing="5">
+                    <TextBlock x:Name="ManipulationTitle"
+                               FontSize="12"
+                               FontWeight="SemiBold"
+                               Foreground="#203451"/>
+                    <TextBlock x:Name="ManipulationSubtitle"
+                               FontSize="8.3"
+                               Foreground="#8C98AA"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <CheckBox x:Name="ShowEngagementMetricsCheckBox"
+                          IsChecked="True"
+                          HorizontalAlignment="Center"/>
+
+                <Grid ColumnDefinitions="110,10,150,10,100,10,100,10,100,10,100"
+                      RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto"
+                      RowSpacing="8">
+                    <TextBlock x:Name="MetricHeaderLabel" Grid.Row="0" Grid.Column="0" FontSize="8" Foreground="#7E899A"/>
+                    <TextBlock x:Name="ModeHeaderLabel" Grid.Row="0" Grid.Column="2" FontSize="8" Foreground="#7E899A" TextAlignment="Center"/>
+                    <TextBlock x:Name="FixedHeaderLabel" Grid.Row="0" Grid.Column="4" FontSize="8" Foreground="#7E899A" TextAlignment="Center"/>
+                    <TextBlock x:Name="MultiplierHeaderLabel" Grid.Row="0" Grid.Column="6" FontSize="8" Foreground="#7E899A" TextAlignment="Center"/>
+                    <TextBlock x:Name="MinimumHeaderLabel" Grid.Row="0" Grid.Column="8" FontSize="8" Foreground="#7E899A" TextAlignment="Center"/>
+                    <TextBlock x:Name="MaximumHeaderLabel" Grid.Row="0" Grid.Column="10" FontSize="8" Foreground="#7E899A" TextAlignment="Center"/>
+
+                    <TextBlock x:Name="LikesLabel" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" FontSize="8.5" Foreground="#53627B"/>
+                    <ComboBox x:Name="LikesModeComboBox" Grid.Row="1" Grid.Column="2" Classes="designSelect"/>
+                    <NumericUpDown x:Name="LikesFixedBox" Grid.Row="1" Grid.Column="4" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="LikesMultiplierBox" Grid.Row="1" Grid.Column="6" Classes="designNumber" Minimum="0" Increment="0.1" FormatString="0.##"/>
+                    <NumericUpDown x:Name="LikesMinBox" Grid.Row="1" Grid.Column="8" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="LikesMaxBox" Grid.Row="1" Grid.Column="10" Classes="designNumber" Minimum="0" FormatString="0"/>
+
+                    <TextBlock x:Name="CommentsLabel" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" FontSize="8.5" Foreground="#53627B"/>
+                    <ComboBox x:Name="CommentsModeComboBox" Grid.Row="2" Grid.Column="2" Classes="designSelect"/>
+                    <NumericUpDown x:Name="CommentsFixedBox" Grid.Row="2" Grid.Column="4" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="CommentsMultiplierBox" Grid.Row="2" Grid.Column="6" Classes="designNumber" Minimum="0" Increment="0.1" FormatString="0.##"/>
+                    <NumericUpDown x:Name="CommentsMinBox" Grid.Row="2" Grid.Column="8" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="CommentsMaxBox" Grid.Row="2" Grid.Column="10" Classes="designNumber" Minimum="0" FormatString="0"/>
+
+                    <TextBlock x:Name="SharesLabel" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" FontSize="8.5" Foreground="#53627B"/>
+                    <ComboBox x:Name="SharesModeComboBox" Grid.Row="3" Grid.Column="2" Classes="designSelect"/>
+                    <NumericUpDown x:Name="SharesFixedBox" Grid.Row="3" Grid.Column="4" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="SharesMultiplierBox" Grid.Row="3" Grid.Column="6" Classes="designNumber" Minimum="0" Increment="0.1" FormatString="0.##"/>
+                    <NumericUpDown x:Name="SharesMinBox" Grid.Row="3" Grid.Column="8" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="SharesMaxBox" Grid.Row="3" Grid.Column="10" Classes="designNumber" Minimum="0" FormatString="0"/>
+
+                    <TextBlock x:Name="ViewsLabel" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" FontSize="8.5" Foreground="#53627B"/>
+                    <ComboBox x:Name="ViewsModeComboBox" Grid.Row="4" Grid.Column="2" Classes="designSelect"/>
+                    <NumericUpDown x:Name="ViewsFixedBox" Grid.Row="4" Grid.Column="4" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="ViewsMultiplierBox" Grid.Row="4" Grid.Column="6" Classes="designNumber" Minimum="0" Increment="0.1" FormatString="0.##"/>
+                    <NumericUpDown x:Name="ViewsMinBox" Grid.Row="4" Grid.Column="8" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="ViewsMaxBox" Grid.Row="4" Grid.Column="10" Classes="designNumber" Minimum="0" FormatString="0"/>
+
+                    <TextBlock x:Name="SavesLabel" Grid.Row="5" Grid.Column="0" VerticalAlignment="Center" FontSize="8.5" Foreground="#53627B"/>
+                    <ComboBox x:Name="SavesModeComboBox" Grid.Row="5" Grid.Column="2" Classes="designSelect"/>
+                    <NumericUpDown x:Name="SavesFixedBox" Grid.Row="5" Grid.Column="4" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="SavesMultiplierBox" Grid.Row="5" Grid.Column="6" Classes="designNumber" Minimum="0" Increment="0.1" FormatString="0.##"/>
+                    <NumericUpDown x:Name="SavesMinBox" Grid.Row="5" Grid.Column="8" Classes="designNumber" Minimum="0" FormatString="0"/>
+                    <NumericUpDown x:Name="SavesMaxBox" Grid.Row="5" Grid.Column="10" Classes="designNumber" Minimum="0" FormatString="0"/>
+                </Grid>
+
+                <Grid ColumnDefinitions="*,18,*">
+                    <StackPanel Grid.Column="0" Spacing="5">
+                        <TextBlock x:Name="ContentOrderLabel" FontSize="8.5" FontWeight="SemiBold" Foreground="#53627B" TextAlignment="Center"/>
+                        <ComboBox x:Name="ContentOrderComboBox" Classes="designSelect"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Spacing="8">
+                        <TextBlock x:Name="VisibilityLabel" FontSize="8.5" FontWeight="SemiBold" Foreground="#53627B" TextAlignment="Center"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Spacing="18">
+                            <CheckBox x:Name="ShowAuthorCheckBox" IsChecked="True"/>
+                            <CheckBox x:Name="ShowTimestampCheckBox" IsChecked="True"/>
+                            <CheckBox x:Name="ShowPlatformCheckBox" IsChecked="True"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Spacing="5">
+                    <TextBlock x:Name="CustomPresentationLabel" FontSize="8.5" FontWeight="SemiBold" Foreground="#53627B"/>
+                    <TextBox x:Name="CustomPresentationBox"
+                             Classes="designInput"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             MinHeight="58"/>
+                </StackPanel>
+
+                <TextBlock x:Name="ConditionEditorErrorText"
+                           IsVisible="False"
+                           FontSize="8.5"
+                           Foreground="#C43C55"
+                           TextWrapping="Wrap"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="8">
+                    <Button x:Name="CancelConditionButton" Classes="designSecondary">
+                        <TextBlock x:Name="CancelConditionButtonText"/>
+                    </Button>
+                    <Button x:Name="SaveConditionButton" Classes="designPrimary">
+                        <TextBlock x:Name="SaveConditionButtonText"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

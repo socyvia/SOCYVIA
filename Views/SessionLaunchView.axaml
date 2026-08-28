@@ -1,0 +1,232 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.SessionLaunchView"
+             x:Name="RootSessionLaunch">
+
+    <UserControl.Styles>
+        <Style Selector="Button.launchPrimary">
+            <Setter Property="MinHeight" Value="36"/>
+            <Setter Property="Padding" Value="18,8"/>
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="ComboBox.launchSelect">
+            <Setter Property="MinHeight" Value="35"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel Spacing="14">
+        <Border Padding="20"
+                Classes="commandSurface">
+            <StackPanel Spacing="4">
+                <TextBlock x:Name="PageTitle"
+                           FontSize="17"
+                           FontWeight="SemiBold"
+                           Foreground="#10214A"/>
+                <TextBlock x:Name="PageSubtitle"
+                           FontSize="9"
+                           Foreground="#8C98AA"
+                           TextWrapping="Wrap"/>
+            </StackPanel>
+        </Border>
+
+        <Border Classes="researchCard" Padding="18">
+            <StackPanel Spacing="11">
+                <Grid ColumnDefinitions="*,Auto">
+                    <StackPanel Spacing="3">
+                        <TextBlock x:Name="SessionsOverviewTitle"
+                                   FontSize="12" FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                        <TextBlock x:Name="SessionsOverviewSubtitle"
+                                   FontSize="8.5"
+                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                    </StackPanel>
+                    <Border Grid.Column="1" Classes="badge">
+                        <TextBlock x:Name="SessionsOverviewCount"
+                                   FontSize="8" TextAlignment="Center"
+                                   Foreground="{StaticResource SocyviaAccentBrush}"/>
+                    </Border>
+                </Grid>
+                <Grid ColumnDefinitions="1.1*,1*,1*,Auto,Auto" ColumnSpacing="12" Margin="12,2,12,0">
+                    <TextBlock x:Name="SessionParticipantColumnText" FontSize="7.4" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="SessionGroupColumnText" Grid.Column="1" FontSize="7.4" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="SessionConditionColumnText" Grid.Column="2" FontSize="7.4" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="SessionStateColumnText" Grid.Column="3" MinWidth="80" FontSize="7.4" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                    <TextBlock x:Name="SessionActionColumnText" Grid.Column="4" MinWidth="96" FontSize="7.4" FontWeight="SemiBold"
+                               Foreground="{StaticResource SocyviaMutedTextBrush}" TextAlignment="Center"/>
+                </Grid>
+                <StackPanel x:Name="SessionsOverviewContainer" Spacing="8"/>
+                <Border x:Name="SessionsOverviewEmpty"
+                        IsVisible="False" MinHeight="110"
+                        Classes="emptyState">
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="5">
+                        <TextBlock x:Name="SessionsOverviewEmptyTitle"
+                                   FontSize="10" FontWeight="SemiBold" TextAlignment="Center"/>
+                        <TextBlock x:Name="SessionsOverviewEmptyText"
+                                   FontSize="8.4" Foreground="{StaticResource SocyviaMutedTextBrush}"
+                                   TextAlignment="Center" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+
+        <Grid ColumnDefinitions="1.1*,14,0.9*">
+            <Border Grid.Column="0"
+                    Padding="20"
+                    Classes="researchCard">
+                <StackPanel Spacing="14">
+                    <TextBlock x:Name="PreparationTitle"
+                               FontSize="13"
+                               FontWeight="SemiBold"
+                               Foreground="#203451"/>
+
+                    <StackPanel Spacing="5">
+                        <TextBlock x:Name="ParticipantLabel"
+                                   FontSize="8.5"
+                                   FontWeight="SemiBold"
+                                   Foreground="#53627B"
+                                   TextAlignment="Center"/>
+                        <ComboBox x:Name="ParticipantComboBox"
+                                  Classes="launchSelect"/>
+                    </StackPanel>
+
+                    <Grid ColumnDefinitions="*,14,*">
+                        <StackPanel Grid.Column="0" Spacing="5">
+                            <TextBlock x:Name="GroupLabel"
+                                       FontSize="8.5"
+                                       FontWeight="SemiBold"
+                                       Foreground="#53627B"
+                                       TextAlignment="Center"/>
+                            <Border MinHeight="35"
+                                    Padding="10,7"
+                                    Background="#F7F9FD"
+                                    BorderBrush="#DCE3EE"
+                                    BorderThickness="1"
+                                    CornerRadius="8">
+                                <TextBlock x:Name="GroupValue"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"
+                                           Foreground="#31435F"/>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" Spacing="5">
+                            <TextBlock x:Name="StrategyLabel"
+                                       FontSize="8.5"
+                                       FontWeight="SemiBold"
+                                       Foreground="#53627B"
+                                       TextAlignment="Center"/>
+                            <ComboBox x:Name="StrategyComboBox"
+                                      Classes="launchSelect"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <StackPanel Spacing="5">
+                        <TextBlock x:Name="ConditionLabel"
+                                   FontSize="8.5"
+                                   FontWeight="SemiBold"
+                                   Foreground="#53627B"
+                                   TextAlignment="Center"/>
+                        <ComboBox x:Name="ConditionComboBox"
+                                  Classes="launchSelect"/>
+                    </StackPanel>
+
+                    <StackPanel Spacing="5">
+                        <TextBlock x:Name="ParticipantDisplayLabel"
+                                   FontSize="8.5" FontWeight="SemiBold"
+                                   Foreground="#53627B" TextAlignment="Center"/>
+                        <ComboBox x:Name="ParticipantDisplayComboBox"
+                                  Classes="launchSelect"/>
+                    </StackPanel>
+
+                    <Border Padding="13"
+                            Background="#F7F9FD"
+                            CornerRadius="10">
+                        <Grid ColumnDefinitions="*,Auto"
+                              RowDefinitions="Auto,Auto,Auto"
+                              RowSpacing="7">
+                            <TextBlock x:Name="AssignedConditionLabel" Grid.Row="0" FontSize="8.3" Foreground="#7E899A"/>
+                            <TextBlock x:Name="AssignedConditionValue" Grid.Row="0" Grid.Column="1" FontSize="8.6" FontWeight="SemiBold" Foreground="#203451"/>
+                            <TextBlock x:Name="StimuliPreviewLabel" Grid.Row="1" FontSize="8.3" Foreground="#7E899A"/>
+                            <TextBlock x:Name="StimuliPreviewValue" Grid.Row="1" Grid.Column="1" FontSize="8.6" FontWeight="SemiBold" Foreground="#203451"/>
+                            <TextBlock x:Name="ManipulationPreviewLabel" Grid.Row="2" FontSize="8.3" Foreground="#7E899A"/>
+                            <TextBlock x:Name="ManipulationPreviewValue" Grid.Row="2" Grid.Column="1" MaxWidth="260" FontSize="8.3" Foreground="#203451" TextWrapping="Wrap"/>
+                        </Grid>
+                    </Border>
+
+                    <TextBlock x:Name="LaunchErrorText"
+                               IsVisible="False"
+                               FontSize="8.5"
+                               Foreground="#C43C55"
+                               TextWrapping="Wrap"/>
+
+                    <Button x:Name="PrepareSessionButton"
+                            Classes="launchPrimary"
+                            HorizontalAlignment="Center">
+                        <TextBlock x:Name="PrepareSessionButtonText"/>
+                    </Button>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2"
+                    Padding="18"
+                    Classes="researchCard">
+                <StackPanel Spacing="11" MaxWidth="430" HorizontalAlignment="Stretch">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <TextBlock x:Name="ReadinessTitle"
+                                   FontSize="12"
+                                   FontWeight="SemiBold"
+                                   Foreground="#203451"/>
+                        <Border Grid.Column="1"
+                                Padding="9,3"
+                                Background="#F0F1FF"
+                                CornerRadius="8">
+                            <TextBlock x:Name="ReadinessStatus"
+                                       FontSize="8"
+                                       FontWeight="SemiBold"
+                                       Foreground="#2563EB"/>
+                        </Border>
+                    </Grid>
+                    <StackPanel x:Name="ReadinessContainer"
+                                Spacing="6"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <Border x:Name="LaunchResultPanel"
+                IsVisible="False"
+                Padding="18"
+                Background="#F2FAF7"
+                BorderBrush="#BFE4D8"
+                BorderThickness="1"
+                CornerRadius="14">
+            <StackPanel Spacing="8">
+                <TextBlock x:Name="LaunchResultTitle"
+                           FontSize="12"
+                           FontWeight="SemiBold"
+                           Foreground="#23775F"/>
+                <TextBlock x:Name="LaunchResultText"
+                           FontSize="9"
+                           Foreground="#315C50"
+                           TextWrapping="Wrap"/>
+                <Button x:Name="LaunchParticipantButton"
+                        Classes="launchPrimary"
+                        HorizontalAlignment="Center"
+                        IsVisible="False">
+                    <TextBlock x:Name="LaunchParticipantButtonText"/>
+                </Button>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

@@ -1,0 +1,595 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SOCYVIA.Views.StimulusPostImportWindow"
+        x:Name="RootImportWindow"
+
+        Width="700"
+        Height="520"
+
+        MinWidth="660"
+        MinHeight="480"
+
+        WindowStartupLocation="CenterOwner"
+        CanResize="True"
+        ShowInTaskbar="False"
+
+        Background="#F7F9FD"
+        FontFamily="{StaticResource EnglishFont}"
+        Title="SOCYVIA">
+
+    <Window.Styles>
+
+        <!-- ================================================= -->
+        <!-- PRIMARY                                           -->
+        <!-- ================================================= -->
+
+        <Style Selector="Button.primary">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="MinWidth" Value="112"/>
+            <Setter Property="Padding" Value="16,0"/>
+            <Setter Property="Background"
+                    Value="{StaticResource BrandGradientBrush}"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- SECONDARY                                         -->
+        <!-- ================================================= -->
+
+        <Style Selector="Button.secondary">
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="MinWidth" Value="90"/>
+            <Setter Property="Padding" Value="14,0"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="Foreground" Value="#4A5B75"/>
+            <Setter Property="BorderBrush" Value="#DDE4EF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.secondary:pointerover">
+            <Setter Property="Background" Value="#F8F9FD"/>
+            <Setter Property="BorderBrush" Value="#C9CDF4"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- IMPORT ACTION CARDS                               -->
+        <!-- ================================================= -->
+
+        <Style Selector="Button.importCard">
+            <Setter Property="Height" Value="92"/>
+            <Setter Property="Padding" Value="14"/>
+            <Setter Property="Background" Value="#FAFBFE"/>
+            <Setter Property="BorderBrush" Value="#E1E6F0"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="11"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.importCard:pointerover">
+            <Setter Property="Background" Value="#F5F5FE"/>
+            <Setter Property="BorderBrush" Value="#CFCEF7"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- METRIC                                            -->
+        <!-- ================================================= -->
+
+        <Style Selector="Border.metric">
+            <Setter Property="MinHeight" Value="65"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E3E9F3"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- PREVIEW ROW                                       -->
+        <!-- ================================================= -->
+
+        <Style Selector="Border.previewRow">
+            <Setter Property="MinHeight" Value="52"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#E7EBF2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+        </Style>
+
+    </Window.Styles>
+
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+
+        <!-- ================================================= -->
+        <!-- HEADER                                            -->
+        <!-- ================================================= -->
+
+        <Border Grid.Row="0"
+                Padding="20,14"
+                Background="#FFFFFF"
+                BorderBrush="#E5EAF2"
+                BorderThickness="0,0,0,1">
+
+            <Grid x:Name="HeaderGrid"
+                  ColumnDefinitions="Auto,*,Auto">
+
+                <Button x:Name="CloseTopButton"
+                        Grid.Column="0"
+                        Classes="secondary"
+                        MinWidth="76">
+
+                    <TextBlock x:Name="CloseTopText"
+                               FontSize="8.7"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </Button>
+
+
+                <StackPanel x:Name="HeaderTextPanel"
+                            Grid.Column="2"
+                            HorizontalAlignment="Right"
+                            VerticalAlignment="Center"
+                            Spacing="2">
+
+                    <TextBlock x:Name="ImportTitle"
+                               FontSize="15"
+                               FontWeight="SemiBold"
+                               Foreground="#10214A"/>
+
+                    <TextBlock x:Name="ImportSubtitle"
+                               FontSize="8"
+                               Foreground="#8793A8"/>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================================================= -->
+        <!-- CONTENT                                           -->
+        <!-- ================================================= -->
+
+        <ScrollViewer Grid.Row="1"
+                      HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Auto">
+
+            <StackPanel Margin="20,15,20,18"
+                        Spacing="13">
+
+
+                <!-- ================================================= -->
+                <!-- IMPORT SOURCE                                     -->
+                <!-- ================================================= -->
+
+                <Border Padding="16"
+                        Background="#FFFFFF"
+                        BorderBrush="#E3E9F3"
+                        BorderThickness="1"
+                        CornerRadius="12">
+
+                    <StackPanel Spacing="12">
+
+
+                        <StackPanel x:Name="TemplateHeaderPanel"
+                                    HorizontalAlignment="Right"
+                                    Spacing="2">
+
+                            <TextBlock x:Name="TemplateTitle"
+                                       FontSize="10.5"
+                                       FontWeight="SemiBold"
+                                       Foreground="#2F425E"/>
+
+                            <TextBlock x:Name="TemplateDescription"
+                                       FontSize="8"
+                                       Foreground="#8E9AAD"
+                                       TextWrapping="Wrap"/>
+
+                        </StackPanel>
+
+
+                        <!-- IMPORTANT:
+                             We KEEP the two clickable cards -->
+
+                        <Grid ColumnDefinitions="*,12,*">
+
+
+                            <!-- DOWNLOAD TEMPLATE -->
+
+                            <Button x:Name="DownloadTemplateButton"
+                                    Grid.Column="0"
+                                    Classes="importCard">
+
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Spacing="5">
+
+                                    <Border Width="31"
+                                            Height="31"
+                                            CornerRadius="15.5"
+                                            Background="#EEEEFF"
+                                            HorizontalAlignment="Center">
+
+                                        <Path Data="M5,9 L10,14 L15,9 M10,3 L10,14"
+                                              Stroke="{StaticResource Primary}"
+                                              StrokeThickness="1.8"
+                                              StrokeLineCap="Round"
+                                              StrokeJoin="Round"
+                                              Width="20" Height="20" Stretch="Uniform"
+                                              HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+
+                                    </Border>
+
+                                    <TextBlock x:Name="DownloadTemplateText"
+                                               MaxWidth="245"
+                                               FontSize="8.8"
+                                               FontWeight="SemiBold"
+                                               Foreground="#43536D"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+
+                            <!-- CLICK HERE / UPLOAD FILE -->
+
+                            <Button x:Name="SelectFileButton"
+                                    Grid.Column="2"
+                                    Classes="importCard">
+
+                                <StackPanel HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            Spacing="5">
+
+                                    <Border Width="31"
+                                            Height="31"
+                                            CornerRadius="15.5"
+                                            Background="#EEEEFF"
+                                            HorizontalAlignment="Center">
+
+                                        <TextBlock Text="+"
+                                                   FontFamily="{StaticResource EnglishFont}"
+                                                   FontSize="16"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="#2563EB"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   TextAlignment="Center"/>
+
+                                    </Border>
+
+                                    <TextBlock x:Name="SelectFileText"
+                                               MaxWidth="245"
+                                               FontSize="8.8"
+                                               FontWeight="SemiBold"
+                                               Foreground="#43536D"
+                                               HorizontalAlignment="Center"
+                                               TextAlignment="Center"
+                                               TextWrapping="Wrap"/>
+
+                                </StackPanel>
+
+                            </Button>
+
+                        </Grid>
+
+
+                        <!-- ================================================= -->
+                        <!-- SELECTED FILE                                     -->
+                        <!-- ================================================= -->
+
+                        <Border x:Name="SelectedFilePanel"
+                                IsVisible="False"
+                                Padding="10"
+                                Background="#F8F9FC"
+                                BorderBrush="#E2E7F0"
+                                BorderThickness="1"
+                                CornerRadius="9">
+
+                            <Grid ColumnDefinitions="Auto,10,*">
+
+                                <Border Grid.Column="0"
+                                        Width="32"
+                                        Height="32"
+                                        CornerRadius="8"
+                                        Background="#ECECFF">
+
+                                    <TextBlock Text="CSV"
+                                               FontFamily="{StaticResource EnglishFont}"
+                                               FontSize="7"
+                                               FontWeight="SemiBold"
+                                               Foreground="#2563EB"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               TextAlignment="Center"/>
+
+                                </Border>
+
+
+                                <StackPanel x:Name="SelectedFileTextPanel"
+                                            Grid.Column="2"
+                                            HorizontalAlignment="Right"
+                                            VerticalAlignment="Center"
+                                            Spacing="1">
+
+                                    <TextBlock x:Name="SelectedFileNameText"
+                                               FontFamily="{StaticResource EnglishFont}"
+                                               FontSize="8.5"
+                                               FontWeight="SemiBold"
+                                               Foreground="#354762"/>
+
+                                    <TextBlock x:Name="SelectedFileStatusText"
+                                               FontSize="7.5"
+                                               Foreground="#8E9AAD"/>
+
+                                </StackPanel>
+
+                            </Grid>
+
+                        </Border>
+
+                    </StackPanel>
+
+                </Border>
+
+
+                <!-- ================================================= -->
+                <!-- PREVIEW SUMMARY                                   -->
+                <!-- ================================================= -->
+
+                <StackPanel x:Name="PreviewSummaryPanel"
+                            IsVisible="False"
+                            Spacing="9">
+
+                    <StackPanel x:Name="PreviewHeaderPanel"
+                                HorizontalAlignment="Right"
+                                Spacing="2">
+
+                        <TextBlock x:Name="PreviewTitle"
+                                   FontSize="10.5"
+                                   FontWeight="SemiBold"
+                                   Foreground="#2F425E"/>
+
+                        <TextBlock x:Name="PreviewDescription"
+                                   FontSize="7.8"
+                                   Foreground="#8E9AAD"/>
+
+                    </StackPanel>
+
+
+                    <Grid ColumnDefinitions="*,10,*,10,*">
+
+                        <Border Grid.Column="0"
+                                Classes="metric">
+
+                            <StackPanel HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="2">
+
+                                <TextBlock x:Name="TotalRowsLabel"
+                                           FontSize="7.4"
+                                           Foreground="#8B97AA"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                                <TextBlock x:Name="TotalRowsValue"
+                                           Text="0"
+                                           FontFamily="{StaticResource EnglishFont}"
+                                           FontSize="17"
+                                           FontWeight="SemiBold"
+                                           Foreground="#263855"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+
+                        <Border Grid.Column="2"
+                                Classes="metric">
+
+                            <StackPanel HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="2">
+
+                                <TextBlock x:Name="ValidRowsLabel"
+                                           FontSize="7.4"
+                                           Foreground="#8B97AA"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                                <TextBlock x:Name="ValidRowsValue"
+                                           Text="0"
+                                           FontFamily="{StaticResource EnglishFont}"
+                                           FontSize="17"
+                                           FontWeight="SemiBold"
+                                           Foreground="#27846A"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+
+                        <Border Grid.Column="4"
+                                Classes="metric">
+
+                            <StackPanel HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Spacing="2">
+
+                                <TextBlock x:Name="InvalidRowsLabel"
+                                           FontSize="7.4"
+                                           Foreground="#8B97AA"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                                <TextBlock x:Name="InvalidRowsValue"
+                                           Text="0"
+                                           FontFamily="{StaticResource EnglishFont}"
+                                           FontSize="17"
+                                           FontWeight="SemiBold"
+                                           Foreground="#D84A5B"
+                                           HorizontalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </Grid>
+
+                </StackPanel>
+
+
+                <!-- ================================================= -->
+                <!-- GENERAL ERROR                                     -->
+                <!-- ================================================= -->
+
+                <Border x:Name="GeneralErrorPanel"
+                        IsVisible="False"
+                        Padding="11"
+                        Background="#FFF6F7"
+                        BorderBrush="#F2D4D8"
+                        BorderThickness="1"
+                        CornerRadius="9">
+
+                    <StackPanel Spacing="3">
+
+                        <TextBlock x:Name="GeneralErrorTitle"
+                                   FontSize="8.5"
+                                   FontWeight="SemiBold"
+                                   Foreground="#C64454"/>
+
+                        <TextBlock x:Name="GeneralErrorText"
+                                   FontSize="7.7"
+                                   Foreground="#A75C67"
+                                   TextWrapping="Wrap"/>
+
+                    </StackPanel>
+
+                </Border>
+
+
+                <!-- ================================================= -->
+                <!-- PREVIEW LIST                                      -->
+                <!-- ================================================= -->
+
+                <Border x:Name="PreviewCard"
+                        IsVisible="False"
+                        Padding="13"
+                        Background="#FFFFFF"
+                        BorderBrush="#E3E9F3"
+                        BorderThickness="1"
+                        CornerRadius="11">
+
+                    <StackPanel Spacing="8">
+
+                        <Grid ColumnDefinitions="Auto,*,Auto">
+
+                            <TextBlock x:Name="PreviewHintText"
+                                       Grid.Column="0"
+                                       FontSize="7.4"
+                                       Foreground="#919CAF"
+                                       VerticalAlignment="Center"/>
+
+                            <TextBlock x:Name="PreviewRowsTitle"
+                                       Grid.Column="2"
+                                       FontSize="9"
+                                       FontWeight="SemiBold"
+                                       Foreground="#354762"
+                                       HorizontalAlignment="Right"/>
+
+                        </Grid>
+
+
+                        <StackPanel x:Name="PreviewRowsContainer"
+                                    Spacing="6"/>
+
+                    </StackPanel>
+
+                </Border>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+
+        <!-- ================================================= -->
+        <!-- FOOTER                                            -->
+        <!-- ================================================= -->
+
+        <Border Grid.Row="2"
+                Padding="16,10"
+                Background="#FFFFFF"
+                BorderBrush="#E5EAF2"
+                BorderThickness="0,1,0,0">
+
+            <Grid x:Name="FooterGrid"
+                  ColumnDefinitions="Auto,*,Auto">
+
+                <Button x:Name="CancelButton"
+                        Grid.Column="0"
+                        Classes="secondary">
+
+                    <TextBlock x:Name="CancelText"
+                               FontSize="8.6"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </Button>
+
+
+                <Button x:Name="ImportButton"
+                        Grid.Column="2"
+                        Classes="primary"
+                        IsEnabled="False">
+
+                    <TextBlock x:Name="ImportButtonText"
+                               FontSize="8.6"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </Button>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</Window>

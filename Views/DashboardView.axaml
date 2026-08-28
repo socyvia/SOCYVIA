@@ -1,0 +1,1290 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:views="using:SOCYVIA.Views"
+             x:Class="SOCYVIA.Views.DashboardView"
+             x:Name="RootDashboard"
+             FontFamily="{StaticResource EnglishFont}">
+
+    <UserControl.Styles>
+
+        <Style Selector="Button.nav">
+            <Setter Property="Height" Value="44"/>
+            <Setter Property="Width" Value="192"/>
+            <Setter Property="Padding" Value="12,0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.nav:pointerover">
+            <Setter Property="Background" Value="{StaticResource SurfaceGlass}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+        </Style>
+
+        <Style Selector="Button.nav.selected">
+            <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+            <Setter Property="BorderBrush" Value="#4D2563EB"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Effect">
+                <DropShadowEffect Color="#302563EB" BlurRadius="15" OffsetY="3"/>
+            </Setter>
+        </Style>
+
+        <Style Selector="Path.navIcon">
+            <Setter Property="Stroke" Value="{StaticResource TextMuted}"/>
+            <Setter Property="StrokeThickness" Value="1.65"/>
+            <Setter Property="StrokeLineCap" Value="Round"/>
+            <Setter Property="StrokeJoin" Value="Round"/>
+            <Setter Property="Fill" Value="Transparent"/>
+        </Style>
+
+        <Style Selector="Button.nav:pointerover Path.navIcon">
+            <Setter Property="Stroke" Value="{StaticResource Primary}"/>
+        </Style>
+
+        <Style Selector="Button.nav.selected Path.navIcon">
+            <Setter Property="Stroke" Value="{StaticResource Primary}"/>
+            <Setter Property="StrokeThickness" Value="1.9"/>
+        </Style>
+
+        <!-- One logical navigation identity unit. FlowDirection places the icon
+             at the active language's start edge without stretching the label. -->
+        <Style Selector="Grid.navRow">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="StackPanel.navIdentity">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="Spacing" Value="8"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.nav.demo">
+            <Setter Property="Margin" Value="0,4,0,16"/>
+            <Setter Property="Background" Value="{StaticResource InformationSoft}"/>
+            <Setter Property="BorderBrush" Value="#3A2456A6"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="12"/>
+        </Style>
+
+        <Style Selector="Button.secondaryAction">
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Padding" Value="18,0"/>
+            <Setter Property="Background" Value="{StaticResource SurfaceElevated}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.secondaryAction:pointerover">
+            <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        </Style>
+
+        <Style Selector="Button.dashboardQuickAction">
+            <Setter Property="Height" Value="36"/>
+            <Setter Property="MinWidth" Value="132"/>
+            <Setter Property="Padding" Value="14,0"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="FontSize" Value="9"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.dashboardQuickAction:pointerover">
+            <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        </Style>
+
+        <Style Selector="Border.navMicroBadge">
+            <Setter Property="Padding" Value="6,2"/>
+            <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.textAction">
+            <Setter Property="Height" Value="34"/>
+            <Setter Property="Padding" Value="10,0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+            <Setter Property="FontSize" Value="9.5"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.profile">
+            <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="10"/>
+            <Setter Property="Cursor" Value="Hand"/>
+        </Style>
+
+        <Style Selector="Button.profile:pointerover">
+            <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+        </Style>
+
+        <!-- Quiet footer actions retain the footer's restrained scientific tone. -->
+        <Style Selector="Button.footerLink">
+            <Setter Property="MinHeight" Value="18"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.footerLink:pointerover">
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+            <Setter Property="TextBlock.TextDecorations" Value="Underline"/>
+        </Style>
+
+    </UserControl.Styles>
+
+
+    <Grid>
+        <views:AtmosphericBackground/>
+        <Grid x:Name="DashboardRootGrid"
+              Margin="0"
+              Background="Transparent"
+              ColumnDefinitions="*,216">
+
+
+        <!-- ================================================= -->
+        <!-- MAIN WORKSPACE                                    -->
+        <!-- ================================================= -->
+
+        <Grid x:Name="MainWorkspaceRoot"
+              Grid.Column="0"
+              RowDefinitions="58,*,50">
+
+            <!-- TOP BAR -->
+
+            <Border Grid.Row="0"
+                    Background="{StaticResource SurfaceMica}"
+                    BorderBrush="{StaticResource StrokeSubtle}"
+                    BorderThickness="0,0,0,1"
+                    CornerRadius="0"
+                    BoxShadow="0 10 28 0 #16102D51, inset 0 1 0 0 #EFFFFFFF">
+
+                <!-- The geometry layer stays LTR so the application FlowDirection cannot
+                     mirror a manually mirrored header a second time.  The two outer
+                     regions always receive identical width; connectivity is overlaid
+                     across both and therefore remains at the mathematical center. -->
+                <Grid x:Name="GlobalHeaderGrid"
+                      Margin="28,0"
+                      FlowDirection="LeftToRight"
+                      ColumnDefinitions="*,*">
+
+                    <!-- PROFILE -->
+
+                    <Button x:Name="ProfileButton"
+                            Grid.Column="0"
+                            Classes="profile"
+                            VerticalAlignment="Center">
+
+                        <Button.Flyout>
+
+    <Flyout Placement="BottomEdgeAlignedLeft">
+
+        <Border MinWidth="166"
+                MaxWidth="210"
+                Padding="10"
+                Classes="commandSurface">
+
+            <StackPanel Spacing="7">
+
+                <!-- PROFILE -->
+
+                <StackPanel Spacing="2"
+                            Margin="6,4">
+
+                    <TextBlock x:Name="ProfileMenuNameText"
+                               FontFamily="{StaticResource EnglishFont}"
+                               FontSize="10"
+                               FontWeight="SemiBold"
+                               Foreground="#1B2D50"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                    <TextBlock x:Name="ProfileMenuRoleText"
+                               FontFamily="{StaticResource ArabicFont}"
+                               FontSize="8"
+                               Foreground="#929DB0"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </StackPanel>
+
+
+                <Border Height="1"
+                        Margin="5,2"
+                        Background="#EDF0F5"/>
+
+
+                <!-- SETTINGS -->
+
+                <Button x:Name="ProfileSettingsButton"
+                        Height="32"
+                        MinWidth="146"
+                        Padding="10,0"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        CornerRadius="7"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center">
+
+                    <TextBlock x:Name="ProfileSettingsText"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </Button>
+
+
+                <!-- LOGOUT -->
+
+                <Button x:Name="LogoutButton"
+                        Height="32"
+                        MinWidth="146"
+                        Padding="10,0"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        CornerRadius="7"
+                        Foreground="#D84A5B"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        VerticalContentAlignment="Center">
+
+                    <TextBlock x:Name="LogoutText"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                </Button>
+
+            </StackPanel>
+
+        </Border>
+
+    </Flyout>
+
+</Button.Flyout>
+
+
+                        <StackPanel Orientation="Horizontal"
+                                    Spacing="10"
+                                    VerticalAlignment="Center">
+
+                            <Border Width="38"
+                                    Height="38"
+                                    CornerRadius="19"
+                                    Background="{StaticResource PrimarySoft}"
+                                    BorderBrush="#552563EB"
+                                    BorderThickness="1"
+                                    BoxShadow="0 5 14 0 #202563EB, inset 0 1 0 0 #EFFFFFFF">
+
+                                <TextBlock x:Name="ResearcherInitialsText"
+                                           Text="A"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource EnglishFont}"
+                                           FontSize="10"
+                                           FontWeight="SemiBold"
+                                    Foreground="{StaticResource Primary}"/>
+
+                            </Border>
+
+                            <StackPanel VerticalAlignment="Center"
+                                        Spacing="1">
+
+                                <TextBlock x:Name="ResearcherNameText"
+                                           FontFamily="{StaticResource EnglishFont}"
+                                           FontSize="10.5"
+                                           FontWeight="SemiBold"
+                                           Foreground="#1B2D50"/>
+
+                                <TextBlock x:Name="ResearcherRoleText"
+                                           FontSize="8.5"
+                                           Foreground="#929DB0"/>
+
+                            </StackPanel>
+
+                        </StackPanel>
+
+                    </Button>
+
+
+                    <!-- SECTION -->
+
+                    <Border x:Name="ConnectivityIndicator"
+                            Grid.ColumnSpan="2"
+                            Padding="10,4"
+                            Background="{StaticResource SocyviaInfoSoftBrush}"
+                            BorderBrush="{StaticResource SocyviaAccentLineBrush}"
+                            BorderThickness="1"
+                            CornerRadius="12"
+                            BoxShadow="0 5 16 0 #18177A5B, inset 0 1 0 0 #EFFFFFFF"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                        ToolTip.Tip="Internet connectivity only — researcher cloud connection is configured separately.">
+                        <StackPanel Orientation="Horizontal" Spacing="6">
+                            <Viewbox Width="13" Height="13" VerticalAlignment="Center">
+                                <Canvas Width="18" Height="18">
+                                    <Path x:Name="ConnectivityIcon"
+                                          Data="M2,7 C6,3 12,3 16,7 M5,10 C8,7.5 10,7.5 13,10 M8,13 L10,13"
+                                          Stroke="{StaticResource SocyviaInfoBrush}"
+                                          StrokeThickness="1.6"
+                                          StrokeLineCap="Round"
+                                          Fill="Transparent"/>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock x:Name="ConnectivityText"
+                                       FontSize="10.5"
+                                       FontWeight="SemiBold"
+                                       Foreground="{StaticResource SocyviaInfoBrush}"
+                                       VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <StackPanel x:Name="SectionContextPanel" Grid.Column="1"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Right"
+                                Spacing="1">
+
+                        <TextBlock x:Name="CurrentSectionTitle"
+                                   FontSize="12"
+                                   FontWeight="SemiBold"
+                                   Foreground="#1A2D50"
+                                   HorizontalAlignment="Right"
+                                   TextAlignment="Right"/>
+
+                        <TextBlock x:Name="CurrentSectionSubtitle"
+                                   FontSize="8"
+                                   Foreground="#98A3B5"
+                                   HorizontalAlignment="Right"
+                                   TextAlignment="Right"/>
+
+                    </StackPanel>
+
+                </Grid>
+
+            </Border>
+
+
+            <!-- CONTENT -->
+
+            <ScrollViewer x:Name="MainWorkspaceScrollViewer"
+                          Grid.Row="1"
+                          HorizontalScrollBarVisibility="Disabled"
+                          VerticalScrollBarVisibility="Auto">
+
+                <Grid Margin="28,20,28,24">
+
+                    <StackPanel x:Name="HomeContent"
+                                Spacing="14">
+
+                        <!-- Compact operational context -->
+                        <Grid x:Name="CommandHeaderGrid" ColumnDefinitions="*" Margin="2,0,2,2"
+                              FlowDirection="LeftToRight">
+                            <StackPanel x:Name="CommandGreetingPanel" Spacing="4">
+                                <TextBlock x:Name="CommandGreetingText"
+                                           FontSize="22"
+                                           FontWeight="SemiBold"
+                                           Foreground="{StaticResource SocyviaInkBrush}"/>
+                                <TextBlock x:Name="CommandSubtitleText"
+                                           FontSize="10"
+                                           Foreground="{StaticResource SocyviaSecondaryTextBrush}"/>
+                            </StackPanel>
+                        </Grid>
+
+                        <!-- Continue Research: the primary decision surface -->
+                        <Border x:Name="ContinueResearchPanel"
+                                Classes="heroResearchCard"
+                                Padding="22,20">
+                            <!-- Physical columns stay stable; language direction is applied to the content. -->
+                            <Grid FlowDirection="LeftToRight" ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                                <StackPanel x:Name="ContinueStudyInformationPanel" Spacing="7">
+                                    <TextBlock x:Name="ContinueResearchLabel"
+                                               FontSize="8"
+                                               FontWeight="SemiBold"
+                                               LetterSpacing="1.1"
+                                               Foreground="{StaticResource SocyviaAccentBrush}"/>
+                                    <TextBlock x:Name="ContinueStudyTitle"
+                                               FontSize="16"
+                                               FontWeight="SemiBold"
+                                               Foreground="{StaticResource SocyviaInkBrush}"
+                                               TextTrimming="CharacterEllipsis"/>
+                                    <TextBlock x:Name="ContinueStudyDetail"
+                                               MaxWidth="620"
+                                               FontSize="9.2"
+                                               Foreground="{StaticResource SocyviaSecondaryTextBrush}"
+                                               TextWrapping="Wrap"/>
+                                    <StackPanel x:Name="ContinueStudyMetadataPanel" Orientation="Horizontal" Spacing="8">
+                                        <Border Classes="badge">
+                                            <TextBlock x:Name="ContinueStudyStatus"
+                                                       FontSize="8"
+                                                       FontWeight="SemiBold"
+                                                       TextAlignment="Center"
+                                                       Foreground="{StaticResource SocyviaInfoBrush}"/>
+                                        </Border>
+                                        <TextBlock x:Name="ContinueStudyReadiness"
+                                                   FontSize="8.5"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"
+                                                   VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </StackPanel>
+                                <StackPanel x:Name="ContinueStudyActionPanel" Grid.Column="1" Spacing="8" MinWidth="150" VerticalAlignment="Center">
+                                    <Button x:Name="ContinueStudyActionButton"
+                                            Classes="primary"
+                                            MinWidth="150"
+                                            Height="42"
+                                            Padding="20,0">
+                                        <TextBlock x:Name="ContinueStudyActionText"
+                                                   HorizontalAlignment="Stretch"
+                                                   VerticalAlignment="Center"
+                                                   TextAlignment="Center"
+                                                   FontSize="10"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="#FFFFFF"/>
+                                    </Button>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+
+                        <!-- Contextual quick actions -->
+
+                        <TextBlock x:Name="QuickActionsTitle"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+
+                        <Grid ColumnDefinitions="Auto,8,Auto,8,Auto,*,Auto">
+
+                            <Button x:Name="ImportDataButton"
+                                    Grid.Column="0"
+                                    Classes="secondary dashboardQuickAction">
+
+                                <TextBlock x:Name="ImportDataButtonText"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </Button>
+
+                            <Button x:Name="AddParticipantsQuickButton"
+                                    Grid.Column="2"
+                                    Classes="secondary dashboardQuickAction">
+                                <TextBlock x:Name="AddParticipantsQuickText" TextAlignment="Center"/>
+                            </Button>
+
+                            <Button x:Name="PrepareSessionQuickButton"
+                                    Grid.Column="4"
+                                    Classes="secondary dashboardQuickAction">
+                                <TextBlock x:Name="PrepareSessionQuickText" TextAlignment="Center"/>
+                            </Button>
+
+                            <Button x:Name="NewStudyButton"
+                                    Grid.Column="6"
+                                    MinWidth="136"
+                                    Classes="primary">
+
+                                <TextBlock x:Name="NewStudyButtonText"
+                                           FontSize="10.5"
+                                           FontWeight="SemiBold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           TextAlignment="Center"/>
+
+                            </Button>
+
+                        </Grid>
+
+
+                        <!-- WELCOME -->
+
+                        <StackPanel x:Name="WelcomePanel"
+                                    IsVisible="False"
+                                    HorizontalAlignment="Right"
+                                    Spacing="6">
+
+                            <StackPanel x:Name="WelcomeLinePanel"
+                                        Orientation="Horizontal"
+                                        HorizontalAlignment="Right"
+                                        Spacing="7">
+
+                                <TextBlock x:Name="WelcomeNameText"
+                                           FontFamily="{StaticResource EnglishFont}"
+                                           FontSize="27"
+                                           FontWeight="SemiBold"
+                                           Foreground="#10214A"/>
+
+                                <TextBlock x:Name="WelcomeWordText"
+                                           FontSize="27"
+                                           FontWeight="SemiBold"
+                                           Foreground="#10214A"/>
+
+                            </StackPanel>
+
+                            <TextBlock x:Name="WelcomeSubtitleText"
+                                       FontSize="10.5"
+                                       Foreground="#8491A6"
+                                       HorizontalAlignment="Right"
+                                       TextAlignment="Right"/>
+
+                        </StackPanel>
+
+
+                        <!-- METRICS -->
+
+                        <Grid ColumnDefinitions="*,12,*,12,*">
+
+                            <Border Grid.Column="0" MinHeight="96" Padding="16,14" Classes="metricCard">
+
+                                <Grid RowDefinitions="Auto,*,Auto">
+
+                                    <TextBlock x:Name="StudiesMetricLabel"
+                                               FontSize="9"
+                                               Foreground="#8996AA"
+                                               HorizontalAlignment="Right"/>
+
+                                    <TextBlock x:Name="StudiesCountText"
+                                               Grid.Row="1"
+                                               Text="0"
+                                               FontSize="27"
+                                               FontWeight="SemiBold"
+                                               Foreground="#10214A"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBlock x:Name="StudiesMetricHint"
+                                               Grid.Row="2"
+                                               FontSize="8"
+                                               Foreground="#A0AABB"
+                                               HorizontalAlignment="Right"/>
+
+                                </Grid>
+
+                            </Border>
+
+
+                            <Border Grid.Column="2" MinHeight="96" Padding="16,14" Classes="metricCard green">
+
+                                <Grid RowDefinitions="Auto,*,Auto">
+
+                                    <TextBlock x:Name="ParticipantsMetricLabel"
+                                               FontSize="9"
+                                               Foreground="#8996AA"
+                                               HorizontalAlignment="Right"/>
+
+                                    <TextBlock x:Name="ParticipantsCountText"
+                                               Grid.Row="1"
+                                               Text="0"
+                                               FontSize="27"
+                                               FontWeight="SemiBold"
+                                               Foreground="#10214A"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBlock x:Name="ParticipantsMetricHint"
+                                               Grid.Row="2"
+                                               FontSize="8"
+                                               Foreground="#A0AABB"
+                                               HorizontalAlignment="Right"/>
+
+                                </Grid>
+
+                            </Border>
+
+
+                            <Border Grid.Column="4" MinHeight="96" Padding="16,14" Classes="metricCard violet">
+
+                                <Grid RowDefinitions="Auto,*,Auto">
+
+                                    <TextBlock x:Name="SessionsMetricLabel"
+                                               FontSize="9"
+                                               Foreground="#8996AA"
+                                               HorizontalAlignment="Right"/>
+
+                                    <TextBlock x:Name="SessionsCountText"
+                                               Grid.Row="1"
+                                               Text="0"
+                                               FontSize="27"
+                                               FontWeight="SemiBold"
+                                               Foreground="#10214A"
+                                               HorizontalAlignment="Right"
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBlock x:Name="SessionsMetricHint"
+                                               Grid.Row="2"
+                                               FontSize="8"
+                                               Foreground="#A0AABB"
+                                               HorizontalAlignment="Right"/>
+
+                                </Grid>
+
+                            </Border>
+
+                        </Grid>
+
+
+                        <!-- RECENT STUDIES -->
+
+                        <Border Padding="20" Classes="workspaceCard">
+
+                            <StackPanel Spacing="12">
+
+                                <Grid ColumnDefinitions="Auto,*,Auto">
+
+                                    <Button x:Name="ViewAllStudiesButton"
+                                            Grid.Column="0"
+                                            Classes="textAction">
+
+                                        <TextBlock x:Name="ViewAllStudiesText"/>
+
+                                    </Button>
+
+                                    <StackPanel Grid.Column="2"
+                                                HorizontalAlignment="Right"
+                                                Spacing="3">
+
+                                        <TextBlock x:Name="RecentStudiesTitle"
+                                                   FontSize="12.5"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="#263855"
+                                                   HorizontalAlignment="Right"/>
+
+                                        <TextBlock x:Name="RecentStudiesSubtitle"
+                                                   FontSize="8.5"
+                                                   Foreground="#98A3B5"
+                                                   HorizontalAlignment="Right"/>
+
+                                    </StackPanel>
+
+                                </Grid>
+
+
+                                <StackPanel x:Name="RecentStudiesContainer"
+                                            Spacing="7">
+
+                                    <Border x:Name="EmptyStudiesPanel"
+                                            MinHeight="82"
+                                            Padding="16"
+                                            Classes="emptyState">
+
+                                        <Grid>
+
+                                            <StackPanel HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        Spacing="5">
+
+                                                <TextBlock x:Name="EmptyStudiesTitle"
+                                                           FontSize="10"
+                                                           FontWeight="SemiBold"
+                                                           Foreground="#53627B"/>
+
+                                                <TextBlock x:Name="EmptyStudiesText"
+                                                           FontSize="8.5"
+                                                           Foreground="#9BA6B8"/>
+
+                                            </StackPanel>
+
+                                            <Button x:Name="EmptyCreateStudyButton"
+                                                    Width="108"
+                                                    Height="34"
+                                                    HorizontalAlignment="Right"
+                                                    VerticalAlignment="Center"
+                                                    Classes="secondary"
+                                                    HorizontalContentAlignment="Center"
+                                                    VerticalContentAlignment="Center">
+
+                                                <TextBlock x:Name="EmptyCreateStudyText"
+                                                           FontSize="9"
+                                                           Foreground="#2563EB"/>
+
+                                            </Button>
+
+                                        </Grid>
+
+                                    </Border>
+
+                                </StackPanel>
+
+                            </StackPanel>
+
+                        </Border>
+
+                        <!-- Only actionable readiness and interruption signals -->
+                        <Border x:Name="AttentionPanel"
+                                Classes="warningCard"
+                                Padding="18">
+                            <StackPanel Spacing="10">
+                                <Grid x:Name="AttentionHeaderGrid" ColumnDefinitions="*,Auto">
+                                    <StackPanel x:Name="AttentionTextPanel" Spacing="3">
+                                        <TextBlock x:Name="AttentionTitle"
+                                                   FontSize="11.5"
+                                                   FontWeight="SemiBold"
+                                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                                        <TextBlock x:Name="AttentionSubtitle"
+                                                   FontSize="8.5"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                    </StackPanel>
+                                    <Border x:Name="AttentionCountBadge" Grid.Column="1" Classes="badge"
+                                            MinWidth="28" MinHeight="24">
+                                        <TextBlock x:Name="AttentionCountText"
+                                                   FontSize="8" FontWeight="SemiBold"
+                                                   TextAlignment="Center"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   Foreground="{StaticResource SocyviaWarningBrush}"/>
+                                    </Border>
+                                </Grid>
+                                <StackPanel x:Name="AttentionContainer" Spacing="7"/>
+                            </StackPanel>
+                        </Border>
+
+                    </StackPanel>
+
+
+                    <!-- PLACEHOLDER -->
+
+                    <Border x:Name="SectionPlaceholder"
+                            IsVisible="False"
+                            Width="620"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Classes="emptyState">
+                        <StackPanel Spacing="8" HorizontalAlignment="Center">
+                            <TextBlock x:Name="PlaceholderTitle"
+                                       FontSize="18"
+                                       FontWeight="SemiBold"
+                                       TextAlignment="Center"
+                                       Foreground="{StaticResource SocyviaInkBrush}"/>
+                            <TextBlock x:Name="PlaceholderDescription"
+                                       MaxWidth="500"
+                                       FontSize="9.5"
+                                       LineHeight="16"
+                                       TextAlignment="Center"
+                                       TextWrapping="Wrap"
+                                       Foreground="{StaticResource SocyviaSecondaryTextBrush}"/>
+                            <Button x:Name="PlaceholderActionButton"
+                                    IsVisible="False"
+                                    Margin="0,10,0,0"
+                                    Width="240"
+                                    Height="40"
+                                    HorizontalAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    VerticalContentAlignment="Center"
+                                    Classes="primary"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="SettingsPanel"
+                            IsVisible="False"
+                            MaxWidth="720"
+                            Margin="24,0"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Top"
+                            Classes="commandSurface"
+                            Padding="26">
+                        <StackPanel Spacing="20">
+                            <StackPanel Spacing="4">
+                                <TextBlock x:Name="SettingsPanelTitle"
+                                           FontSize="18" FontWeight="SemiBold"
+                                           Foreground="{StaticResource SocyviaInkBrush}"/>
+                                <TextBlock x:Name="SettingsPanelSubtitle"
+                                           FontSize="9"
+                                           Foreground="{StaticResource SocyviaSecondaryTextBrush}"/>
+                            </StackPanel>
+                            <Border Classes="denseSurface" Padding="18">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock x:Name="SettingsLanguageTitle"
+                                                   FontSize="10" FontWeight="SemiBold"
+                                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                                        <TextBlock x:Name="SettingsLanguageDescription"
+                                                   FontSize="8.5"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8">
+                                        <Button x:Name="SettingsEnglishButton" Classes="secondary" MinWidth="82" Content="English"/>
+                                        <Button x:Name="SettingsArabicButton" Classes="secondary" MinWidth="82" Content="العربية"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <Border Classes="denseSurface" Padding="18">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock x:Name="SettingsUpdateTitle" FontSize="10" FontWeight="SemiBold"
+                                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                                        <TextBlock x:Name="SettingsUpdateDescription" FontSize="8.5" TextWrapping="Wrap"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                        <TextBlock x:Name="SettingsUpdateStatus" FontSize="8" TextWrapping="Wrap"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                    </StackPanel>
+                                    <Button x:Name="CheckUpdatesButton" Grid.Column="1" Classes="secondary" MinWidth="126"/>
+                                </Grid>
+                            </Border>
+                            <Border Classes="denseSurface" Padding="18">
+                                <StackPanel Spacing="10">
+                                     <TextBlock x:Name="SettingsCloudSetupTitle" FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource SocyviaTextBrush}"/>
+                                     <TextBlock x:Name="SettingsCloudSetupHelp" FontSize="8.5" TextWrapping="Wrap" Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                     <Border Classes="infoSurface" Padding="12">
+                                         <StackPanel Spacing="3">
+                                             <TextBlock x:Name="CloudGuideSummary" FontSize="8.8" FontWeight="SemiBold" Foreground="{StaticResource SocyviaTextBrush}"/>
+                                             <TextBlock x:Name="CloudGuideSteps" FontSize="8.2" TextWrapping="Wrap" Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                         </StackPanel>
+                                     </Border>
+                                     <Grid ColumnDefinitions="*,10,*,10,*,10,*">
+                                         <Border Classes="denseSurface" Padding="10">
+                                             <StackPanel Spacing="3"><TextBlock x:Name="CloudAccountSummaryLabel" Text="Cloudflare" Classes="metadata"/><TextBlock x:Name="CloudAccountSummary" FontWeight="SemiBold" TextWrapping="Wrap"/></StackPanel>
+                                         </Border>
+                                         <Border Grid.Column="2" Classes="denseSurface" Padding="10">
+                                             <StackPanel Spacing="3"><TextBlock x:Name="CloudDatabaseSummaryLabel" Text="Research database" Classes="metadata"/><TextBlock x:Name="CloudDatabaseSummary" FontWeight="SemiBold"/></StackPanel>
+                                         </Border>
+                                         <Border Grid.Column="4" Classes="denseSurface" Padding="10">
+                                             <StackPanel Spacing="3"><TextBlock x:Name="CloudRuntimeSummaryLabel" Text="Experiment runtime" Classes="metadata"/><TextBlock x:Name="CloudRuntimeSummary" FontWeight="SemiBold"/></StackPanel>
+                                         </Border>
+                                         <Border Grid.Column="6" Classes="denseSurface" Padding="10">
+                                             <StackPanel Spacing="3"><TextBlock x:Name="CloudMediaSummaryLabel" Text="Media storage" Classes="metadata"/><TextBlock x:Name="CloudMediaSummary" FontWeight="SemiBold" TextWrapping="Wrap"/></StackPanel>
+                                         </Border>
+                                     </Grid>
+                                     <WrapPanel HorizontalAlignment="Stretch">
+                                         <Button x:Name="CloudConnectButton" Classes="primary" MinHeight="40" Padding="18,0" Margin="0,0,8,8" Content="Connect Cloudflare"/>
+                                         <Button x:Name="CloudRetryButton" Classes="primary" MinHeight="40" Padding="18,0" Margin="0,0,8,8" Content="Retry setup" IsVisible="False"/>
+                                         <Button x:Name="CloudDisconnectQuickButton" Classes="secondary" MinHeight="40" Padding="18,0" Margin="0,0,8,8" Content="Disconnect" IsVisible="False"/>
+                                         <Button x:Name="CloudAdvancedSetupButton" Classes="secondary" MinHeight="40" Padding="18,0" Margin="0,0,8,8" Content="Advanced setup"/>
+                                     </WrapPanel>
+                                     <Grid x:Name="CloudAdvancedPanel" IsVisible="False" ColumnDefinitions="*,*" ColumnSpacing="10" RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" RowSpacing="8">
+                                        <TextBox x:Name="CloudAccountIdBox" PlaceholderText="Account ID"/>
+                                        <TextBox x:Name="CloudD1IdBox" Grid.Column="1" PlaceholderText="D1 database ID"/>
+                                        <TextBox x:Name="CloudR2BucketBox" Grid.Row="1" PlaceholderText="R2 bucket"/>
+                                        <TextBox x:Name="CloudWorkerEndpointBox" Grid.Row="1" Grid.Column="1" PlaceholderText="https://…workers.dev"/>
+                                        <TextBox x:Name="CloudTokenBox" Grid.Row="2" Grid.ColumnSpan="2" PlaceholderText="Scoped API token" PasswordChar="●"/>
+                                        <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Spacing="7">
+                                            <TextBlock x:Name="CloudOptionalMediaDisclosure" Classes="metadata" TextWrapping="Wrap"/>
+                                            <Button x:Name="CloudMediaSetupButton" Classes="secondary" MinHeight="40" Padding="18,0" HorizontalAlignment="Stretch" Content="Optional cloud media storage" IsVisible="False"/>
+                                        </StackPanel>
+                                        <Grid Grid.Row="4" Grid.ColumnSpan="2" ColumnDefinitions="1.35*,12,1*,12,1*">
+                                            <Button x:Name="CloudSaveButton" Grid.Column="0" Classes="primary" HorizontalAlignment="Stretch" MinHeight="40" Content="Connect / Save securely"/>
+                                            <Button x:Name="CloudTestButton" Grid.Column="2" Classes="secondary" HorizontalAlignment="Stretch" MinHeight="40" Content="Test connection"/>
+                                            <Button x:Name="CloudDisconnectButton" Grid.Column="4" Classes="danger" HorizontalAlignment="Stretch" MinHeight="40" Content="Disconnect"/>
+                                        </Grid>
+                                        <TextBlock x:Name="CloudDiagnosticDetail" Grid.Row="5" Grid.ColumnSpan="2" Classes="metadata" TextWrapping="Wrap"/>
+                                     </Grid>
+                                    <TextBlock x:Name="CloudConnectionDetail" FontSize="8.5" TextWrapping="Wrap" Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                </StackPanel>
+                            </Border>
+                            <Border Classes="denseSurface" Padding="18">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock x:Name="SettingsCloudTitle" FontSize="10" FontWeight="SemiBold"
+                                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                                        <TextBlock x:Name="SettingsCloudDescription" FontSize="8.5" TextWrapping="Wrap"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                    </StackPanel>
+                                    <Border Grid.Column="1" Classes="badge" VerticalAlignment="Center">
+                                        <TextBlock x:Name="SettingsCloudState" FontSize="8" TextAlignment="Center"
+                                                   Foreground="{StaticResource SocyviaWarningBrush}"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                            <Border Classes="aiSurface" Padding="18">
+                                <StackPanel Spacing="10">
+                                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                                        <StackPanel Spacing="3">
+                                            <TextBlock x:Name="SettingsAiTitle" FontSize="10" FontWeight="SemiBold"
+                                                       Foreground="{StaticResource SocyviaTextBrush}"/>
+                                            <TextBlock x:Name="SettingsAiDescription" FontSize="8.5" TextWrapping="Wrap"
+                                                       Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                        </StackPanel>
+                                        <Border Grid.Column="1" Classes="badge" VerticalAlignment="Center">
+                                            <TextBlock x:Name="SettingsAiState" FontSize="8" TextAlignment="Center"
+                                                       Foreground="{StaticResource SocyviaAccentBrush}"/>
+                                        </Border>
+                                    </Grid>
+                                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+                                        <TextBlock x:Name="AiConnectionDetail" FontSize="8.5" TextWrapping="Wrap"
+                                                   VerticalAlignment="Center"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                        <Button x:Name="AiRefreshButton" Grid.Column="1" Classes="secondary"
+                                                MinHeight="38" Padding="16,0"/>
+                                    </Grid>
+                                </StackPanel>
+                            </Border>
+                            <Border Classes="denseSurface" Padding="18">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock x:Name="SettingsAppearanceTitle"
+                                                   FontSize="10" FontWeight="SemiBold"
+                                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                                        <TextBlock x:Name="SettingsAppearanceDescription"
+                                                   FontSize="8.5"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                    </StackPanel>
+                                    <Border Grid.Column="1" Classes="badge" VerticalAlignment="Center">
+                                        <TextBlock x:Name="SettingsAppearanceValue"
+                                                   FontSize="8" TextAlignment="Center"
+                                                   Foreground="{StaticResource SocyviaAccentBrush}"/>
+                                    </Border>
+                                </Grid>
+                            </Border>
+                            <Border Classes="denseSurface" Padding="18">
+                                <Grid ColumnDefinitions="*,Auto" ColumnSpacing="20">
+                                    <StackPanel Spacing="3">
+                                        <TextBlock x:Name="SettingsTourTitle"
+                                                   FontSize="10" FontWeight="SemiBold"
+                                                   Foreground="{StaticResource SocyviaTextBrush}"/>
+                                        <TextBlock x:Name="SettingsTourDescription"
+                                                   FontSize="8.5"
+                                                   Foreground="{StaticResource SocyviaMutedTextBrush}"/>
+                                    </StackPanel>
+                                    <Button x:Name="ReplayTourButton" Grid.Column="1" Classes="primary" MinWidth="130"/>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+
+                </Grid>
+
+            </ScrollViewer>
+
+
+            <!-- FOOTER -->
+
+            <Border Grid.Row="2"
+                    MinHeight="50"
+                    Padding="18,10"
+                    Background="{StaticResource SurfaceMica}"
+                    BorderBrush="{StaticResource StrokeSubtle}"
+                    BorderThickness="0,1,0,0"
+                    BoxShadow="0 -8 24 0 #10102D51, inset 0 1 0 0 #DFFFFFFF"
+                    VerticalAlignment="Stretch"
+                    ClipToBounds="True">
+                <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                              VerticalScrollBarVisibility="Disabled"
+                              HorizontalContentAlignment="Center"
+                              VerticalContentAlignment="Center">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Margin="0"
+                                VerticalAlignment="Center"
+                                FlowDirection="LeftToRight"
+                                Spacing="10">
+
+                    <TextBlock x:Name="DevelopedByText"
+                               Text="Developed by Abdellah RIAD"
+                               TextWrapping="NoWrap"
+                               VerticalAlignment="Center"
+                               FontSize="10"
+                               Foreground="#9AA5B7"/>
+
+                    <TextBlock Text="•"
+                               VerticalAlignment="Center"
+                               FontSize="9"
+                               Foreground="#C4CAD5"/>
+
+                    <TextBlock x:Name="VersionText"
+                               Text="Version 1.0.0"
+                               TextWrapping="NoWrap"
+                               VerticalAlignment="Center"
+                               FontSize="10"
+                               Foreground="#9AA5B7"/>
+
+                    <TextBlock Text="•"
+                               VerticalAlignment="Center"
+                               FontSize="9"
+                               Foreground="#C4CAD5"/>
+
+                    <Button x:Name="WebsiteFooterLink"
+                            Classes="footerLink"
+                            Content="socyvia.com"
+                            ToolTip.Tip="https://socyvia.com"/>
+
+                    <TextBlock Text="•"
+                               VerticalAlignment="Center"
+                               FontSize="9"
+                               Foreground="#C4CAD5"/>
+
+                    <Button x:Name="EmailFooterLink"
+                            Classes="footerLink"
+                            Content="contact@socyvia.com"
+                            ToolTip.Tip="mailto:contact@socyvia.com"/>
+
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+        </Grid>
+
+
+        <!-- ================================================= -->
+        <!-- SIDEBAR                                           -->
+        <!-- ================================================= -->
+
+        <Border x:Name="SidebarRoot"
+                Grid.Column="1"
+                Background="{StaticResource SurfaceMica}"
+                BorderBrush="{StaticResource StrokeSubtle}"
+                BorderThickness="1,0,0,0"
+                CornerRadius="0"
+                BoxShadow="-10 0 34 0 #1C102D51, inset 1 0 0 0 #EFFFFFFF">
+
+            <Grid Margin="12,22,12,16"
+                  RowDefinitions="Auto,*,Auto">
+
+                <!-- BRAND -->
+
+                <StackPanel Grid.Row="0"
+                            HorizontalAlignment="Center"
+                            Spacing="4">
+
+                    <Border Width="58" Height="58" CornerRadius="18"
+                            Background="{StaticResource SurfaceGlass}"
+                            BorderBrush="#663D78E8" BorderThickness="1"
+                            BoxShadow="0 12 26 0 #202563EB, inset 0 1 0 0 #FFFFFFFF">
+                    <Image Source="avares://SOCYVIA/Assets/Branding/socyvia-mark.png"
+                           Width="44"
+                           Height="44"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Stretch="Uniform"
+                           RenderOptions.BitmapInterpolationMode="HighQuality"/>
+                    </Border>
+
+                    <TextBlock Text="SOCYVIA"
+                               Margin="0,4,0,0"
+                               FontFamily="{StaticResource EnglishFont}"
+                               FontSize="15"
+                               FontWeight="SemiBold"
+                               LetterSpacing="3"
+                               Foreground="{StaticResource TextPrimary}"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"/>
+
+                    <TextBlock x:Name="WorkspaceLabel"
+                               IsVisible="False"
+                               MaxWidth="188"
+                               FontSize="7.8"
+                               LineHeight="12"
+                               Foreground="#96A1B3"
+                               HorizontalAlignment="Center"
+                               TextAlignment="Center"
+                               TextWrapping="Wrap"/>
+
+                </StackPanel>
+
+
+                <!-- NAVIGATION -->
+
+                <ScrollViewer Grid.Row="1"
+                              Margin="0,18,0,10"
+                              HorizontalScrollBarVisibility="Disabled"
+                              VerticalScrollBarVisibility="Auto">
+
+                    <StackPanel Width="192"
+                                HorizontalAlignment="Center"
+                                Spacing="3">
+
+                        <TextBlock x:Name="NavigationLabel"
+                                   Width="188"
+                                   Margin="0,0,0,6"
+                                   FontSize="10"
+                                   FontWeight="SemiBold"
+                                   Foreground="{StaticResource TextMuted}"
+                                   HorizontalAlignment="Stretch"
+                                   TextAlignment="Left"/>
+
+
+                        <Button x:Name="HomeButton"
+                                Classes="nav selected">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M3,10 L10,4 L17,10 L17,18 L12,18 L12,13 L8,13 L8,18 L3,18 Z"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="HomeButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <Button x:Name="ContentLibraryButton"
+                                Classes="nav">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M3,5 L17,5 L17,17 L3,17 Z M6,9 L14,9 M6,13 L12,13"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="ContentLibraryButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <Button x:Name="StudiesButton"
+                                Classes="nav">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M2,6 L8,6 L10,8 L18,8 L18,17 L2,17 Z M2,6 L2,4 L8,4 L10,6"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="StudiesButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <Button x:Name="ParticipantsButton"
+                                Classes="nav">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M7,9 A3,3 0 1 0 7,3 A3,3 0 1 0 7,9 M2,17 C2,13.5 4,11 7,11 C10,11 12,13.5 12,17 M14,8 A2.5,2.5 0 1 0 14,3 M14,11 C16.5,11 18,13 18,16"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="ParticipantsButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <Button x:Name="SessionsButton"
+                                Classes="nav">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M4,3 L16,3 L16,18 L4,18 Z M7,7 L13,7 M7,11 L13,11 M7,15 L11,15"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="SessionsButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <TextBlock x:Name="ResearchNavigationLabel" Width="188" Margin="0,10,0,4"
+                                   FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource TextMuted}"
+                                   HorizontalAlignment="Stretch" TextAlignment="Center"/>
+
+                        <Button x:Name="AnalysisButton"
+                                Classes="nav">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M3,17 L3,12 L7,12 L7,17 M9,17 L9,8 L13,8 L13,17 M15,17 L15,4 L19,4 L19,17 M2,17 L20,17"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="AnalysisButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <Button x:Name="ReportsButton"
+                                Classes="nav">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M4,2 L13,2 L18,7 L18,19 L4,19 Z M13,2 L13,7 L18,7 M7,11 L15,11 M7,15 L15,15"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="ReportsButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </Button>
+
+                        <TextBlock x:Name="IntelligenceNavigationLabel" Width="188" Margin="0,10,0,4"
+                                   FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource TextMuted}"
+                                   HorizontalAlignment="Stretch" TextAlignment="Center"/>
+
+                        <Button x:Name="SocyviaAiButton"
+                                Classes="nav">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*,Auto">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M10,2 L11.6,6.4 L16,8 L11.6,9.6 L10,14 L8.4,9.6 L4,8 L8.4,6.4 Z M16,13 L16.8,15.2 L19,16 L16.8,16.8 L16,19 L15.2,16.8 L13,16 L15.2,15.2 Z"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="SocyviaAiButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                                <Border Grid.Column="2" Classes="navMicroBadge">
+                                    <TextBlock x:Name="SocyviaAiPreviewText"
+                                               FontSize="6.8"
+                                               Foreground="{StaticResource SocyviaAccentBrush}"
+                                               TextAlignment="Center"/>
+                                </Border>
+                            </Grid>
+                        </Button>
+
+                        <Button x:Name="DemoButton" Classes="nav demo">
+                            <Grid Classes="navRow" ColumnDefinitions="Auto,*,Auto">
+                                <StackPanel Classes="navIdentity">
+                                    <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                        <Path Classes="navIcon" Data="M4,3 L17,10 L4,17 Z"/>
+                                    </Viewbox>
+                                    <TextBlock x:Name="DemoButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                                </StackPanel>
+                                <Border Grid.Column="2" Classes="navMicroBadge">
+                                    <TextBlock x:Name="DemoPermanentText" FontSize="6.5" TextAlignment="Center"
+                                               Foreground="{StaticResource SocyviaAccentBrush}"/>
+                                </Border>
+                            </Grid>
+                        </Button>
+
+                    </StackPanel>
+
+                </ScrollViewer>
+
+
+                <!-- SETTINGS -->
+
+                <StackPanel Grid.Row="2"
+                            Width="192"
+                            HorizontalAlignment="Center"
+                            Spacing="8">
+
+                    <Border Height="1"
+                            Margin="0,2,0,4"
+                            Background="{StaticResource StrokeSubtle}"/>
+
+                    <TextBlock x:Name="SystemNavigationLabel" Width="188" Margin="0"
+                               FontSize="10" FontWeight="SemiBold" Foreground="{StaticResource TextMuted}"
+                               HorizontalAlignment="Stretch" TextAlignment="Center"/>
+
+                    <Button x:Name="SettingsButton"
+                            Classes="nav">
+                        <Grid Classes="navRow" ColumnDefinitions="Auto,*">
+                            <StackPanel Classes="navIdentity">
+                                <Viewbox Width="19" Height="19" VerticalAlignment="Center">
+                                    <Path Classes="navIcon" Data="M10,3 A2,2 0 1 0 10,7 A2,2 0 1 0 10,3 M10,8 A2,2 0 1 0 10,12 A2,2 0 1 0 10,8 M10,13 A2,2 0 1 0 10,17 A2,2 0 1 0 10,13 M4,5 L7,5 M13,5 L18,5 M4,10 L7,10 M13,10 L18,10 M4,15 L7,15 M13,15 L18,15"/>
+                                </Viewbox>
+                                <TextBlock x:Name="SettingsButtonText" VerticalAlignment="Center" TextAlignment="Left"/>
+                            </StackPanel>
+                        </Grid>
+                    </Button>
+
+                </StackPanel>
+
+            </Grid>
+
+        </Border>
+
+        </Grid>
+    </Grid>
+
+</UserControl>

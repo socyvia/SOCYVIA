@@ -1,0 +1,121 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:chrome="using:Avalonia.Controls.Chrome"
+             x:Class="SOCYVIA.Views.SocyviaWindowChrome"
+             x:Name="ChromeRoot"
+             Height="32"
+             FlowDirection="LeftToRight"
+             FontFamily="{StaticResource EnglishFont}">
+
+    <UserControl.Styles>
+        <Style Selector="Button.windowChromeButton">
+            <Setter Property="Width" Value="44"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="0"/>
+            <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Cursor" Value="Arrow"/>
+        </Style>
+        <Style Selector="Button.windowChromeButton:pointerover">
+            <Setter Property="Background" Value="#A8E3EBF6"/>
+            <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+        </Style>
+        <Style Selector="Button.windowChromeButton:pressed">
+            <Setter Property="Background" Value="#D4D8E3F2"/>
+        </Style>
+        <Style Selector="Button.windowChromeButton:focus">
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        </Style>
+        <Style Selector="Button.windowChromeButton.close:pointerover">
+            <Setter Property="Background" Value="#E7C93A50"/>
+            <Setter Property="Foreground" Value="#8F1830"/>
+        </Style>
+        <Style Selector="Button.windowChromeButton.close:pressed">
+            <Setter Property="Background" Value="#F0B4233E"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+        </Style>
+    </UserControl.Styles>
+
+    <Border x:Name="ChromeSurface"
+            Background="{StaticResource SurfaceMica}"
+            BorderBrush="{StaticResource StrokeSubtle}"
+            BorderThickness="0,0,0,1"
+            chrome:WindowDecorationProperties.ElementRole="TitleBar">
+        <Grid ColumnDefinitions="Auto,*,Auto">
+            <StackPanel x:Name="IdentityPanel"
+                        Margin="10,0,0,0"
+                        Orientation="Horizontal"
+                        Spacing="7"
+                        VerticalAlignment="Center">
+                <Image Source="avares://SOCYVIA/Assets/Branding/socyvia-mark.png"
+                       Width="16" Height="16" Stretch="Uniform"/>
+                <TextBlock Text="SOCYVIA"
+                           FontSize="9"
+                           FontWeight="SemiBold"
+                           LetterSpacing="1.5"
+                           Foreground="{StaticResource TextSecondary}"
+                           VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <Border x:Name="DragRegion"
+                    Grid.Column="1"
+                    Background="Transparent"
+                    chrome:WindowDecorationProperties.ElementRole="TitleBar"/>
+
+            <StackPanel x:Name="WindowControlsPanel"
+                        Grid.Column="2"
+                        Orientation="Horizontal"
+                        Spacing="0"
+                        chrome:WindowDecorationProperties.ElementRole="User">
+                <Button x:Name="MinimizeButton"
+                        Classes="windowChromeButton"
+                        AutomationProperties.Name="Minimize"
+                        chrome:WindowDecorationProperties.ElementRole="MinimizeButton">
+                    <Viewbox Width="12" Height="12">
+                        <Path Data="M2,7 L10,7"
+                              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                              StrokeThickness="1.25"
+                              StrokeLineCap="Round"/>
+                    </Viewbox>
+                </Button>
+
+                <Button x:Name="MaximizeRestoreButton"
+                        Classes="windowChromeButton"
+                        AutomationProperties.Name="Maximize"
+                        chrome:WindowDecorationProperties.ElementRole="MaximizeButton">
+                    <Grid Width="12" Height="12">
+                        <Path x:Name="MaximizePath"
+                              Data="M2.25,2.25 L9.75,2.25 L9.75,9.75 L2.25,9.75 Z"
+                              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                              StrokeThickness="1.15"
+                              StrokeJoin="Round"/>
+                        <Path x:Name="RestorePath"
+                              IsVisible="False"
+                              Data="M3.5,3.5 L9.75,3.5 L9.75,9.75 L3.5,9.75 Z M2.25,8.4 L2.25,2.25 L8.4,2.25"
+                              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                              StrokeThickness="1.1"
+                              StrokeLineCap="Round"
+                              StrokeJoin="Round"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="CloseButton"
+                        Classes="windowChromeButton close"
+                        AutomationProperties.Name="Close"
+                        chrome:WindowDecorationProperties.ElementRole="CloseButton">
+                    <Viewbox Width="12" Height="12">
+                        <Path Data="M2.5,2.5 L9.5,9.5 M9.5,2.5 L2.5,9.5"
+                              Stroke="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}"
+                              StrokeThickness="1.25"
+                              StrokeLineCap="Round"/>
+                    </Viewbox>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

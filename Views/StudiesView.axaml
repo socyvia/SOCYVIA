@@ -1,0 +1,388 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.StudiesView"
+             x:Name="RootStudiesView"
+             FontFamily="{StaticResource EnglishFont}">
+
+    <UserControl.Styles>
+
+        <!-- ================================================= -->
+        <!-- SEARCH                                            -->
+        <!-- ================================================= -->
+
+        <Style Selector="TextBox.studySearch">
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Padding" Value="13,0"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DDE4EF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="9"/>
+            <Setter Property="FontSize" Value="9.5"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="TextBox.studySearch:pointerover">
+            <Setter Property="BorderBrush" Value="#BEC8D9"/>
+        </Style>
+
+        <Style Selector="TextBox.studySearch:focus">
+            <Setter Property="BorderBrush" Value="#2563EB"/>
+            <Setter Property="Background" Value="#FCFCFF"/>
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- ACTION                                            -->
+        <!-- ================================================= -->
+
+        <Style Selector="Button.studyAction">
+
+            <Setter Property="Height"
+                    Value="38"/>
+
+            <Setter Property="Padding"
+                    Value="15,0"/>
+
+            <Setter Property="Background"
+                    Value="#FFFFFF"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#DDE4EF"/>
+
+            <Setter Property="BorderThickness"
+                    Value="1"/>
+
+            <Setter Property="CornerRadius"
+                    Value="9"/>
+
+            <Setter Property="Foreground"
+                    Value="#4E5F78"/>
+
+            <Setter Property="FontSize"
+                    Value="9.2"/>
+
+            <Setter Property="Cursor"
+                    Value="Hand"/>
+
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+
+        </Style>
+
+        <Style Selector="Button.studyAction:pointerover">
+
+            <Setter Property="Background"
+                    Value="#F8F9FD"/>
+
+            <Setter Property="BorderBrush"
+                    Value="#C9CDF4"/>
+
+        </Style>
+
+
+        <!-- ================================================= -->
+        <!-- FILTER TABS                                       -->
+        <!-- ================================================= -->
+
+        <Style Selector="Button.filterTab">
+
+            <Setter Property="Height"
+                    Value="34"/>
+
+            <Setter Property="MinWidth"
+                    Value="96"/>
+
+            <Setter Property="Padding"
+                    Value="16,0"/>
+
+            <Setter Property="Background"
+                    Value="Transparent"/>
+
+            <Setter Property="BorderThickness"
+                    Value="0"/>
+
+            <Setter Property="CornerRadius"
+                    Value="8"/>
+
+            <Setter Property="Foreground"
+                    Value="#7A879B"/>
+
+            <Setter Property="FontSize"
+                    Value="8.8"/>
+
+            <Setter Property="Cursor"
+                    Value="Hand"/>
+
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Center"/>
+
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center"/>
+
+        </Style>
+
+
+        <Style Selector="Button.filterTab:pointerover">
+
+            <Setter Property="Background"
+                    Value="#F5F6FC"/>
+
+            <Setter Property="Foreground"
+                    Value="#53627B"/>
+
+        </Style>
+
+
+        <Style Selector="Button.filterTab.selected">
+
+            <Setter Property="Background"
+                    Value="#FFFFFF"/>
+
+            <Setter Property="Foreground"
+                    Value="#2563EB"/>
+
+            <Setter Property="FontWeight"
+                    Value="SemiBold"/>
+
+        </Style>
+
+    </UserControl.Styles>
+
+
+    <Grid RowDefinitions="Auto,Auto,*">
+
+
+        <!-- ================================================= -->
+        <!-- HEADER                                            -->
+        <!-- ================================================= -->
+
+        <Grid x:Name="HeaderGrid"
+              ColumnDefinitions="Auto,*,Auto">
+
+
+            <Button x:Name="NewStudyButton"
+                    Grid.Column="0"
+                    Height="42"
+                    MinWidth="132"
+                    Padding="18,0"
+                    Background="{StaticResource BrandGradientBrush}"
+                    Foreground="#FFFFFF"
+                    BorderThickness="0"
+                    CornerRadius="10"
+                    Cursor="Hand"
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center">
+
+                <TextBlock x:Name="NewStudyButtonText"
+                           FontSize="9.7"
+                           FontWeight="SemiBold"
+                           TextAlignment="Center"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+            </Button>
+
+
+            <StackPanel x:Name="HeaderTextPanel"
+                        Grid.Column="2"
+                        HorizontalAlignment="Right"
+                        Spacing="4">
+
+                <TextBlock x:Name="PageTitle"
+                           FontSize="21"
+                           FontWeight="SemiBold"
+                           Foreground="#10214A"/>
+
+                <TextBlock x:Name="PageSubtitle"
+                           FontSize="8.8"
+                           Foreground="#8B97AA"/>
+
+            </StackPanel>
+
+        </Grid>
+
+
+        <!-- ================================================= -->
+        <!-- TOOLBAR                                           -->
+        <!-- ================================================= -->
+
+        <Border Grid.Row="1"
+                Margin="0,20,0,0"
+                Padding="12"
+                Classes="commandSurface">
+
+            <Grid x:Name="ToolbarGrid"
+                  ColumnDefinitions="260,*,Auto,14,Auto">
+
+
+                <!-- SEARCH -->
+
+                <TextBox x:Name="SearchBox"
+                         Grid.Column="0"
+                         Classes="studySearch"/>
+
+
+                <!-- ACTIVE / ARCHIVED -->
+
+                <Border x:Name="ModeTabsBorder"
+                        Grid.Column="2"
+                        Padding="3"
+                        Background="#F3F5FA"
+                        CornerRadius="10">
+
+                    <StackPanel x:Name="ModeTabsPanel"
+                                Orientation="Horizontal"
+                                Spacing="2">
+
+                        <Button x:Name="ActiveStudiesButton"
+                                Classes="filterTab selected">
+
+                            <TextBlock x:Name="ActiveStudiesText"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </Button>
+
+
+                        <Button x:Name="ArchivedStudiesButton"
+                                Classes="filterTab">
+
+                            <TextBlock x:Name="ArchivedStudiesText"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </Button>
+
+                    </StackPanel>
+
+                </Border>
+
+
+                <!-- COUNT -->
+
+                <Border Grid.Column="4"
+                        MinWidth="82"
+                        Padding="11,5"
+                        Background="#F4F5FB"
+                        CornerRadius="8">
+
+                    <TextBlock x:Name="StudyCountText"
+                               FontSize="8.4"
+                               Foreground="#69778E"
+                               TextAlignment="Center"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+
+        <!-- ================================================= -->
+        <!-- STUDIES LIST                                      -->
+        <!-- ================================================= -->
+
+        <Border Grid.Row="2"
+                Margin="0,20,0,0"
+                Padding="16"
+                Classes="researchCard">
+
+            <Grid x:Name="StudiesContentRegion">
+
+                <StackPanel x:Name="StudiesContainer"
+                            Spacing="8"/>
+
+
+                <!-- EMPTY -->
+
+                <Border x:Name="EmptyPanel"
+                        IsVisible="False"
+                        MinHeight="230"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Classes="emptyState">
+
+                    <StackPanel x:Name="StudiesEmptyStateContentGroup"
+                                Width="430"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="7">
+
+                        <TextBlock x:Name="EmptyTitle"
+                                   FontSize="11"
+                                   FontWeight="SemiBold"
+                                   Foreground="#53627B"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                        <TextBlock x:Name="EmptyDescription"
+                                   MaxWidth="430"
+                                   FontSize="8.5"
+                                   Foreground="#9AA5B7"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"
+                                   TextWrapping="Wrap"/>
+
+                        <Button x:Name="EmptyCreateButton"
+                                Margin="0,8,0,0"
+                                Classes="studyAction"
+                                MinWidth="118"
+                                HorizontalAlignment="Center">
+
+                            <TextBlock x:Name="EmptyCreateButtonText"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       TextAlignment="Center"/>
+
+                        </Button>
+
+                    </StackPanel>
+
+                </Border>
+
+
+                <!-- NO RESULTS -->
+
+                <Border x:Name="NoResultsPanel"
+                        IsVisible="False"
+                        MinHeight="180"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{StaticResource SocyviaFieldBrush}"
+                        CornerRadius="11">
+
+                    <StackPanel HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Spacing="5">
+
+                        <TextBlock x:Name="NoResultsTitle"
+                                   FontSize="10"
+                                   FontWeight="SemiBold"
+                                   Foreground="#53627B"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                        <TextBlock x:Name="NoResultsDescription"
+                                   FontSize="8.3"
+                                   Foreground="#9AA5B7"
+                                   HorizontalAlignment="Center"
+                                   TextAlignment="Center"/>
+
+                    </StackPanel>
+
+                </Border>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+
+</UserControl>

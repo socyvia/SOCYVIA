@@ -1,0 +1,201 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.ContentLibraryView">
+  <Grid RowDefinitions="Auto,16,*">
+    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+      <StackPanel Spacing="4">
+        <TextBlock x:Name="PageEyebrow" Classes="eyebrow"/>
+        <TextBlock x:Name="PageTitle" Classes="pageTitle"/>
+        <TextBlock x:Name="PageSubtitle" Classes="secondaryText" TextWrapping="Wrap"/>
+      </StackPanel>
+      <Border Grid.Column="1" Classes="badge" VerticalAlignment="Center">
+        <TextBlock x:Name="ItemCountText" TextAlignment="Center"/>
+      </Border>
+    </Grid>
+
+    <Grid Grid.Row="2" ColumnDefinitions="230,18,*,18,350">
+      <StackPanel Grid.Column="0" Spacing="10">
+        <TextBlock x:Name="AcquireTitle" Classes="sectionTitle"/>
+        <Button x:Name="ManualButton" Classes="actionCard"
+                HorizontalContentAlignment="Stretch">
+          <Grid ColumnDefinitions="40,*" ColumnSpacing="12">
+            <Border Width="38" Height="38" Classes="iconHost">
+              <Viewbox Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Canvas Width="20" Height="20"><Path Fill="{StaticResource SocyviaAccentBrush}" Data="M9,3 L11,3 L11,9 L17,9 L17,11 L11,11 L11,17 L9,17 L9,11 L3,11 L3,9 L9,9 Z"/></Canvas>
+              </Viewbox>
+            </Border>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+              <TextBlock x:Name="ManualTitle" FontSize="13" FontWeight="SemiBold"/>
+              <TextBlock x:Name="ManualHint" Classes="mutedText"
+                         TextWrapping="Wrap" MaxLines="2"/>
+            </StackPanel>
+          </Grid>
+        </Button>
+        <Button x:Name="UploadFileButton" Classes="actionCard"
+                HorizontalContentAlignment="Stretch">
+          <Grid ColumnDefinitions="40,*" ColumnSpacing="12">
+            <Border Width="38" Height="38" Classes="iconHost">
+              <Viewbox Width="18" Height="18" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Canvas Width="20" Height="20"><Path Fill="{StaticResource SocyviaAccentBrush}" Data="M4,4 L16,4 L16,16 L4,16 Z M6,6 L6,14 L14,14 L14,6 Z M7,12 L9.3,9.5 L11,11.2 L12,10 L14,13 L6,13 Z"/></Canvas>
+              </Viewbox>
+            </Border>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+              <TextBlock x:Name="UploadFileTitle" FontSize="13" FontWeight="SemiBold"/>
+              <TextBlock x:Name="UploadFileHint" Classes="mutedText"
+                         TextWrapping="Wrap" MaxLines="2"/>
+            </StackPanel>
+          </Grid>
+        </Button>
+        <Button x:Name="ImportButton" Classes="actionCard"
+                HorizontalContentAlignment="Stretch">
+          <Grid ColumnDefinitions="40,*" ColumnSpacing="12">
+            <Border Width="38" Height="38" Classes="iconHost">
+              <TextBlock Text="CSV" FontSize="9" FontWeight="Bold" Foreground="{StaticResource SocyviaAccentBrush}"
+                         HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Spacing="4">
+              <TextBlock x:Name="ImportTitle" FontSize="13" FontWeight="SemiBold"/>
+              <TextBlock x:Name="ImportHint" Classes="mutedText"
+                         TextWrapping="Wrap" MaxLines="2"/>
+            </StackPanel>
+          </Grid>
+        </Button>
+        <Border Classes="researchCard" Padding="10">
+          <StackPanel Spacing="6">
+            <Grid ColumnDefinitions="32,*" ColumnSpacing="8">
+              <Border Width="30" Height="30" CornerRadius="8" Background="#142563EB">
+                <TextBlock Text="URL" FontSize="6.8" FontWeight="Bold" Foreground="{StaticResource SocyviaAccentBrush}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock x:Name="UrlTitle" Grid.Column="1" FontWeight="SemiBold" VerticalAlignment="Center"/>
+            </Grid>
+            <TextBox x:Name="UrlTextBox" PlaceholderText="https://"/>
+            <Button x:Name="AcquireButton" Classes="primary">
+              <TextBlock x:Name="AcquireButtonText" TextAlignment="Center"/>
+            </Button>
+            <TextBlock x:Name="AcquisitionStatusText" Classes="mutedText" TextWrapping="Wrap"/>
+          </StackPanel>
+        </Border>
+        <Border Classes="infoSurface" Padding="12">
+          <TextBlock x:Name="SourceTruthText" FontSize="8.2" TextWrapping="Wrap"/>
+        </Border>
+      </StackPanel>
+
+      <Border Grid.Column="2" Classes="researchCard" Padding="16">
+        <Grid RowDefinitions="Auto,12,*">
+          <Grid ColumnDefinitions="*,10,150">
+            <TextBox x:Name="SearchBox" PlaceholderText="Search"/>
+            <ComboBox x:Name="TypeFilter" Grid.Column="2" SelectedIndex="0">
+              <ComboBoxItem Content="All"/>
+              <ComboBoxItem Content="Text"/>
+              <ComboBoxItem Content="Image"/>
+              <ComboBoxItem Content="Video"/>
+              <ComboBoxItem Content="Audio"/>
+              <ComboBoxItem Content="Link"/>
+              <ComboBoxItem Content="Mixed"/>
+            </ComboBox>
+          </Grid>
+          <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <StackPanel x:Name="ItemsPanel" Spacing="8"/>
+          </ScrollViewer>
+        </Grid>
+      </Border>
+
+      <Border Grid.Column="4" Classes="commandSurface" Padding="18">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+          <StackPanel Spacing="10">
+            <Grid ColumnDefinitions="*,Auto">
+              <TextBlock x:Name="EditorTitle" Classes="sectionTitle" VerticalAlignment="Center"/>
+              <Button x:Name="ClearEditorButton" Grid.Column="1" Classes="quiet iconAction" Width="34"
+                      ToolTip.Tip="Clear editor">
+                <Path Data="M4,4 L14,14 M14,4 L4,14" Stroke="{StaticResource TextSecondary}"
+                      StrokeThickness="1.7" StrokeLineCap="Round" Width="18" Height="18" Stretch="Uniform"/>
+              </Button>
+            </Grid>
+            <TextBlock x:Name="TitleLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="TitleBox"/>
+            <TextBlock x:Name="BodyLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="BodyBox" MinHeight="88" AcceptsReturn="True" TextWrapping="Wrap"/>
+            <Grid ColumnDefinitions="*,10,*">
+              <StackPanel Spacing="5">
+                <TextBlock x:Name="TypeLabel" Classes="fieldLabel"/>
+                <ComboBox x:Name="ContentTypeBox" SelectedIndex="0">
+                  <ComboBoxItem Content="Text"/><ComboBoxItem Content="Image"/>
+                  <ComboBoxItem Content="Video"/><ComboBoxItem Content="Audio"/>
+                  <ComboBoxItem Content="Link"/><ComboBoxItem Content="Mixed"/>
+                </ComboBox>
+              </StackPanel>
+              <StackPanel Grid.Column="2" Spacing="5">
+                <TextBlock x:Name="PlatformLabel" Classes="fieldLabel"/>
+                <TextBox x:Name="PlatformBox" Text="Generic"/>
+              </StackPanel>
+            </Grid>
+            <TextBlock x:Name="AuthorLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="AuthorBox"/>
+            <Grid ColumnDefinitions="*,10,*">
+              <StackPanel Spacing="5">
+                <TextBlock x:Name="SourceNameLabel" Classes="fieldLabel"/>
+                <TextBox x:Name="SourceNameBox"/>
+              </StackPanel>
+              <StackPanel Grid.Column="2" Spacing="5">
+                <TextBlock x:Name="PublishedAtLabel" Classes="fieldLabel"/>
+                <TextBox x:Name="PublishedAtBox" PlaceholderText="YYYY-MM-DD HH:mm"/>
+              </StackPanel>
+            </Grid>
+            <TextBlock x:Name="AcquiredAtLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="AcquiredAtBox" IsReadOnly="True" TextAlignment="Center"/>
+            <TextBlock x:Name="OriginalUrlLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="OriginalUrlBox"/>
+            <TextBlock x:Name="MediaLabel" Classes="fieldLabel"/>
+            <Grid ColumnDefinitions="*,8,Auto">
+              <TextBox x:Name="MediaPathBox" IsReadOnly="True"/>
+              <Button x:Name="BrowseMediaButton" Grid.Column="2" Classes="secondary" MinWidth="72">
+                <TextBlock x:Name="BrowseMediaText" TextAlignment="Center"/>
+              </Button>
+            </Grid>
+            <TextBlock x:Name="ThumbnailLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="ThumbnailPathBox" IsReadOnly="True"/>
+            <TextBlock x:Name="PublishedMediaUrlLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="PublishedMediaUrlBox"/>
+            <TextBlock x:Name="PublishedMediaUrlHint" Classes="mutedText" FontSize="8" TextWrapping="Wrap"/>
+            <Grid ColumnDefinitions="*,10,*">
+              <StackPanel Spacing="5">
+                <TextBlock x:Name="CategoryLabel" Classes="fieldLabel"/>
+                <TextBox x:Name="CategoryBox"/>
+              </StackPanel>
+              <StackPanel Grid.Column="2" Spacing="5">
+                <TextBlock x:Name="TopicLabel" Classes="fieldLabel"/>
+                <TextBox x:Name="TopicBox"/>
+              </StackPanel>
+            </Grid>
+            <TextBlock x:Name="TagsLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="TagsBox"/>
+            <TextBlock x:Name="NotesLabel" Classes="fieldLabel"/>
+            <TextBox x:Name="NotesBox" MinHeight="58" AcceptsReturn="True" TextWrapping="Wrap"/>
+            <Border Height="1" Background="{StaticResource SocyviaBorderBrush}" Margin="0,4"/>
+            <TextBlock x:Name="ObservationTitle" FontWeight="SemiBold"/>
+            <TextBlock x:Name="ObservationHint" Classes="mutedText" FontSize="8" TextWrapping="Wrap"/>
+            <Grid ColumnDefinitions="*,8,*,8,*">
+              <TextBox x:Name="LikesBox" PlaceholderText="Likes" TextAlignment="Center"/>
+              <TextBox x:Name="CommentsBox" Grid.Column="2" PlaceholderText="Comments" TextAlignment="Center"/>
+              <TextBox x:Name="SharesBox" Grid.Column="4" PlaceholderText="Shares" TextAlignment="Center"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,8,*">
+              <TextBox x:Name="SavesBox" PlaceholderText="Saves" TextAlignment="Center"/>
+              <TextBox x:Name="ViewsBox" Grid.Column="2" PlaceholderText="Views" TextAlignment="Center"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,8,*">
+              <Button x:Name="SaveButton" Classes="primary">
+                <TextBlock x:Name="SaveButtonText" TextAlignment="Center"/>
+              </Button>
+              <Button x:Name="ObservationButton" Grid.Column="2" Classes="secondary">
+                <TextBlock x:Name="ObservationButtonText" TextAlignment="Center"/>
+              </Button>
+            </Grid>
+            <TextBlock x:Name="EditorStatusText" Classes="mutedText" TextWrapping="Wrap"/>
+          </StackPanel>
+        </ScrollViewer>
+      </Border>
+    </Grid>
+  </Grid>
+</UserControl>

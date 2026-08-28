@@ -1,0 +1,62 @@
+﻿# .NET / Avalonia
+bin/
+obj/
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+artifacts/
+
+# IDE
+.idea/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pfx
+*.p12
+*.pem
+*.key
+*.keystore
+*credentials*
+*secrets*
+appsettings.Local.json
+appsettings.Development.json
+
+# Cloudflare local state
+.wrangler/
+.dev.vars
+.dev.vars.*
+
+# Local databases and research data
+*.db
+*.sqlite
+*.sqlite3
+*.csv
+*.xlsx
+*.xls
+*.parquet
+*.jsonl
+
+# Logs / temporary files
+*.log
+*.tmp
+*.temp
+*.bak
+*.cache
+
+# Release outputs
+Download/
+release-assets/
+visual-qa/

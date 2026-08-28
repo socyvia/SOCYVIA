@@ -1,0 +1,35 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="SOCYVIA.Views.ParticipantPreviewWindow"
+        Width="1040" Height="760" MinWidth="760" MinHeight="560"
+        WindowStartupLocation="CenterOwner"
+        Background="#F3F6FA"
+        Title="SOCYVIA Experiment Feed — Preview">
+  <Grid RowDefinitions="64,*">
+    <Border Background="#F8FCFF" BorderBrush="#D4E0F0" BorderThickness="0,0,0,1" Padding="24,0">
+      <Grid ColumnDefinitions="Auto,10,*,14,Auto,14,Auto">
+        <Image Source="avares://SOCYVIA/Assets/Branding/socyvia-mark.png" Width="28" Height="28" VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="2" Spacing="1" VerticalAlignment="Center">
+          <TextBlock x:Name="ExperimentFeedTitle" Foreground="#10213B" FontSize="14" FontWeight="SemiBold"/>
+          <TextBlock x:Name="ExperimentFeedSubtitle" Foreground="#5E6D82" FontSize="8.5"/>
+        </StackPanel>
+        <Border Grid.Column="4" x:Name="PreviewStatusPill" Padding="9,4" Background="#EAF2FF" BorderBrush="#CFE0FF" BorderThickness="1" CornerRadius="9" VerticalAlignment="Center">
+          <TextBlock x:Name="PreviewLabel" Foreground="#315DAA" FontSize="8" FontWeight="SemiBold" TextAlignment="Center"/>
+        </Border>
+        <Button x:Name="CloseButton" Grid.Column="6" Classes="secondary" Height="30" MinWidth="110"/>
+      </Grid>
+    </Border>
+    <Grid Grid.Row="1">
+      <Grid ColumnDefinitions="*,720,*">
+        <ScrollViewer x:Name="FeedScrollViewer" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+          <StackPanel x:Name="FeedPanel" Margin="20,28,20,40" Spacing="14"/>
+        </ScrollViewer>
+      </Grid>
+      <Grid x:Name="FocusedPanel" IsVisible="False" ColumnDefinitions="*,740,*">
+        <ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Auto">
+          <ContentControl x:Name="FocusedHost" Margin="20,24,20,40"/>
+        </ScrollViewer>
+      </Grid>
+    </Grid>
+  </Grid>
+</Window>

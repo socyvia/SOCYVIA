@@ -1,0 +1,791 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Styles.Resources>
+        <!-- Typography -->
+        <FontFamily x:Key="EnglishFont">avares://SOCYVIA/Assets/Fonts#IBM Plex Sans</FontFamily>
+        <FontFamily x:Key="ArabicFont">avares://SOCYVIA/Assets/Fonts#IBM Plex Sans Arabic</FontFamily>
+
+        <!-- SOCYVIA 1.0 final semantic design contract. The material is intentionally
+             semi-solid so unsupported backdrop blur still produces a premium surface. -->
+        <LinearGradientBrush x:Key="SurfaceCanvas" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#F9FCFF"/>
+            <GradientStop Offset="0.46" Color="#EEF5FC"/>
+            <GradientStop Offset="1" Color="#E8F1FA"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SurfaceBase" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="1" Color="#F2F7FC"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SurfaceMica" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#F4FBFDFF"/>
+            <GradientStop Offset="0.58" Color="#E8F3F8FD"/>
+            <GradientStop Offset="1" Color="#DBEAF3FB"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SurfaceGlass" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#F5FFFFFF"/>
+            <GradientStop Offset="1" Color="#DDEAF4FC"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SurfaceElevated" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="1" Color="#F1F6FC"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SurfaceInteractive" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#F8FFFFFF"/>
+            <GradientStop Offset="1" Color="#E9F1F9"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SurfaceDialog" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="1" Color="#EAF3FB"/>
+        </LinearGradientBrush>
+
+        <SolidColorBrush x:Key="StrokeSubtle" Color="#6FA8B9CF"/>
+        <SolidColorBrush x:Key="StrokeDefault" Color="#91A6B9D1"/>
+        <SolidColorBrush x:Key="StrokeStrong" Color="#B6A2B4CB"/>
+        <SolidColorBrush x:Key="StrokeFocus" Color="#2563EB"/>
+
+        <SolidColorBrush x:Key="TextPrimary" Color="#10213B"/>
+        <SolidColorBrush x:Key="TextSecondary" Color="#52647C"/>
+        <SolidColorBrush x:Key="TextMuted" Color="#718097"/>
+        <SolidColorBrush x:Key="TextDisabled" Color="#97A4B5"/>
+
+        <SolidColorBrush x:Key="Primary" Color="#2563EB"/>
+        <SolidColorBrush x:Key="PrimaryHover" Color="#1D4ED8"/>
+        <SolidColorBrush x:Key="PrimaryPressed" Color="#1E40AF"/>
+        <SolidColorBrush x:Key="PrimarySoft" Color="#EAF1FF"/>
+
+        <SolidColorBrush x:Key="Intelligence" Color="#5261C9"/>
+        <SolidColorBrush x:Key="IntelligenceSoft" Color="#F0F1FF"/>
+        <SolidColorBrush x:Key="Success" Color="#177A5B"/>
+        <SolidColorBrush x:Key="SuccessSoft" Color="#EAF7F2"/>
+        <SolidColorBrush x:Key="Attention" Color="#95610B"/>
+        <SolidColorBrush x:Key="AttentionSoft" Color="#FFF6E5"/>
+        <SolidColorBrush x:Key="Error" Color="#B4233E"/>
+        <SolidColorBrush x:Key="ErrorSoft" Color="#FFF0F3"/>
+        <SolidColorBrush x:Key="Information" Color="#2456A6"/>
+        <SolidColorBrush x:Key="InformationSoft" Color="#EDF4FF"/>
+
+        <CornerRadius x:Key="RadiusSmall">8</CornerRadius>
+        <CornerRadius x:Key="RadiusMedium">12</CornerRadius>
+        <CornerRadius x:Key="RadiusLarge">16</CornerRadius>
+        <CornerRadius x:Key="RadiusDialog">22</CornerRadius>
+        <CornerRadius x:Key="RadiusPill">999</CornerRadius>
+        <BoxShadows x:Key="ShadowLow">0 6 18 0 #16102D51, inset 0 1 0 0 #E6FFFFFF</BoxShadows>
+        <BoxShadows x:Key="ShadowMedium">0 16 38 0 #20102D51, inset 0 1 0 0 #F2FFFFFF</BoxShadows>
+        <BoxShadows x:Key="ShadowHigh">0 28 72 0 #2B102D51, inset 0 1 0 0 #FFFFFFFF</BoxShadows>
+
+        <x:Double x:Key="Spacing4">4</x:Double>
+        <x:Double x:Key="Spacing8">8</x:Double>
+        <x:Double x:Key="Spacing12">12</x:Double>
+        <x:Double x:Key="Spacing16">16</x:Double>
+        <x:Double x:Key="Spacing20">20</x:Double>
+        <x:Double x:Key="Spacing24">24</x:Double>
+        <x:Double x:Key="Spacing32">32</x:Double>
+        <x:Double x:Key="Spacing40">40</x:Double>
+
+        <!-- 4px rhythm, type scale, radii, and control dimensions -->
+        <x:Double x:Key="SocyviaSpace4">4</x:Double>
+        <x:Double x:Key="SocyviaSpace8">8</x:Double>
+        <x:Double x:Key="SocyviaSpace12">12</x:Double>
+        <x:Double x:Key="SocyviaSpace16">16</x:Double>
+        <x:Double x:Key="SocyviaSpace20">20</x:Double>
+        <x:Double x:Key="SocyviaSpace24">24</x:Double>
+        <x:Double x:Key="SocyviaSpace32">32</x:Double>
+        <x:Double x:Key="SocyviaSpace40">40</x:Double>
+        <x:Double x:Key="SocyviaSpace48">48</x:Double>
+        <x:Double x:Key="SocyviaBodySize">13</x:Double>
+        <x:Double x:Key="SocyviaLabelSize">12</x:Double>
+        <x:Double x:Key="SocyviaCaptionSize">11</x:Double>
+        <x:Double x:Key="SocyviaSectionTitleSize">17</x:Double>
+        <x:Double x:Key="SocyviaPageTitleSize">26</x:Double>
+        <x:Double x:Key="SocyviaDisplaySize">34</x:Double>
+        <x:Double x:Key="SocyviaMetricSize">24</x:Double>
+        <x:Double x:Key="SocyviaControlHeight">42</x:Double>
+        <CornerRadius x:Key="SocyviaControlRadius">10</CornerRadius>
+        <CornerRadius x:Key="SocyviaCardRadius">14</CornerRadius>
+        <CornerRadius x:Key="SocyviaShellRadius">20</CornerRadius>
+        <CornerRadius x:Key="SocyviaDialogRadius">22</CornerRadius>
+
+        <!-- Canonical product signal -->
+        <Color x:Key="SocyviaAccentColor">#2563EB</Color>
+        <SolidColorBrush x:Key="SocyviaAccentBrush" Color="#2563EB"/>
+        <SolidColorBrush x:Key="SocyviaAccentHoverBrush" Color="#1D4ED8"/>
+        <SolidColorBrush x:Key="SocyviaAccentSoftBrush" Color="#142563EB"/>
+        <SolidColorBrush x:Key="SocyviaAccentLineBrush" Color="#482563EB"/>
+
+        <!-- Product semantic tokens: use these for new shell work instead of view-local colors. -->
+        <SolidColorBrush x:Key="SocyviaPrimaryBrush" Color="#2563EB"/>
+        <SolidColorBrush x:Key="SocyviaPrimaryHoverBrush" Color="#1D4ED8"/>
+        <SolidColorBrush x:Key="SocyviaPrimarySoftBrush" Color="#142563EB"/>
+        <SolidColorBrush x:Key="SocyviaNavyBrush" Color="#10213B"/>
+        <SolidColorBrush x:Key="SocyviaBackgroundBrush" Color="#F4F8FC"/>
+        <SolidColorBrush x:Key="SocyviaSurfaceBrush" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="SocyviaSurfaceElevatedBrush" Color="#FCFFFFFF"/>
+        <SolidColorBrush x:Key="SocyviaGlassSurfaceBrush" Color="#EAF9FBFE"/>
+        <SolidColorBrush x:Key="SocyviaGlassSubtleBrush" Color="#CFFBFDFF"/>
+        <SolidColorBrush x:Key="SocyviaGlassStandardBrush" Color="#EAF9FBFE"/>
+        <SolidColorBrush x:Key="SocyviaGlassElevatedBrush" Color="#F4FCFDFF"/>
+        <SolidColorBrush x:Key="SocyviaGlassFloatingBrush" Color="#FAFFFFFF"/>
+        <SolidColorBrush x:Key="SocyviaBorderBrush" Color="#8093AAC4"/>
+        <SolidColorBrush x:Key="SocyviaBorderStrongBrush" Color="#B89AAEC7"/>
+        <SolidColorBrush x:Key="SocyviaInnerHighlightBrush" Color="#D9FFFFFF"/>
+        <SolidColorBrush x:Key="SocyviaTextPrimaryBrush" Color="#263750"/>
+        <SolidColorBrush x:Key="SocyviaTextSecondaryBrush" Color="#5E6D82"/>
+        <SolidColorBrush x:Key="SocyviaTextMutedBrush" Color="#7A8799"/>
+
+        <!-- Scientific neutral palette -->
+        <SolidColorBrush x:Key="SocyviaInkBrush" Color="#10213B"/>
+        <SolidColorBrush x:Key="SocyviaTextBrush" Color="#263750"/>
+        <SolidColorBrush x:Key="SocyviaSecondaryTextBrush" Color="#5E6D82"/>
+        <SolidColorBrush x:Key="SocyviaMutedTextBrush" Color="#7A8799"/>
+        <SolidColorBrush x:Key="SocyviaDisabledTextBrush" Color="#A0A9B8"/>
+        <SolidColorBrush x:Key="SocyviaEdgeBrush" Color="#8FAAB9CF"/>
+        <SolidColorBrush x:Key="SocyviaEdgeStrongBrush" Color="#B8A8B8CC"/>
+        <SolidColorBrush x:Key="SocyviaGlassShellBrush" Color="#EAF9FBFE"/>
+        <SolidColorBrush x:Key="SocyviaGlassCommandBrush" Color="#F4FCFDFF"/>
+        <SolidColorBrush x:Key="SocyviaCardBrush" Color="#F7FFFFFF"/>
+        <SolidColorBrush x:Key="SocyviaDenseSurfaceBrush" Color="#FCFFFFFF"/>
+        <SolidColorBrush x:Key="SocyviaFieldBrush" Color="#EDF2F7FC"/>
+        <SolidColorBrush x:Key="SocyviaScrimBrush" Color="#7208162C"/>
+
+        <!-- Semantic states: restrained and text-readable -->
+        <SolidColorBrush x:Key="SocyviaSuccessBrush" Color="#177A5B"/>
+        <SolidColorBrush x:Key="SocyviaSuccessSoftBrush" Color="#EAF7F2"/>
+        <SolidColorBrush x:Key="SocyviaWarningBrush" Color="#9A650E"/>
+        <SolidColorBrush x:Key="SocyviaWarningSoftBrush" Color="#FFF6E5"/>
+        <SolidColorBrush x:Key="SocyviaErrorBrush" Color="#B4233E"/>
+        <SolidColorBrush x:Key="SocyviaErrorSoftBrush" Color="#FFF0F3"/>
+        <SolidColorBrush x:Key="SocyviaInfoBrush" Color="#2456A6"/>
+        <SolidColorBrush x:Key="SocyviaInfoSoftBrush" Color="#EDF4FF"/>
+
+        <!-- Semantic role contract for the final presentation-only skin. These
+             resources are defined now but deliberately not applied globally. -->
+        <SolidColorBrush x:Key="SocyviaRolePrimaryBrush" Color="#2563EB"/>
+        <SolidColorBrush x:Key="SocyviaRolePrimarySurfaceBrush" Color="#EDF4FF"/>
+        <SolidColorBrush x:Key="SocyviaRolePrimaryBorderBrush" Color="#552563EB"/>
+        <SolidColorBrush x:Key="SocyviaRoleAiBrush" Color="#5556C9"/>
+        <SolidColorBrush x:Key="SocyviaRoleAiSurfaceBrush" Color="#F2F2FF"/>
+        <SolidColorBrush x:Key="SocyviaRoleAiBorderBrush" Color="#555556C9"/>
+        <SolidColorBrush x:Key="SocyviaRoleSuccessBrush" Color="#177A5B"/>
+        <SolidColorBrush x:Key="SocyviaRoleSuccessSurfaceBrush" Color="#EAF7F2"/>
+        <SolidColorBrush x:Key="SocyviaRoleSuccessBorderBrush" Color="#55177A5B"/>
+        <SolidColorBrush x:Key="SocyviaRoleAttentionBrush" Color="#9A650E"/>
+        <SolidColorBrush x:Key="SocyviaRoleAttentionSurfaceBrush" Color="#FFF6E5"/>
+        <SolidColorBrush x:Key="SocyviaRoleAttentionBorderBrush" Color="#559A650E"/>
+        <SolidColorBrush x:Key="SocyviaRoleErrorBrush" Color="#B4233E"/>
+        <SolidColorBrush x:Key="SocyviaRoleErrorSurfaceBrush" Color="#FFF0F3"/>
+        <SolidColorBrush x:Key="SocyviaRoleErrorBorderBrush" Color="#55B4233E"/>
+        <SolidColorBrush x:Key="SocyviaRoleNeutralBrush" Color="#5E6D82"/>
+        <SolidColorBrush x:Key="SocyviaRoleNeutralSurfaceBrush" Color="#F4F8FC"/>
+        <SolidColorBrush x:Key="SocyviaRoleNeutralBorderBrush" Color="#8093AAC4"/>
+
+        <!-- Atmospheric illumination; used as light, never as content paint -->
+        <LinearGradientBrush x:Key="SocyviaAtmosphereBrush"
+                             StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FBFDFF"/>
+            <GradientStop Offset="0.42" Color="#F1F6FC"/>
+            <GradientStop Offset="0.72" Color="#F9FBFE"/>
+            <GradientStop Offset="1" Color="#EDF4FB"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SocyviaAtmosphericLightBrush"
+                             StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#002563EB"/>
+            <GradientStop Offset="0.52" Color="#202563EB"/>
+            <GradientStop Offset="1" Color="#002563EB"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SocyviaHeroCardBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="0.62" Color="#F4F8FE"/>
+            <GradientStop Offset="1" Color="#EAF2FF"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SocyviaMetricBlueBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="1" Color="#E9F2FF"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SocyviaMetricGreenBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="1" Color="#E7F7F1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SocyviaMetricVioletBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FFFFFFFF"/>
+            <GradientStop Offset="1" Color="#EEF0FF"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="SocyviaAiGlassBrush" StartPoint="0%,0%" EndPoint="100%,100%">
+            <GradientStop Offset="0" Color="#FBFCFFFF"/>
+            <GradientStop Offset="1" Color="#E9EBFF"/>
+        </LinearGradientBrush>
+
+        <!-- Compatibility aliases used by existing views -->
+        <SolidColorBrush x:Key="PrimaryDarkBrush" Color="#10213B"/>
+        <SolidColorBrush x:Key="PrimaryBlueBrush" Color="#2563EB"/>
+        <SolidColorBrush x:Key="PrimaryVioletBrush" Color="#2563EB"/>
+        <SolidColorBrush x:Key="AccentCyanBrush" Color="#4F7FC7"/>
+        <SolidColorBrush x:Key="AccentMagentaBrush" Color="#315FA8"/>
+        <SolidColorBrush x:Key="AccentCoralBrush" Color="#B4233E"/>
+        <SolidColorBrush x:Key="TextPrimaryBrush" Color="#10213B"/>
+        <SolidColorBrush x:Key="TextSecondaryBrush" Color="#5E6D82"/>
+        <SolidColorBrush x:Key="TextMutedBrush" Color="#7A8799"/>
+        <SolidColorBrush x:Key="BackgroundBrush" Color="#F3F6FA"/>
+        <SolidColorBrush x:Key="SurfaceBrush" Color="#FFFFFF"/>
+        <SolidColorBrush x:Key="BorderBrush" Color="#AAB9CF" Opacity="0.62"/>
+        <SolidColorBrush x:Key="SoftPanelBrush" Color="#EDF2F7"/>
+        <LinearGradientBrush x:Key="BrandGradientBrush"
+                             StartPoint="0%,50%" EndPoint="100%,50%">
+            <GradientStop Offset="0" Color="#2563EB"/>
+            <GradientStop Offset="1" Color="#2456C2"/>
+        </LinearGradientBrush>
+    </Styles.Resources>
+
+    <!-- Base typography and interaction -->
+    <Style Selector="Window">
+        <Setter Property="FontFamily" Value="{StaticResource EnglishFont}"/>
+        <Setter Property="Background" Value="{StaticResource SurfaceCanvas}"/>
+    </Style>
+    <Style Selector="UserControl">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+    <Style Selector="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+    </Style>
+    <Style Selector="Button">
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.14"/>
+                <BrushTransition Property="BorderBrush" Duration="0:0:0.14"/>
+                <DoubleTransition Property="Opacity" Duration="0:0:0.14"/>
+            </Transitions>
+        </Setter>
+    </Style>
+    <Style Selector="Button:focus-visible">
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    <Style Selector="Button:disabled">
+        <Setter Property="Opacity" Value="0.62"/>
+        <Setter Property="Foreground" Value="{StaticResource TextDisabled}"/>
+    </Style>
+    <Style Selector="Button.primary">
+        <Setter Property="MinHeight" Value="{StaticResource SocyviaControlHeight}"/>
+        <Setter Property="Padding" Value="20,8"/>
+        <Setter Property="Background" Value="{StaticResource Primary}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaControlRadius}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Effect">
+            <DropShadowEffect Color="#382563EB" BlurRadius="14" OffsetY="4"/>
+        </Setter>
+    </Style>
+    <Style Selector="Button.primary:pointerover">
+        <Setter Property="Background" Value="{StaticResource PrimaryHover}"/>
+    </Style>
+    <Style Selector="Button.primary:pressed">
+        <Setter Property="Background" Value="{StaticResource PrimaryPressed}"/>
+    </Style>
+    <Style Selector="Button.primary TextBlock, Button.ai TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+    <Style Selector="Button.secondary">
+        <Setter Property="MinHeight" Value="38"/>
+        <Setter Property="Padding" Value="16,7"/>
+        <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaControlRadius}"/>
+        <Setter Property="Effect">
+            <DropShadowEffect Color="#12102D51" BlurRadius="9" OffsetY="2"/>
+        </Setter>
+    </Style>
+    <Style Selector="Button.secondary:pointerover">
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+    </Style>
+    <Style Selector="Button.quiet">
+        <Setter Property="MinHeight" Value="34"/>
+        <Setter Property="Padding" Value="12,6"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaSecondaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="7"/>
+    </Style>
+    <Style Selector="Button.quiet:pointerover">
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+    </Style>
+    <Style Selector="Button.danger">
+        <Setter Property="MinHeight" Value="38"/>
+        <Setter Property="Padding" Value="16,7"/>
+        <Setter Property="Background" Value="{StaticResource SocyviaErrorSoftBrush}"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaErrorBrush}"/>
+        <Setter Property="BorderBrush" Value="#55B4233E"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+    <Style Selector="Button.compact">
+        <Setter Property="MinHeight" Value="32"/>
+        <Setter Property="Padding" Value="12,5"/>
+        <Setter Property="CornerRadius" Value="7"/>
+        <Setter Property="FontSize" Value="9"/>
+    </Style>
+    <Style Selector="Button.iconAction">
+        <Setter Property="Width" Value="34"/>
+        <Setter Property="Height" Value="34"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="7"/>
+    </Style>
+    <Style Selector="Button.iconAction:pointerover">
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+    </Style>
+    <Style Selector="Button.subtle">
+        <Setter Property="MinHeight" Value="36"/>
+        <Setter Property="Padding" Value="14,7"/>
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusSmall}"/>
+    </Style>
+    <Style Selector="Button.ghost">
+        <Setter Property="MinHeight" Value="36"/>
+        <Setter Property="Padding" Value="14,7"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusSmall}"/>
+    </Style>
+    <Style Selector="Button.ghost:pointerover">
+        <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+    </Style>
+    <Style Selector="Button.ai">
+        <Setter Property="MinHeight" Value="40"/>
+        <Setter Property="Padding" Value="18,8"/>
+        <Setter Property="Background" Value="{StaticResource Intelligence}"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Effect">
+            <DropShadowEffect Color="#305261C9" BlurRadius="16" OffsetY="4"/>
+        </Setter>
+    </Style>
+    <Style Selector="Button.ai:pointerover">
+        <Setter Property="Opacity" Value="0.9"/>
+    </Style>
+    <Style Selector="Button.actionCard">
+        <Setter Property="MinHeight" Value="104"/>
+        <Setter Property="Padding" Value="16,14"/>
+        <Setter Property="Background" Value="{StaticResource SurfaceGlass}"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaTextBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaCardRadius}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Effect">
+            <DropShadowEffect Color="#18102D51" BlurRadius="14" OffsetY="4"/>
+        </Setter>
+    </Style>
+    <Style Selector="Button.actionCard:pointerover">
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        <Setter Property="Effect">
+            <DropShadowEffect Color="#302563EB" BlurRadius="18" OffsetY="5"/>
+        </Setter>
+    </Style>
+
+    <!-- Inputs and short structured controls -->
+    <Style Selector="TextBox">
+        <Setter Property="MinHeight" Value="{StaticResource SocyviaControlHeight}"/>
+        <Setter Property="Padding" Value="12,7"/>
+        <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaControlRadius}"/>
+    </Style>
+    <Style Selector="TextBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeFocus}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Background" Value="#FFFFFF"/>
+    </Style>
+    <Style Selector="ComboBox">
+        <Setter Property="MinHeight" Value="{StaticResource SocyviaControlHeight}"/>
+        <Setter Property="Padding" Value="12,6"/>
+        <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaControlRadius}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+        <Setter Property="MaxDropDownHeight" Value="300"/>
+    </Style>
+    <Style Selector="ComboBox:focus">
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaAccentBrush}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+    <Style Selector="ComboBoxItem">
+        <Setter Property="MinHeight" Value="36"/>
+        <Setter Property="Padding" Value="12,7"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+    </Style>
+    <Style Selector="ComboBoxItem:pointerover">
+        <Setter Property="Background" Value="{StaticResource SocyviaAccentSoftBrush}"/>
+    </Style>
+    <Style Selector="ComboBoxItem:selected">
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style Selector="NumericUpDown">
+        <Setter Property="MinHeight" Value="{StaticResource SocyviaControlHeight}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{StaticResource SocyviaDenseSurfaceBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaEdgeBrush}"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaControlRadius}"/>
+    </Style>
+    <Style Selector="CheckBox, RadioButton">
+        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+        <Setter Property="MinHeight" Value="28"/>
+    </Style>
+    <Style Selector="ListBoxItem">
+        <Setter Property="Padding" Value="12,9"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusSmall}"/>
+    </Style>
+    <Style Selector="ListBoxItem:pointerover">
+        <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+    </Style>
+    <Style Selector="ListBoxItem:selected">
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+    </Style>
+
+    <!-- Compositional surfaces -->
+    <Style Selector="Border.glassShell">
+        <Setter Property="Background" Value="{StaticResource SurfaceMica}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaShellRadius}"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowMedium}"/>
+    </Style>
+    <Style Selector="Border.commandSurface">
+        <Setter Property="Background" Value="{StaticResource SurfaceGlass}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowMedium}"/>
+    </Style>
+    <Style Selector="Border.glassSubtle">
+        <Setter Property="Background" Value="{StaticResource SocyviaGlassSubtleBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaCardRadius}"/>
+    </Style>
+    <Style Selector="Border.glassStandard">
+        <Setter Property="Background" Value="{StaticResource SocyviaGlassStandardBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaCardRadius}"/>
+        <Setter Property="BoxShadow" Value="0 8 22 0 #0C102D51, inset 0 1 0 0 #CFFFFFFF"/>
+    </Style>
+    <Style Selector="Border.glassElevated">
+        <Setter Property="Background" Value="{StaticResource SurfaceElevated}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeDefault}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaShellRadius}"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowMedium}"/>
+    </Style>
+    <Style Selector="Border.glassFloating">
+        <Setter Property="Background" Value="{StaticResource SurfaceDialog}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeStrong}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaDialogRadius}"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowHigh}"/>
+    </Style>
+    <!-- Named material roles used throughout the final product hierarchy. -->
+    <Style Selector="Border.scientificFrame">
+        <Setter Property="Background" Value="{StaticResource SurfaceElevated}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="BoxShadow" Value="0 8 22 0 #0D0B1D38"/>
+    </Style>
+    <Style Selector="Border.aiSurface">
+        <Setter Property="Background" Value="{StaticResource SocyviaAiGlassBrush}"/>
+        <Setter Property="BorderBrush" Value="#555261C9"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaShellRadius}"/>
+        <Setter Property="BoxShadow" Value="0 14 34 0 #142563EB, inset 0 1 0 0 #E6FFFFFF"/>
+    </Style>
+    <Style Selector="Border.metricCard">
+        <Setter Property="Background" Value="{StaticResource SocyviaMetricBlueBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaEdgeBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaCardRadius}"/>
+        <Setter Property="MinHeight" Value="84"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowLow}"/>
+    </Style>
+    <Style Selector="Border.tableSurface">
+        <Setter Property="Background" Value="{StaticResource SocyviaDenseSurfaceBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaEdgeBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+    <Style Selector="Border.iconHost">
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Height" Value="36"/>
+        <Setter Property="Background" Value="{StaticResource SocyviaAccentSoftBrush}"/>
+        <Setter Property="CornerRadius" Value="9"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+    <Style Selector="Border.researchCard">
+        <Setter Property="Background" Value="{StaticResource SurfaceGlass}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaCardRadius}"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowLow}"/>
+    </Style>
+    <Style Selector="Border.denseSurface">
+        <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="BoxShadow" Value="0 4 12 0 #0C102D51, inset 0 1 0 0 #DFFFFFFF"/>
+    </Style>
+    <Style Selector="Border.badge">
+        <Setter Property="MinHeight" Value="24"/>
+        <Setter Property="Padding" Value="10,3"/>
+        <Setter Property="Background" Value="{StaticResource SocyviaAccentSoftBrush}"/>
+        <Setter Property="CornerRadius" Value="9"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+    <Style Selector="Border.badge.success, Border.badge.running, Border.badge.completed">
+        <Setter Property="Background" Value="{StaticResource SocyviaSuccessSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="#55A5CCBC"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style Selector="Border.badge.warning, Border.badge.paused">
+        <Setter Property="Background" Value="{StaticResource SocyviaWarningSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="#66D3AA57"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style Selector="Border.badge.error, Border.badge.interrupted">
+        <Setter Property="Background" Value="{StaticResource SocyviaErrorSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="#55B4233E"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style Selector="Border.badge.info, Border.badge.ready">
+        <Setter Property="Background" Value="{StaticResource SocyviaInfoSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaAccentLineBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style Selector="Border.badge.draft, Border.badge.cancelled, Border.badge.archived">
+        <Setter Property="Background" Value="#EEF1F5"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaEdgeBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+    </Style>
+    <Style Selector="Border.researchRow">
+        <Setter Property="Background" Value="{StaticResource SocyviaDenseSurfaceBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaEdgeBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="9"/>
+        <Setter Property="Padding" Value="14,11"/>
+    </Style>
+    <Style Selector="Border.emptyState">
+        <Setter Property="MinHeight" Value="130"/>
+        <Setter Property="Background" Value="{StaticResource SocyviaFieldBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaEdgeBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="11"/>
+        <Setter Property="Padding" Value="24"/>
+    </Style>
+    <Style Selector="Border.dialogSurface">
+        <Setter Property="Background" Value="{StaticResource SurfaceDialog}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeStrong}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaDialogRadius}"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowHigh}"/>
+    </Style>
+    <Style Selector="Border.infoSurface">
+        <Setter Property="Background" Value="{StaticResource SocyviaInfoSoftBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaAccentLineBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource SocyviaControlRadius}"/>
+    </Style>
+    <Style Selector="Border.workspaceCard">
+        <Setter Property="Background" Value="{StaticResource SurfaceGlass}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusLarge}"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowMedium}"/>
+    </Style>
+    <Style Selector="Border.heroResearchCard">
+        <Setter Property="Background" Value="{StaticResource SocyviaHeroCardBrush}"/>
+        <Setter Property="BorderBrush" Value="#663D78E8"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusLarge}"/>
+        <Setter Property="BoxShadow" Value="0 18 42 0 #202563EB, inset 0 1 0 0 #FFFFFFFF"/>
+    </Style>
+    <Style Selector="Border.metricCard.green">
+        <Setter Property="Background" Value="{StaticResource SocyviaMetricGreenBrush}"/>
+        <Setter Property="BorderBrush" Value="#4D58A98D"/>
+    </Style>
+    <Style Selector="Border.metricCard.violet">
+        <Setter Property="Background" Value="{StaticResource SocyviaMetricVioletBrush}"/>
+        <Setter Property="BorderBrush" Value="#4D6670D6"/>
+    </Style>
+    <Style Selector="Border.actionCard">
+        <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+    </Style>
+    <Style Selector="Border.evidenceCard">
+        <Setter Property="Background" Value="{StaticResource InformationSoft}"/>
+        <Setter Property="BorderBrush" Value="#4D2456A6"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+    </Style>
+    <Style Selector="Border.statusCard">
+        <Setter Property="Background" Value="{StaticResource SurfaceBase}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource StrokeSubtle}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+    </Style>
+    <Style Selector="Border.warningCard">
+        <Setter Property="Background" Value="{StaticResource AttentionSoft}"/>
+        <Setter Property="BorderBrush" Value="#6695610B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+        <Setter Property="BoxShadow" Value="0 8 22 0 #1495610B, inset 0 1 0 0 #EFFFFFFF"/>
+    </Style>
+    <Style Selector="Border.successCard">
+        <Setter Property="Background" Value="{StaticResource SuccessSoft}"/>
+        <Setter Property="BorderBrush" Value="#66177A5B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusLarge}"/>
+        <Setter Property="BoxShadow" Value="{StaticResource ShadowLow}"/>
+    </Style>
+    <Style Selector="Border.errorCard">
+        <Setter Property="Background" Value="{StaticResource ErrorSoft}"/>
+        <Setter Property="BorderBrush" Value="#66B4233E"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusLarge}"/>
+    </Style>
+    <Style Selector="Border.aiContextCard">
+        <Setter Property="Background" Value="{StaticResource SocyviaAiGlassBrush}"/>
+        <Setter Property="BorderBrush" Value="#555261C9"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusMedium}"/>
+        <Setter Property="BoxShadow" Value="0 10 28 0 #185261C9, inset 0 1 0 0 #F2FFFFFF"/>
+    </Style>
+    <Style Selector="TabItem">
+        <Setter Property="MinHeight" Value="38"/>
+        <Setter Property="Padding" Value="14,8"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="CornerRadius" Value="{StaticResource RadiusSmall}"/>
+    </Style>
+    <Style Selector="TabItem:pointerover">
+        <Setter Property="Background" Value="{StaticResource SurfaceInteractive}"/>
+    </Style>
+    <Style Selector="TabItem:selected">
+        <Setter Property="Background" Value="{StaticResource PrimarySoft}"/>
+        <Setter Property="Foreground" Value="{StaticResource Primary}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+    <Style Selector="Separator">
+        <Setter Property="Background" Value="{StaticResource StrokeSubtle}"/>
+    </Style>
+    <Style Selector="ToolTip">
+        <Setter Property="Background" Value="#F7FFFFFF"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaTextBrush}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource SocyviaEdgeStrongBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="10,7"/>
+    </Style>
+
+    <!-- Reusable research typography -->
+    <Style Selector="TextBlock.pageTitle">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaPageTitleSize}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaInkBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.display">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaDisplaySize}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+    </Style>
+    <Style Selector="TextBlock.sectionTitle">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaSectionTitleSize}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaTextBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.cardTitle">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource TextPrimary}"/>
+    </Style>
+    <Style Selector="TextBlock.metadata">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaCaptionSize}"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaMutedTextBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.caption">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaCaptionSize}"/>
+        <Setter Property="Foreground" Value="{StaticResource TextMuted}"/>
+    </Style>
+    <Style Selector="TextBlock.navigation">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="Medium"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+    </Style>
+    <Style Selector="TextBlock.status">
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource TextSecondary}"/>
+    </Style>
+    <Style Selector="TextBlock.eyebrow">
+        <Setter Property="FontSize" Value="11"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="LetterSpacing" Value="1.1"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaAccentBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.body">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaBodySize}"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaTextBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.bodySecondary">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaBodySize}"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaSecondaryTextBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.secondaryText">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaBodySize}"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaSecondaryTextBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.mutedText">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaCaptionSize}"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaMutedTextBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.fieldLabel">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaLabelSize}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaTextBrush}"/>
+    </Style>
+    <Style Selector="TextBlock.metric">
+        <Setter Property="FontSize" Value="{StaticResource SocyviaMetricSize}"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="{StaticResource SocyviaInkBrush}"/>
+    </Style>
+</Styles>

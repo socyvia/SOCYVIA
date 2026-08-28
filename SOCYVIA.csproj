@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <RuntimeIdentifiers>win-x64;osx-arm64;osx-x64;linux-x64</RuntimeIdentifiers>
+    <Nullable>enable</Nullable>
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+    <AssemblyTitle>SOCYVIA</AssemblyTitle>
+    <Product>SOCYVIA</Product>
+    <Description>Scientific Testing for Computational Social Science</Description>
+    <Authors>SOCYVIA</Authors>
+    <Company>SOCYVIA</Company>
+    <Copyright>Copyright © SOCYVIA</Copyright>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Assets\Branding\socyvia-mark.ico</ApplicationIcon>
+    <DefaultItemExcludes>$(DefaultItemExcludes);bin\**;obj\**;artifacts\**</DefaultItemExcludes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Assets\Branding\" />
+    <Folder Include="Assets\Fonts\" />
+    <AvaloniaResource Include="Assets\**" />
+    <Content Include="WebExperimentFeed\**\*" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="CloudflareRuntime\socyvia-runtime.js" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="CloudflareWorker\schema.sql" Link="CloudflareRuntime\schema.sql" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ScientificTests\**\*.cs" />
+    <None Include="ScientificTests\**\*.cs" />
+    <Compile Remove="FoundationTests\**\*.cs" />
+    <None Include="FoundationTests\**\*.cs" />
+    <Compile Remove="CloudflareProviderTests\**\*.cs" />
+    <None Include="CloudflareProviderTests\**\*.cs" />
+    <Compile Remove="AnalyticsTests\**\*.cs" />
+    <None Include="AnalyticsTests\**\*.cs" />
+    <Compile Remove="scripts\**\*.cs" />
+    <None Include="scripts\**\*.cs" />
+    <Compile Remove="packaging\windows\PremiumBootstrapper\**\*.cs" />
+    <None Include="packaging\windows\PremiumBootstrapper\**\*.cs" />
+    <Compile Remove="packaging\windows\PremiumUninstaller\**\*.cs" />
+    <None Include="packaging\windows\PremiumUninstaller\**\*.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="12.1.1" />
+    <PackageReference Include="Avalonia.Desktop" Version="12.1.1" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="12.1.1" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.11" />
+    <PackageReference Include="QRCoder" Version="1.6.0" />
+  </ItemGroup>
+</Project>

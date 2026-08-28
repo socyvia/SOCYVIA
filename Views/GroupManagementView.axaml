@@ -1,0 +1,158 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.GroupManagementView"
+             x:Name="RootGroupManagement">
+
+    <UserControl.Styles>
+        <Style Selector="Button.groupPrimary">
+            <Setter Property="MinHeight" Value="34"/>
+            <Setter Property="Padding" Value="16,7"/>
+            <Setter Property="Background" Value="#2563EB"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="CornerRadius" Value="8"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="Button.groupSecondary">
+            <Setter Property="MinHeight" Value="30"/>
+            <Setter Property="Padding" Value="11,5"/>
+            <Setter Property="Background" Value="#F6F7FB"/>
+            <Setter Property="Foreground" Value="#31435F"/>
+            <Setter Property="BorderBrush" Value="#DCE3EE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="7"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style Selector="TextBox.groupInput">
+            <Setter Property="MinHeight" Value="35"/>
+            <Setter Property="Padding" Value="10,7"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+            <Setter Property="BorderBrush" Value="#DCE3EE"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="8"/>
+        </Style>
+
+        <Style Selector="NumericUpDown.groupInput">
+            <Setter Property="MinHeight" Value="35"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+    </UserControl.Styles>
+
+    <StackPanel Spacing="14">
+        <Border Padding="20"
+                Classes="commandSurface">
+            <Grid ColumnDefinitions="*,Auto">
+                <StackPanel Grid.Column="0" Spacing="4">
+                    <TextBlock x:Name="PageTitle"
+                               FontSize="17"
+                               FontWeight="SemiBold"
+                               Foreground="#10214A"/>
+                    <TextBlock x:Name="PageSubtitle"
+                               FontSize="9"
+                               Foreground="#8C98AA"
+                               TextWrapping="Wrap"/>
+                </StackPanel>
+
+                <Button x:Name="AddGroupButton"
+                        Grid.Column="1"
+                        Classes="groupPrimary">
+                    <TextBlock x:Name="AddGroupButtonText"/>
+                </Button>
+            </Grid>
+        </Border>
+
+        <Border x:Name="EditorPanel"
+                IsVisible="False"
+                Padding="20"
+                Classes="denseSurface">
+            <StackPanel Spacing="13">
+                <TextBlock x:Name="EditorTitle"
+                           FontSize="14"
+                           FontWeight="SemiBold"
+                           Foreground="#10214A"/>
+
+                <Grid ColumnDefinitions="*,14,*">
+                    <StackPanel Grid.Column="0" Spacing="5">
+                        <TextBlock x:Name="NameLabel"
+                                   FontSize="8.5"
+                                   FontWeight="SemiBold"
+                                   Foreground="#53627B"/>
+                        <TextBox x:Name="NameBox"
+                                 Classes="groupInput"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Column="2" Spacing="5">
+                        <TextBlock x:Name="TargetLabel"
+                                   FontSize="8.5"
+                                   FontWeight="SemiBold"
+                                   Foreground="#53627B"
+                                   TextAlignment="Center"/>
+                        <NumericUpDown x:Name="TargetSampleBox"
+                                       Classes="groupInput"
+                                       Minimum="0"
+                                       Increment="1"
+                                       FormatString="0"/>
+                    </StackPanel>
+                </Grid>
+
+                <StackPanel Spacing="5">
+                    <TextBlock x:Name="DescriptionLabel"
+                               FontSize="8.5"
+                               FontWeight="SemiBold"
+                               Foreground="#53627B"/>
+                    <TextBox x:Name="DescriptionBox"
+                             Classes="groupInput"
+                             AcceptsReturn="True"
+                             TextWrapping="Wrap"
+                             MinHeight="72"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="24">
+                    <CheckBox x:Name="ControlGroupCheckBox"/>
+                    <CheckBox x:Name="ActiveGroupCheckBox"
+                              IsChecked="True"/>
+                </StackPanel>
+
+                <TextBlock x:Name="EditorErrorText"
+                           IsVisible="False"
+                           FontSize="8.5"
+                           Foreground="#C43C55"
+                           TextWrapping="Wrap"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Spacing="8">
+                    <Button x:Name="CancelEditButton"
+                            Classes="groupSecondary">
+                        <TextBlock x:Name="CancelEditButtonText"/>
+                    </Button>
+                    <Button x:Name="SaveGroupButton"
+                            Classes="groupPrimary">
+                        <TextBlock x:Name="SaveGroupButtonText"/>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <Border Padding="12"
+                MinHeight="160"
+                Classes="researchCard">
+            <StackPanel Spacing="8">
+                <TextBlock x:Name="EmptyText"
+                           IsVisible="False"
+                           Margin="10,28"
+                           FontSize="10"
+                           Foreground="#8C98AA"
+                           HorizontalAlignment="Center"
+                           TextAlignment="Center"/>
+
+                <StackPanel x:Name="GroupsContainer"
+                            Spacing="8"/>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

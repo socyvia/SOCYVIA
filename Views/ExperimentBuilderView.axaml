@@ -1,0 +1,54 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="SOCYVIA.Views.ExperimentBuilderView">
+  <Grid RowDefinitions="Auto,16,*">
+    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="16">
+      <StackPanel Spacing="4">
+        <TextBlock x:Name="PageEyebrow" Classes="eyebrow"/>
+        <TextBlock x:Name="PageTitle" Classes="pageTitle"/>
+        <TextBlock x:Name="PageSubtitle" Classes="secondaryText" TextWrapping="Wrap"/>
+      </StackPanel>
+      <Button x:Name="PreviewButton" Grid.Column="1" Classes="primary" VerticalAlignment="Center">
+        <TextBlock x:Name="PreviewButtonText" TextAlignment="Center"/>
+      </Button>
+    </Grid>
+    <Grid Grid.Row="2" RowDefinitions="Auto,14,*">
+      <Border Classes="commandSurface" Padding="14">
+        <StackPanel Spacing="8">
+          <Grid ColumnDefinitions="Auto,10,220,18,Auto,10,240,*,Auto" VerticalAlignment="Center">
+            <TextBlock x:Name="GroupLabel" VerticalAlignment="Center"/>
+            <ComboBox x:Name="GroupBox" Grid.Column="2"/>
+            <TextBlock x:Name="ConditionLabel" Grid.Column="4" VerticalAlignment="Center"/>
+            <ComboBox x:Name="ConditionBox" Grid.Column="6"/>
+            <Border Grid.Column="8" Classes="badge">
+              <TextBlock x:Name="ScopeStatusText" TextAlignment="Center"/>
+            </Border>
+          </Grid>
+          <TextBlock x:Name="ManipulationSummaryText" Classes="mutedText" TextWrapping="Wrap"/>
+        </StackPanel>
+      </Border>
+      <Grid Grid.Row="2" ColumnDefinitions="*,16,*">
+        <Border Classes="researchCard" Padding="16">
+          <Grid RowDefinitions="Auto,10,Auto,10,*">
+            <TextBlock x:Name="LibraryTitle" Classes="sectionTitle"/>
+            <Grid Grid.Row="2" ColumnDefinitions="*,10,150">
+              <TextBox x:Name="SearchBox"/>
+              <ComboBox x:Name="TypeFilter" Grid.Column="2" SelectedIndex="0">
+                <ComboBoxItem Tag="All"/><ComboBoxItem Tag="Text"/><ComboBoxItem Tag="Image"/>
+                <ComboBoxItem Tag="Video"/><ComboBoxItem Tag="Audio"/><ComboBoxItem Tag="Link"/><ComboBoxItem Tag="Mixed"/>
+              </ComboBox>
+            </Grid>
+            <ScrollViewer Grid.Row="4"><StackPanel x:Name="LibraryPanel" Spacing="7"/></ScrollViewer>
+          </Grid>
+        </Border>
+        <Border Grid.Column="2" Classes="commandSurface" Padding="16">
+          <Grid RowDefinitions="Auto,6,Auto,10,*">
+            <TextBlock x:Name="FeedTitle" Classes="sectionTitle"/>
+            <TextBlock x:Name="FeedHint" Grid.Row="2" Classes="mutedText" TextWrapping="Wrap"/>
+            <ScrollViewer Grid.Row="4"><StackPanel x:Name="FeedPanel" Spacing="7"/></ScrollViewer>
+          </Grid>
+        </Border>
+      </Grid>
+    </Grid>
+  </Grid>
+</UserControl>
